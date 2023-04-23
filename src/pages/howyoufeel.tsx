@@ -29,7 +29,7 @@ const Howyoufeel: FC = () => {
     <div className="flex justify-center font-season">
       <div
         className="w-full  text-center h-screen flex bg-cover bg-center"
-        style={{ backgroundImage: "url('/pages/5.PNG')" }}
+        style={{ backgroundImage: "url('/pages/5.png')" }}
       >
         <div className="m-auto fadein pt-56">
           <p>แล้วตอนนี้คุณรู้สึกยังไงกับตัวเองบ้าง? </p><br /><br />

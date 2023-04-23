@@ -15,7 +15,7 @@ const WelcomeName: FC<Props> = ({name}) => {
     <div className="flex justify-center font-season">
       <div
         className="w-full  text-center h-screen flex bg-cover bg-center"
-        style={{ backgroundImage: "url('/pages/5.PNG')" }}
+        style={{ backgroundImage: "url('/pages/5.png')" }}
       >
         <div className="m-auto fadein pt-56">
           <p>สวัสดีคุณ {name}<br />
