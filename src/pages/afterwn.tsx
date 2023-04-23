@@ -11,7 +11,7 @@ const AfterWN: FC = () => {
     <div className="flex justify-center font-season">
       <div
         className="w-full  text-center h-screen flex bg-cover bg-center"
-        style={{ backgroundImage: "url('/pages/5.png')" }}
+        style={{ backgroundImage: "url('/pages/5.PNG')" }}
       >
         <div className="m-auto fadein pt-36">
           <p>เป็นอย่างนั้นเองเหรอ</p>

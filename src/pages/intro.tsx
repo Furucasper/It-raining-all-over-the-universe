@@ -11,7 +11,7 @@ const Intro: FC = () => {
     <div className="flex justify-center fadeinscene font-season">
       <div
         className="w-full  text-center h-screen flex bg-cover bg-center"
-        style={{ backgroundImage: "url('/pages/5.png')" }}
+        style={{ backgroundImage: "url('/pages/5.PNG')" }}
       >
         <div className="m-auto fadein pt-48">
           <p>บ่ายแก่ ๆ ในวันหยุดวันหนึ่ง <br />
