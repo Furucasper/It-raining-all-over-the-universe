@@ -11,7 +11,7 @@ type Props = {
 
 const Page: FC<Props> = ({children, path, bg, time, fadeinscene}) => {
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     if (time) {
       setTimeout(() => {
@@ -25,7 +25,7 @@ const Page: FC<Props> = ({children, path, bg, time, fadeinscene}) => {
     <div className={"flex justify-center font-season" + (fadeinscene ? " fadeinscene" : "")}>
       <div
         className="w-full  text-center h-screen flex bg-cover bg-center"
-        style={{ backgroundImage: `url('/pages/${bg}')` }}
+        style={{ backgroundImage: `url(${bg ? require("../assets/pages/" + bg) : ''})` }}
       >
         <div className="m-auto fadein">
           {children}

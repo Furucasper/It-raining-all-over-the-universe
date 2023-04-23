@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import bg from "../assets/pages/5.png"
 
 const Howyoufeel: FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -29,7 +30,7 @@ const Howyoufeel: FC = () => {
     <div className="flex justify-center font-season">
       <div
         className="w-full  text-center h-screen flex bg-cover bg-center"
-        style={{ backgroundImage: "url('/pages/5.PNG')" }}
+        style={{ backgroundImage: `url(${bg})` }}
       >
         <div className="m-auto fadein pt-56">
           <p>แล้วตอนนี้คุณรู้สึกยังไงกับตัวเองบ้าง? </p><br /><br />

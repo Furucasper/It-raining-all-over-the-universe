@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import logo from "../assets/pages/4.jpg"
 
 interface Props {
   onNameChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
@@ -33,7 +34,7 @@ const Name: FC<Props> = ({
     <div className="flex justify-center font-season">
       <div className="w-full  text-center h-screen flex">
         <div className="m-auto fadein">
-          <img src="/pages/4.jpg" alt="logo" />
+          <img src={logo} alt="logo" />
           <br />
           <p>
             ยินดีต้อนรับเข้าสู่จักรวาล
