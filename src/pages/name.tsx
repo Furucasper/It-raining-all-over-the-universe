@@ -1,9 +1,10 @@
 import React, { FC, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 interface Props {
   onNameChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
-  value? : string
+  value?: string
 }
 
 const Name: FC<Props> = ({
@@ -12,9 +13,9 @@ const Name: FC<Props> = ({
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const nextPage = () => {
-    if(inputRef.current?.value) {
+    if (inputRef.current?.value) {
       navigate("/intro");
-    }else {
+    } else {
       alert("กรุณากรอกชื่อของคุณ")
     }
   };
@@ -28,9 +29,15 @@ const Name: FC<Props> = ({
       }
     });
   }, []);
-  
+
   return (
     <div className="flex justify-center font-season">
+      <Helmet>
+        <link rel="prefetch" href="/pages/5.PNG" as="image" type="image/png" crossOrigin="anonymous" />
+        <link rel="prefetch" href="/pages/9.PNG" as="image" type="image/gif" crossOrigin="anonymous" />
+        <link rel="prefetch" href="/pages/11.GIF" as="image" type="image/gif" crossOrigin="anonymous" />
+        <link rel="prefetch" href="/pages/window.PNG" as="image" type="image/png" crossOrigin="anonymous" />
+      </Helmet>
       <div className="w-full  text-center h-screen flex">
         <div className="m-auto fadein">
           <img src="/pages/4.jpg" alt="logo" />
@@ -54,10 +61,12 @@ const Name: FC<Props> = ({
                 type="text"
                 value={value}
                 ref={inputRef}
-                onChange={e => {if (onNameChange) {
-                  onNameChange(e)
-                  console.log(e.target.value)
-                }}}
+                onChange={e => {
+                  if (onNameChange) {
+                    onNameChange(e)
+                    console.log(e.target.value)
+                  }
+                }}
               />
             </div>
           </div>
