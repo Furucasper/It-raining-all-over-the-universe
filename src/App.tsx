@@ -48,7 +48,7 @@ function App() {
         <Route path='/afterwn' element={<AfterWN />} />
         <Route path='/howyoufeel' element={<Howyoufeel />} />
         <Route path='/weknow' element={
-          <Page bg='9.GIF' time={6000} path='/myself' fadeinscene={true}>
+          <Page bg="9.gif" time={6000} path='/myself' fadeinscene={true}>
             <p className='mt-48'>อย่างนี้นี่เอง</p>
           </Page>
         } />
@@ -59,13 +59,13 @@ function App() {
           </Page>
         } />
         <Route path='/nomyself' element={
-          <Page bg='11.GIF' time={8000} path='/myself'>
+          <Page bg='11.gif' time={8000} path='/myself'>
             <p className='mt-48'>ดีจังเลย การได้เข้าใจตัวเองเป็นเรื่องที่ดี <br /> ที่สุดอยู่แล้วเนอะ</p>
           </Page>
         } />
         <Route path='*' element={<Warning />} />
       </Routes>
-      <audio src="/sounds/bg-sound.mp3" autoPlay loop></audio>
+      <audio src={require('./assets/sounds/bg-sound.wav')} autoPlay loop></audio>
     </div>
 
   );

@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { useNavigate } from "react-router-dom";
+import bg from "../assets/pages/2.jpg"
 
 const Welcome: FC = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const Welcome: FC = () => {
     <div className="flex justify-center fadeinscene font-season">
       <div
         className="w-full  text-center h-screen flex bg-cover bg-center pt-24"
-        style={{ backgroundImage: "url('/pages/2.jpg')" }}
+        style={{ backgroundImage: `url(${bg})` }}
       >
         <div className="m-auto text-sm md:text-xs max-w-sm fadein">
           <p>

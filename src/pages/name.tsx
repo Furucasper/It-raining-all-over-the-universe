@@ -40,7 +40,7 @@ const Name: FC<Props> = ({
       </Helmet>
       <div className="w-full  text-center h-screen flex">
         <div className="m-auto fadein">
-          <img src="/pages/4.jpg" alt="logo" />
+          <img src={logo} alt="logo" />
           <br />
           <p>
             ยินดีต้อนรับเข้าสู่จักรวาล
