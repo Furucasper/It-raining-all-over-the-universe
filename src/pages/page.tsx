@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 type Props = {
@@ -6,22 +6,26 @@ type Props = {
     path?: string,
     bg?: string,
     time? : number
+    fadeinscene?: boolean
 };
 
-const Page: FC<Props> = ({children, path, bg, time}) => {
+const Page: FC<Props> = ({children, path, bg, time, fadeinscene}) => {
   const navigate = useNavigate();
-  if (time) {
-    setTimeout(() => {
-      if (path)
-        navigate(path);
-    }, time);
-  } 
+  
+  useEffect(() => {
+    if (time) {
+      setTimeout(() => {
+        if (path)
+          navigate(path);
+      }, time);
+    } 
+  }, []);
   
   return (
-    <div className="flex justify-center fadeinscene font-season">
+    <div className={"flex justify-center font-season" + (fadeinscene ? " fadeinscene" : "")}>
       <div
-        className="w-full sm:w-1/4 text-center h-screen flex bg-cover bg-center"
-        style={{ backgroundImage: `url('/pages/${bg}.jpg')` }}
+        className="w-full  text-center h-screen flex bg-cover bg-center"
+        style={{ backgroundImage: `url('/pages/${bg}')` }}
       >
         <div className="m-auto fadein">
           {children}

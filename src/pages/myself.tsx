@@ -7,10 +7,10 @@ interface Props {
 const Myself: FC<Props> = ({onGoing}) => {
 
   return (
-    <div className="flex justify-center fadeinscene font-season">
+    <div className="flex justify-center font-season">
       <div
-        className="w-full sm:w-1/4 text-center h-screen flex bg-cover bg-center"
-        style={{ backgroundImage: "url('/pages/11.jpg')" }}
+        className="w-full  text-center h-screen flex bg-cover bg-center fadeinscene overlay"
+        style={{ backgroundImage: "url('/pages/11.gif')" }}
       >
         <div className="m-auto fadein pt-56">
           <p>แล้วคุณเคยรู้สึกไม่เข้าใจตัวเองบ้างไหม?</p><br />
@@ -20,6 +20,10 @@ const Myself: FC<Props> = ({onGoing}) => {
             </div>
         </div>
       </div>
+      <div
+        className="w-full  text-center h-screen flex bg-cover bg-center"
+        style={{ backgroundImage: "url('/pages/window.png')" }}
+      ></div>
     </div>
   );
 };

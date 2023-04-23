@@ -36,34 +36,36 @@ function App() {
   }
 
   return (
-    <div>
+    <div className='App'>
       <Routes>
         <Route path='/' element={<Warning/>}/>
         <Route path='/warning' element={<Warning/>}/>
         <Route path='/welcome' element={<Welcome/>}/>
         <Route path='/policy' element={<Policy/>}/>
-        <Route path='/name' element={<Name onNameChange={onNameChange}/>}/>
+        <Route path='/name' element={<Name onNameChange={onNameChange} value={name}/>}/>
         <Route path='/intro' element={<Intro/>}/>
         <Route path='/welcomename' element={<WelcomeName name={name}/>}/>
         <Route path='/afterwn' element={<AfterWN/>}/>
         <Route path='/howyoufeel' element={<Howyoufeel/>}/>
         <Route path='/weknow' element={
-          <Page bg='9' time={5000} path='/myself'>
+          <Page bg='9.gif' time={6000} path='/myself' fadeinscene={true}>
             <p className='mt-48'>อย่างนี้นี่เอง</p>
           </Page>
         }/>
         <Route path='/myself' element={<Myself onGoing={onGoing}/>}/>
         <Route path='/yesmyself' element={
-          <Page bg='11' time={5000} path='/myself'>
-            <p className='mt-48'>นั่นสิ ใคร ๆ ก็ต้องเคยรู้สึกแบบนั้นบ้างอยู่แล้วเนอะ</p>
+          <Page bg='11.gif' time={8000} path='/myself'>
+            <p className='mt-48'>นั่นสิ ใคร ๆ ก็ต้องเคย<br/>รู้สึกแบบนั้นบ้างอยู่แล้วเนอะ</p>
           </Page>
         }/>
         <Route path='/nomyself' element={
-          <Page bg='11' time={5000} path='/myself'>
+          <Page bg='11.gif' time={8000} path='/myself'>
             <p className='mt-48'>ดีจังเลย การได้เข้าใจตัวเองเป็นเรื่องที่ดี <br /> ที่สุดอยู่แล้วเนอะ</p>
           </Page>
         }/>
+        <Route path='*' element={<Warning/>}/>
       </Routes>
+      <audio src="/sounds/bg-sound.mp3" autoPlay loop></audio>
     </div>
 
   );

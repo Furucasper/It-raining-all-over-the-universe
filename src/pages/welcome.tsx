@@ -10,7 +10,7 @@ const Welcome: FC = () => {
   return (
     <div className="flex justify-center fadeinscene font-season">
       <div
-        className="w-full sm:w-1/4 text-center h-screen flex bg-cover bg-center pt-24"
+        className="w-full  text-center h-screen flex bg-cover bg-center pt-24"
         style={{ backgroundImage: "url('/pages/2.jpg')" }}
       >
         <div className="m-auto text-sm md:text-xs max-w-sm fadein">

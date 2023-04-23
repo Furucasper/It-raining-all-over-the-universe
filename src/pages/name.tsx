@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
@@ -9,14 +9,29 @@ interface Props {
 const Name: FC<Props> = ({
   onNameChange, value
 }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const nextPage = () => {
-    navigate("/intro");
+    if(inputRef.current?.value) {
+      navigate("/intro");
+    }else {
+      alert("กรุณากรอกชื่อของคุณ")
+    }
   };
 
+  useEffect(() => {
+    inputRef.current?.focus();
+    inputRef.current?.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        nextPage();
+      }
+    });
+  }, []);
+  
   return (
     <div className="flex justify-center font-season">
-      <div className="w-full sm:w-1/4 text-center h-screen flex">
+      <div className="w-full  text-center h-screen flex">
         <div className="m-auto fadein">
           <img src="/pages/4.jpg" alt="logo" />
           <br />
@@ -38,6 +53,7 @@ const Name: FC<Props> = ({
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-black bg-gray-300 leading-tight focus:outline-none focus:shadow-outline"
                 type="text"
                 value={value}
+                ref={inputRef}
                 onChange={e => {if (onNameChange) {
                   onNameChange(e)
                   console.log(e.target.value)

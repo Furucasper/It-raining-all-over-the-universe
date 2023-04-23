@@ -8,10 +8,10 @@ const AfterWN: FC = () => {
   }, 5000);
 
   return (
-    <div className="flex justify-center fadeinscene font-season">
+    <div className="flex justify-center font-season">
       <div
-        className="w-full sm:w-1/4 text-center h-screen flex bg-cover bg-center"
-        style={{ backgroundImage: "url('/pages/5.jpg')" }}
+        className="w-full  text-center h-screen flex bg-cover bg-center"
+        style={{ backgroundImage: "url('/pages/5.png')" }}
       >
         <div className="m-auto fadein pt-36">
           <p>เป็นอย่างนั้นเองเหรอ</p>
