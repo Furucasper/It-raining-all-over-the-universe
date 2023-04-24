@@ -10,7 +10,7 @@ const Myself: FC<Props> = ({onGoing}) => {
     <div className="flex justify-center font-season">
       <div
         className="w-full  text-center h-screen flex bg-cover bg-center fadeinscene overlay"
-        style={{ backgroundImage: "url('/pages/11.gif')" }}
+        style={{ backgroundImage: "url('/pages/11.GIF')" }}
       >
         <div className="m-auto fadein pt-56">
           <p>แล้วคุณเคยรู้สึกไม่เข้าใจตัวเองบ้างไหม?</p><br />
