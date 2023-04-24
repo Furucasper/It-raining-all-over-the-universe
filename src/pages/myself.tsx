@@ -22,7 +22,7 @@ const Myself: FC<Props> = ({onGoing}) => {
       </div>
       <div
         className="w-full  text-center h-screen flex bg-cover bg-center"
-        style={{ backgroundImage: "url('/pages/window.png')" }}
+        style={{ backgroundImage: "url('/pages/window.PNG')" }}
       ></div>
     </div>
   );
