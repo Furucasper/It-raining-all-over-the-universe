@@ -1,11 +1,13 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AfterWN: FC = () => {
   const navigate = useNavigate();
-  setTimeout(() => {
-    navigate("/howyoufeel");
-  }, 5000);
+  useEffect(() => {
+    setTimeout(() => {
+      navigate("/howyoufeel");
+    }, 5000);
+  }, [])
 
   return (
     <div className="flex justify-center font-season">
