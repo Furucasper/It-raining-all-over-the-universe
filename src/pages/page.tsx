@@ -1,33 +1,20 @@
-import React, { FC, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import  { FC } from "react";
 
-type Props = {
-    children: string | JSX.Element | JSX.Element[]
-    path?: string,
+interface Props {
+    children?: string | JSX.Element | JSX.Element[]
     bg?: string,
-    time? : number
-    fadeinscene?: boolean
+    fadeInScene?: boolean
 };
 
-const Page: FC<Props> = ({children, path, bg, time, fadeinscene}) => {
-  const navigate = useNavigate();
-  
-  useEffect(() => {
-    if (time) {
-      setTimeout(() => {
-        if (path)
-          navigate(path);
-      }, time);
-    } 
-  }, []);
+const Page: FC<Props> = ({children, bg, fadeInScene}) => {
   
   return (
-    <div className={"flex justify-center font-season" + (fadeinscene ? " fadeinscene" : "")}>
+    <div className={"flex justify-center font-season" + (fadeInScene ? " fade-in-scene" : "")}>
       <div
         className="w-full  text-center h-screen flex bg-cover bg-center"
         style={{ backgroundImage: `url('/pages/${bg}')` }}
       >
-        <div className="m-auto fadein">
+        <div className="m-auto fade-in">
           {children}
         </div>
       </div>

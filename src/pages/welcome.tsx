@@ -8,36 +8,38 @@ const Welcome: FC = () => {
   };
 
   return (
-    <div className="flex justify-center fadeinscene font-season">
+    <div className="flex justify-center fade-in-scene font-season">
       <div
-        className="w-full  text-center h-screen flex bg-cover bg-center pt-24"
-        style={{ backgroundImage: "url('/pages/2.jpg')" }}
+        className="w-full  text-center h-screen flex bg-contain bg-no-repeat bg-center pt-1"
+        style={{ backgroundImage: "url('/pages/1.gif')" }}
       >
-        <div className="m-auto text-sm md:text-xs max-w-sm fadein">
-          <p>
-            เว็บไซต์นี้เป็นส่วนหนึ่งของปริญญานิพนธ์ <br />
-            คณะนิเทศศาสตร์ <br />
+        <div className="m-auto [&>p]:text-base max-w-sm fade-in pb-4">
+          <img className="w-1/3 m-auto" src="/images/logo.png" />
+          <p className="mt-6">
+            เว็บไซต์นี้เป็นส่วนหนึ่งของ<br />
+            โครงการปริญญานิพนธ์<br />
+            คณะนิเทศศาสตร์<br />
             จุฬาลงกรณ์มหาวิทยาลัย
           </p>
           <br />
-          <br />
           <p>
-            "ณ ที่แห่งหนึ่งของจักรวาลอาจมีฝนกำลังตกอยู่ <br />
-            แม้จะดูเป็นไปไม่ได้ แต่อาจมีอยู่จริงหรือไม่?"
+            “ณ ที่แห่งหนึ่งของจักรวาล<br />
+            อาจมีฝนกำลังตกอยู่”<br />
           </p>
           <br />
-          <br />
           <p>
-            เว็บไซต์นี้ไม่ใช่แบบประเมินทางจิตวิทยา <br />
-            แต่เกิดขึ้นเพื่อสนับสนุนการค้นหาคำตอบ <br />
-            ที่อาจมองไม่เห็นแต่มีอยู่ เหมือนกับตัวตนของเรา
-            <br />
-            ที่ไม่อาจเห็นได้ทุกด้าน แต่ด้านเหล่านั้นมีอยู่จริง
+            เว็บไซต์นี้ไม่ใช่<br />
+            แบบประเมินทางจิตวิทยา <br />
+            แต่เกิดขึ้นเพื่อสนับสนุน<br />
+            การตระหนักถึงสิ่งต่าง ๆ<br />
+            ที่เกิดขึ้นกับตัวเองซึ่ง<br />
+            จะนำไปสู่ความเข้าใจและ<br />
+            การยอมรับในตนเอง<br />
+            ในที่สุด<br />
           </p>
           <br />
-          <br />
-          <div className="text-bold text-lg cursor-pointer" onClick={nextPage}>
-            <b>ต่อไป</b> 
+          <div className="text-xl cursor-pointer" onClick={nextPage}>
+            <b>&gt; ต่อไป &lt;</b> 
           </div>
         </div>
       </div>

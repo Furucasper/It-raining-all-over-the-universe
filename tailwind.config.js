@@ -4,9 +4,16 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    fontSize: {
+      xs:'8px',
+      sm:'10px',
+      base:'12px',
+      lg:'14px',
+      xl:'16px'
+    },
     extend: {
       fontFamily: {
-        season: ["season", "cursive"],
+        season: ["mali", "season", "cursive"],
       },
     },
   },

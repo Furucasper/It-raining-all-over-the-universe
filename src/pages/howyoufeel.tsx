@@ -11,12 +11,12 @@ const Howyoufeel: FC = () => {
       navigate("/weknow");
     } else {
       alert("กรุณาตอบคำถาม");
+      inputRef.current?.focus()
     }
   };
 
   
   useEffect(() => {
-    inputRef.current?.focus();
     inputRef.current?.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
@@ -29,18 +29,19 @@ const Howyoufeel: FC = () => {
     <div className="flex justify-center font-season">
       <div
         className="w-full  text-center h-screen flex bg-cover bg-center"
-        style={{ backgroundImage: "url('/pages/5.PNG')" }}
+        style={{ backgroundImage: "url('/pages/daytime-window.gif')" }}
       >
-        <div className="m-auto fadein pt-56">
-          <p>แล้วตอนนี้คุณรู้สึกยังไงกับตัวเองบ้าง? </p><br /><br />
+        <div className="m-auto fade-in pt-40">
+        <br />
+          <p className="text-lg">แล้วตอนนี้คุณรู้สึกยังไงกับตัวเองบ้าง? </p><br />
             <div>
             <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-black bg-gray-300 leading-tight focus:outline-none focus:shadow-outline"
                 type="text"
+                autoComplete="off"
                 ref={inputRef}
               />
-            <div className="text-bold text-lg cursor-pointer mt-8" onClick={nextPage}>
-            <b>ต่อไป</b>
+            <div className="text-xl cursor-pointer mt-5" onClick={nextPage}>
+            <b>&gt; ต่อไป &lt;</b>
             </div>
             </div>
         </div>

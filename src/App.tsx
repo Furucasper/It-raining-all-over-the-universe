@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import Page from './pages/page';
 import Warning from './pages/warning';
@@ -12,12 +12,20 @@ import WelcomeName from './pages/welcomename';
 import AfterWN from './pages/afterwn';
 import Howyoufeel from './pages/howyoufeel';
 import Myself from './pages/myself';
+import TellAboutYourself from './pages/tellaboutyourself';
+import Curtain from './pages/curtain';
+import BlankPage from './pages/blankpage';
+import Beginning from './pages/beginning';
+import Nav from './pages/nav';
 
 function App() {
 
   const [name, setName] = useState("")
-  //const [onGoPath, setOnGoPath] = useState("")
+
   const navigate = useNavigate()
+
+  const soundPlayer = useRef<HTMLAudioElement>(null);
+  const sfxPlayer = useRef<HTMLAudioElement>(null);
 
   const onNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value)
@@ -35,37 +43,78 @@ function App() {
     }
   }
 
+  useEffect(() => {
+    if (!!soundPlayer.current) {
+      soundPlayer.current.volume = 0.3
+    }
+  }, [])
+
   return (
     <div className='App'>
       <Routes>
-        <Route path='/' element={<Warning/>}/>
-        <Route path='/warning' element={<Warning/>}/>
+        <Route path='/' element={<Beginning />}/>
+        <Route path='/warning' element={<Warning soundPlayer={soundPlayer}/>}/>
         <Route path='/welcome' element={<Welcome/>}/>
         <Route path='/policy' element={<Policy/>}/>
         <Route path='/name' element={<Name onNameChange={onNameChange} value={name}/>}/>
-        <Route path='/intro' element={<Intro/>}/>
+        <Route path='/click-to-continue' element={
+            <Nav path='/intro'>
+              <Page bg='6.jpg' fadeInScene={true}></Page>
+            </Nav>
+        }/>
+        <Route path='/intro' element={
+            <Nav path='/welcomename'>
+              <Intro soundPlayer={soundPlayer}/>
+            </Nav>
+        }/>
         <Route path='/welcomename' element={<WelcomeName name={name}/>}/>
-        <Route path='/afterwn' element={<AfterWN/>}/>
+        <Route path='/afterwn' element={
+          <Nav path='/howyoufeel'>
+            <AfterWN/>
+          </Nav>
+        }/>
         <Route path='/howyoufeel' element={<Howyoufeel/>}/>
         <Route path='/weknow' element={
-          <Page bg='9.GIF' time={6000} path='/myself' fadeinscene={true}>
-            <p className='mt-48'>อย่างนี้นี่เอง</p>
-          </Page>
+          <Nav path='/myself'>
+            <Page bg='evening-window.gif' fadeInScene={true}>
+              <p className='mt-40'>อย่างนี้นี่เอง</p>
+            </Page>
+          </Nav>
         }/>
         <Route path='/myself' element={<Myself onGoing={onGoing}/>}/>
         <Route path='/yesmyself' element={
-          <Page bg='11.GIF' time={8000} path='/myself'>
-            <p className='mt-48'>นั่นสิ ใคร ๆ ก็ต้องเคย<br/>รู้สึกแบบนั้นบ้างอยู่แล้วเนอะ</p>
-          </Page>
+          <Nav path='/tellaboutyourself'>
+            <Page bg='night-window.gif'>
+              <p className='mt-40'>นั่นสิ ใคร ๆ ก็ต้องเคย<br/>รู้สึกแบบนั้นบ้างอยู่แล้วเนอะ</p>
+            </Page>
+          </Nav>
         }/>
         <Route path='/nomyself' element={
-          <Page bg='11.GIF' time={8000} path='/myself'>
-            <p className='mt-48'>ดีจังเลย การได้เข้าใจตัวเองเป็นเรื่องที่ดี <br /> ที่สุดอยู่แล้วเนอะ</p>
-          </Page>
+          <Nav path='/tellaboutyourself'>
+            <Page bg='night-window.gif'>
+              <p className='mt-40'>ดีจังเลย การได้เข้าใจตัวเองเป็นเรื่องที่ดี <br /> ที่สุดอยู่แล้วเนอะ</p>
+            </Page>
+          </Nav>
         }/>
-        <Route path='*' element={<Warning/>}/>
+        <Route path='/tellaboutyourself' element={<TellAboutYourself/>}/>
+        <Route path='/knowyourself' element={
+          <Nav path='/exploreyourself'>
+            <BlankPage>
+              <p className=''>คุณรู้จักตัวเองในแบบนี้นี่เอง</p>
+            </BlankPage>
+          </Nav>
+        }/>
+        <Route path='/exploreyourself' element={
+          <Curtain>
+            <BlankPage>
+              <p className=''>งั้นเราลองมาสำรวจตัวเองกันดีกว่า… <br /> แต่มันต้องพึ่งจินตนาการนิดหน่อยนะ</p>
+            </BlankPage>
+          </Curtain>
+        }/>
+        <Route path='*' element={<Beginning />}/>
       </Routes>
-      <audio src="/sounds/bg-sound.mp3" autoPlay loop></audio>
+      <audio ref={soundPlayer} src="/sounds/intro.mp3" loop autoPlay></audio>
+      <audio ref={sfxPlayer} ></audio>
     </div>
 
   );

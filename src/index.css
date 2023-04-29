@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
 }
 
 code {
@@ -18,5 +21,31 @@ code {
 
 @font-face {
   font-family: "season";
-  src: url("../public/Noto_Sans_Thai/static/NotoSansThai/NotoSansThai-Regular.ttf");
+  /* src: url("../public/Noto_Sans_Thai/static/NotoSansThai/NotoSansThai-Regular.ttf"); */
+  src: url('https://fonts.googleapis.com/css2?family=Mali&display=swap')
+}
+
+@layer base {
+  p {
+    @apply text-base;
+  }
+
+  input {
+    @apply appearance-none border rounded-md w-full text-black bg-gray-200 focus:outline-zinc-300 text-lg/tight py-2 px-3;
+  }
+
+  img, div, p {
+    @apply select-none;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gray-200 hover:bg-zinc-200 text-lg p-3 min-w-[10rem] rounded cursor-pointer;
+  }
+
+  .btn-primary-dark {
+    @apply p-3 w-48 rounded cursor-pointer;
+    background-image: url(../public/images/btn-bg.PNG);
+  }
 }

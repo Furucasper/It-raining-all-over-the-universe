@@ -14,14 +14,14 @@ const Name: FC<Props> = ({
   const navigate = useNavigate();
   const nextPage = () => {
     if(inputRef.current?.value) {
-      navigate("/intro");
+      navigate("/click-to-continue");
     }else {
       alert("กรุณากรอกชื่อของคุณ")
+      inputRef.current?.focus()
     }
   };
 
   useEffect(() => {
-    inputRef.current?.focus();
     inputRef.current?.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
@@ -33,32 +33,33 @@ const Name: FC<Props> = ({
   return (
     <div className="flex justify-center font-season">
       <Helmet>
-        <link rel="prefetch" href="/pages/5.PNG" as="image" type="image/png" crossOrigin="anonymous" />
-        <link rel="prefetch" href="/pages/9.PNG" as="image" type="image/gif" crossOrigin="anonymous" />
-        <link rel="prefetch" href="/pages/11.GIF" as="image" type="image/gif" crossOrigin="anonymous" />
-        <link rel="prefetch" href="/pages/window.PNG" as="image" type="image/png" crossOrigin="anonymous" />
+        <link rel="prefetch" href="/pages/daytime-window.gif" as="image" type="image/gif" crossOrigin="anonymous" />
+        <link rel="prefetch" href="/pages/evening-window.gif" as="image" type="image/gif" crossOrigin="anonymous" />
       </Helmet> 
-      <div className="w-full  text-center h-screen flex">
-        <div className="m-auto fadein">
-          <img src="/pages/4.jpg" alt="logo" />
+      <div className="w-full  text-center h-screen flex bg-contain bg-no-repeat bg-center"
+          style={{ backgroundImage: "url('/pages/1.gif')" }}
+      >
+        <div className="mt-20 fade-in">
+          <img className="w-[40%] m-auto" src="/images/logo.png" alt="logo" />
           <br />
-          <p>
+          <p className="text-xl">
             ยินดีต้อนรับเข้าสู่จักรวาล
             <br />
-            Via Lactea
+            <b><i>Via Lactea</i></b>
           </p>
           <br />
           <br />
           <div className="mb-12 flex justify-center">
-            <div className="w-3/4">
+            <div className="w-1/2">
               <label
-                className="block text-gray-700 text-left text-sm font-bold mb-2"
+                className="block text-gray-700 text-left text-lg mb-0.5"
               >
                 ชื่อ:
               </label>
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-black bg-gray-300 leading-tight focus:outline-none focus:shadow-outline"
                 type="text"
+                placeholder="กรอกชื่อของคุณ"
+                autoComplete="off"
                 value={value}
                 ref={inputRef}
                 onChange={e => {if (onNameChange) {
@@ -68,8 +69,8 @@ const Name: FC<Props> = ({
               />
             </div>
           </div>
-          <div className="text-bold text-lg cursor-pointer" onClick={nextPage}>
-            <b>ต่อไป</b>
+          <div className="text-xl cursor-pointer" onClick={nextPage}>
+            <b>&gt; ต่อไป &lt;</b>
           </div>
         </div>
       </div>

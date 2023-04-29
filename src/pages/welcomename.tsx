@@ -15,14 +15,14 @@ const WelcomeName: FC<Props> = ({name}) => {
     <div className="flex justify-center font-season">
       <div
         className="w-full  text-center h-screen flex bg-cover bg-center"
-        style={{ backgroundImage: "url('/pages/5.PNG')" }}
+        style={{ backgroundImage: "url('/pages/daytime-window.gif')" }}
       >
-        <div className="m-auto fadein pt-56">
-          <p>สวัสดีคุณ {name}<br />
+        <div className="m-auto fade-in pt-[14rem]">
+          <p className="text-lg/loose">สวัสดีคุณ <b>{name}</b><br />
             ช่วงนี้คุณสบายดีไหม ?</p><br />
             <div>
-                <div className="bg-gray-300 p-3 w-48 rounded cursor-pointer" onClick={nextPage}>ใช่</div>
-                <div className="bg-gray-300 p-3 w-48 rounded mt-3 cursor-pointer" onClick={nextPage}>ไม่</div>
+                <div className="btn-primary" onClick={nextPage}>ใช่</div>
+                <div className="btn-primary mt-3" onClick={nextPage}>ไม่</div>
             </div>
         </div>
       </div>

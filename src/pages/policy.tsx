@@ -8,20 +8,21 @@ const Policy: FC = () => {
   };
 
   return (
-    <div className="flex justify-center fadeinscene font-season">
+    <div className="flex justify-center font-season">
       <div
-        className="w-full  text-center h-screen flex bg-cover bg-center"
-        style={{ backgroundImage: "url('/pages/1.jpg')" }}
+        className="w-full  text-center h-screen flex bg-contain bg-no-repeat bg-center"
+        style={{ backgroundImage: "url('/pages/1.gif')" }}
       >
-        <div className="m-auto text-sm md:text-xs max-w-sm fadein">
+        <div className="m-auto [&>p]:text-base max-w-sm fade-in">
           <p className="mt-12">
-            และที่สำคัญที่สุด เว็บไซต์นี้ไม่ได้เก็บข้อมูล <br />
-            หรือเผยแพร่ข้อมูลทางใด
+            และที่สำคัญที่สุด <br />
+            เว็บไซต์นี้ไม่ได้เก็บข้อมูลของคุณ <br />
+            เพื่อนำไปเผยแพร่ทางใด <br />
           </p>
           <br />
           <br />
           <p>
-            เพราะฉะนั้น คุณสามารถเป็นตัวของตนเอง
+            คุณสามารถเป็นตัวของตนเอง
             <br />
             ได้เต็มที่เลยนะ
             <br />
@@ -32,8 +33,8 @@ const Policy: FC = () => {
           </p>
           <br />
           <br />
-          <div className="text-bold text-lg cursor-pointer" onClick={nextPage}>
-            <b>ต่อไป</b> 
+          <div className="text-xl cursor-pointer" onClick={nextPage}>
+            <b>&gt; ต่อไป &lt;</b> 
           </div>
         </div>
       </div>
