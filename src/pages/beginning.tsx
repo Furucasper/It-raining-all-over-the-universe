@@ -12,8 +12,10 @@ const Beginning: FC = () => {
     
 
     return(
-        <div className='flex items-center justify-center h-screen fade-in-out-scene'>
-            <img className='w-1/2' src="/images/logo.png" alt="logo" />
+        <div className='bg-white'>
+            <div className='flex items-center justify-center h-screen fade-in-out-scene'>
+                <img className='w-1/2' src="/images/logo.png" alt="logo" />
+            </div>
         </div>
     )
 }

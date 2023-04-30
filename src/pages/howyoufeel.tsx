@@ -36,7 +36,6 @@ const Howyoufeel: FC = () => {
           <p className="text-lg">แล้วตอนนี้คุณรู้สึกยังไงกับตัวเองบ้าง? </p><br />
             <div>
             <input
-                type="text"
                 autoComplete="off"
                 ref={inputRef}
               />

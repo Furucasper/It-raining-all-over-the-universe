@@ -48,4 +48,12 @@ code {
     @apply p-3 w-48 rounded cursor-pointer;
     background-image: url(../public/images/btn-bg.PNG);
   }
+
+  .on-white {
+    @apply bg-white text-black text-center;
+  }
+
+  .on-black {
+    @apply bg-black text-white text-center;
+  }
 }

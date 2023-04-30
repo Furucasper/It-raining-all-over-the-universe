@@ -1,15 +1,19 @@
-import { FC, Dispatch, RefObject, useEffect } from "react";
+import { FC, RefObject, useEffect } from "react";
 
 interface Props {
   soundPlayer?: RefObject<HTMLAudioElement>;
+  secondSoundPlayer?: RefObject<HTMLAudioElement>;
 }
 
-const Intro: FC<Props> = ({ soundPlayer }) => {
+const Intro: FC<Props> = ({ soundPlayer, secondSoundPlayer }) => {
 
   useEffect(() => {
     if (soundPlayer?.current) {
-      soundPlayer.current.src = '/sounds/wind-with-window.mp3'
-      soundPlayer.current.volume = 1
+      soundPlayer.current.src = '/sounds/window-long-to-light-off.mp3'
+    }
+
+    if (secondSoundPlayer?.current) {
+      secondSoundPlayer.current.src = '/sounds/wind-with-window.mp3'
     }
   }, [])
 

@@ -1,29 +1,45 @@
-import React, { FC } from "react";
+import { FC, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
-    onGoing: (ans: boolean) => void
+  playBtnClickSFX: () => void;
+  playSecondSound: () => void;
 }
 
-const Myself: FC<Props> = ({onGoing}) => {
+const Myself: FC<Props> = ({ playBtnClickSFX, playSecondSound }) => {
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    playSecondSound()
+  }, [])
+
+  const onClickYes = () => {
+    playBtnClickSFX()
+    navigate('/yesmyself')
+  }
+
+  const onClickNo = () => {
+    playBtnClickSFX()
+    navigate('/nomyself')
+  }
 
   return (
-    <div className="flex justify-center font-season">
-      <div
-        className="w-full  text-center h-screen flex bg-cover bg-center fade-in-scene overlay"
-        style={{ backgroundImage: "url('/pages/night-window.gif')" }}
-      >
-        <div className="m-auto fade-in pt-[13rem]">
-          <p>แล้วคุณเคยรู้สึกไม่เข้าใจตัวเองบ้างไหม?</p><br />
+    <div className="bg-white">
+      <div className="flex justify-center font-season">
+        <div
+          className="w-full  text-center h-screen flex bg-cover bg-center"
+          style={{ backgroundImage: "url('/pages/night-window.gif')" }}
+        >
+          <div className="m-auto fade-in pt-[13rem] [&>*]:text-lg/loose">
+            <p>แล้วคุณเคยรู้สึกไม่เข้าใจตัวเองบ้างไหม?</p><br />
             <div>
-                <div className="btn-primary" onClick={e => onGoing(true)}>ใช่</div>
-                <div className="btn-primary mt-3" onClick={e => onGoing(false)}>ไม่</div>
+              <div className="btn-primary" onClick={onClickYes}>ใช่</div>
+              <div className="btn-primary mt-3" onClick={onClickNo}>ไม่</div>
             </div>
+          </div>
         </div>
       </div>
-      {/* <div
-        className="w-full  text-center h-screen flex bg-cover bg-center"
-        style={{ backgroundImage: "url('/pages/window.PNG')" }}
-      ></div> */}
     </div>
   );
 };
