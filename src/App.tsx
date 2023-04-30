@@ -161,8 +161,18 @@ function App() {
           <Nav path='/gaia-land'>
             <BlankPage bg='plain-space.gif'>
               <img className='fade-in' src='/images/moon.png' alt='gaia-star'/>
+              <div className='[&>p]:text-lg/loose overlay ani-delay-2s fade-in'>
+                <p className='text-black'>และดาวเคราะห์ที่คุณกำลังยืนอยู่<br />มีชื่อว่า<b>ดาว Gaia</b></p>
+              </div>
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/gaia-land' element={
+          <Nav path='/'>
+            <BlankPage bg='plain-space.gif'>
+              <img className='zoom-in-250' src='/images/moon.png' alt='gaia-star'/>
               <div className='[&>p]:text-lg/loose overlay'>
-                <p className='fade-in ani-delay-2s text-black'>และดาวเคราะห์ที่คุณกำลังยืนอยู่<br />มีชื่อว่า<b>ดาว Gaia</b></p>
+                <p className='text-black ani-delay-2s fade-in'>พื้นดินที่แตกระแหงทำให้คุณคาดเดาได้<br />ว่าที่นี่คงไม่มีฝนตกมานานมากแล้ว </p>
               </div>
             </BlankPage>
           </Nav>

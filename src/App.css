@@ -6,7 +6,8 @@
     margin: auto;
     position: absolute;
     top:0; bottom:0;
-    left:0; right:0; 
+    left:0; right:0;
+    overflow: hidden; 
 }
 
 .fade-in {
@@ -62,15 +63,26 @@
 }
 
 .curtain-closing.fromstart {
-    animation: curtainFromstart25 linear 22.5s 500ms;
+    animation: curtainFromstart linear 22.5s 500ms;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     /* animation: curtainFromstart cubic-bezier(0.22, 0.61, 0.36, 1) 5s; */
 }
 
-@keyframes curtainFromstart25 {
+@keyframes curtainFromstart {
     0% { height: 0; }
     100% { height: 50%;}
+}
+
+.zoom-in-250 {
+    animation: zoomIn250 ease-in-out 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes zoomIn250 {
+    0% { transform: scale(1); }
+    100% { transform: scale(2.5); }
 }
 
 .ani-delay-1s {
