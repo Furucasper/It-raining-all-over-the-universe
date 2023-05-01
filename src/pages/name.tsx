@@ -5,15 +5,21 @@ import { Helmet } from "react-helmet";
 interface Props {
   onNameChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   value?: string
+  changeSound?: () => void;
+  changeSecondSound?: () => void;
+  changeSFX?: () => void;
 }
 
 const Name: FC<Props> = ({
-  onNameChange, value
+  onNameChange, value, changeSound, changeSecondSound, changeSFX
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const nextPage = () => {
     if (inputRef.current?.value) {
+      changeSound && changeSound()
+      changeSecondSound && changeSecondSound()
+      changeSFX && changeSFX()
       navigate("/click-to-continue");
     } else {
       alert("กรุณากรอกชื่อของคุณ")

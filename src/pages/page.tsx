@@ -1,22 +1,13 @@
-import  { FC, RefObject, useEffect } from "react";
+import  { FC } from "react";
 
 interface Props {
     children?: string | JSX.Element | JSX.Element[]
     bg?: string,
     fadeInScene?: boolean
     onBlack?: boolean;
-    playSound?: () => void;
-    playSecondSound?: () => void;
-    playSFX?: () => void;
 };
 
-const Page: FC<Props> = ({ children, bg, fadeInScene, onBlack = true, playSound, playSecondSound, playSFX }) => {
-
-  useEffect(() => {
-    playSound && playSound()
-    playSecondSound && playSecondSound()
-    playSFX && playSFX()
-  }, [])
+const Page: FC<Props> = ({ children, bg, fadeInScene, onBlack = true }) => {
   
   return (
     <div className={"flex flex-col justify-center font-season" + (fadeInScene ? " fade-in-scene" : "")}>

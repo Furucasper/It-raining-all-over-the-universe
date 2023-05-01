@@ -4,15 +4,20 @@ import { useNavigate } from "react-router-dom";
 interface Props {
   soundPlayer: RefObject<HTMLAudioElement>;
   secondSoundPlayer: RefObject<HTMLAudioElement>;
-  sfxPlayer: RefObject<HTMLAudioElement>;
 }
 
-const Warning: FC<Props> = ({ soundPlayer, secondSoundPlayer, sfxPlayer }) => {
+const Warning: FC<Props> = ({ soundPlayer, secondSoundPlayer }) => {
   const navigate = useNavigate();
   const nextPage = () => {
-    soundPlayer.current?.play();
-    secondSoundPlayer.current?.play();
-    sfxPlayer.current?.play();
+    if (soundPlayer.current) {
+      soundPlayer.current.src = "/sounds/intro.mp3";
+      soundPlayer.current.load();
+      soundPlayer.current.play();
+    }
+    if (secondSoundPlayer.current) {
+      secondSoundPlayer.current.src = "";
+      secondSoundPlayer.current.play();
+    }
     navigate("/welcome");
   };
 

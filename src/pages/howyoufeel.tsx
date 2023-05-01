@@ -1,13 +1,20 @@
 import React, { FC, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Howyoufeel: FC = () => {
+interface Props {
+  changeSound?: () => void;
+  changeSecondSound?: () => void;
+  changeSFX?: () => void;
+}
+
+const Howyoufeel: FC<Props> = ({ changeSound, changeSecondSound, changeSFX }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const nextPage = () => {
-    console.log(inputRef.current?.value);
-    console.log(inputRef.current);
     if (inputRef.current?.value) {
+      changeSound && changeSound();
+      changeSecondSound && changeSecondSound();
+      changeSFX && changeSFX();
       navigate("/weknow");
     } else {
       alert("กรุณาตอบคำถาม");

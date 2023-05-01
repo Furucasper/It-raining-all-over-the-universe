@@ -1,18 +1,13 @@
-import { FC, useEffect, useRef } from "react";
+import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
   playBtnClickSFX: () => void;
-  playSecondSound: () => void;
 }
 
-const Myself: FC<Props> = ({ playBtnClickSFX, playSecondSound }) => {
+const Myself: FC<Props> = ({ playBtnClickSFX }) => {
 
   const navigate = useNavigate()
-
-  useEffect(() => {
-    playSecondSound()
-  }, [])
 
   const onClickYes = () => {
     playBtnClickSFX()

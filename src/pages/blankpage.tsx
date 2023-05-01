@@ -1,28 +1,24 @@
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 
 interface Props {
     children?: string | JSX.Element | JSX.Element[]
     bg?: string
     onBlack?: boolean;
     fadeInScene?: boolean;
-    playSound?: () => void;
-    playSecondSound?: () => void;
-    playSFX?: () => void;
+    fadeout?: boolean;
 }
 
-const BlankPage: FC<Props> = ({ children, bg, onBlack = true, fadeInScene, playSound, playSecondSound, playSFX }) => {
+const BlankPage: FC<Props> = ({ children, bg, onBlack = true, fadeInScene, fadeout }) => {
 
-    useEffect(() => {
-        playSound && playSound()
-        playSecondSound && playSecondSound()
-        playSFX && playSFX()
-    }, [])
-    
     return (
-        <div className={"flex flex-col items-center justify-center h-screen w-full font-season flex bg-cover bg-center text-center " + (onBlack ? "bg-black text-white" : "bg-white text-black") + (fadeInScene ? " fade-in-scene" : "")}
-            style={{ backgroundImage: `url('/pages/${bg}')` }}
-        >
-            {children}
+        <div 
+            className={"bg-cover bg-center text-center w-full" + (onBlack ? " bg-black text-white" : " bg-white text-black") + (fadeInScene ? " fade-in-scene" : "")}
+            style={{ backgroundImage: `url('/pages/${bg}')` }}>
+            <div className={"flex flex-col items-center justify-center h-screen w-full font-season" + (fadeout ? " fade-out" : "")}
+                
+            >
+                {children}
+            </div>
         </div>
     )
 }

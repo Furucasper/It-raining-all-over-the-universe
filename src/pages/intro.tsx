@@ -10,10 +10,12 @@ const Intro: FC<Props> = ({ soundPlayer, secondSoundPlayer }) => {
   useEffect(() => {
     if (soundPlayer?.current) {
       soundPlayer.current.src = '/sounds/window-long-to-light-off.mp3'
+      soundPlayer.current.load()
     }
 
     if (secondSoundPlayer?.current) {
       secondSoundPlayer.current.src = '/sounds/wind-with-window.mp3'
+      secondSoundPlayer.current.load()
     }
   }, [])
 

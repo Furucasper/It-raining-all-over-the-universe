@@ -6,14 +6,20 @@ interface Props {
     path: string,
     time? : number
     clickable?: boolean
+    changeSound?: () => void;
+    changeSecondSound?: () => void;
+    changeSFX?: () => void;
 };
 
-const Nav: FC<Props> = ({ children, path, time, clickable = true }) => {
+const Nav: FC<Props> = ({ children, path, time, clickable = true, changeSound, changeSecondSound, changeSFX }) => {
 
     const navigate = useNavigate()
 
     const onClick = () => {
         if (clickable) {
+            changeSound && changeSound()
+            changeSecondSound && changeSecondSound()
+            changeSFX && changeSFX()
             navigate(path)
         }
     }

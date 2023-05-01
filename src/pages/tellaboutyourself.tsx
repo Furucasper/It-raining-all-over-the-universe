@@ -1,17 +1,24 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const TellAboutYourself: FC = () => {
+interface Props {
+  changeSound?: () => void;
+  changeSecondSound?: () => void;
+  changeSFX?: () => void;
+}
+
+const TellAboutYourself: FC<Props> = ({ changeSound, changeSecondSound, changeSFX }) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
 
     const [fadeout, setFadeout] = useState(false)
 
     const nextPage = () => {
-        console.log(inputRef.current?.value);
-        console.log(inputRef.current);
         if (inputRef.current?.value) {
             setFadeout(true)
+            changeSound && changeSound();
+            changeSecondSound && changeSecondSound();
+            changeSFX && changeSFX();
             setTimeout(() => {
                 navigate("/knowyourself");
             }, 1500)
