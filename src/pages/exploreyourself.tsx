@@ -37,10 +37,11 @@ const ExploreYourself = () => {
     }, [])
 
     return (
-        <Curtain path='/darkness'>
+        <Curtain path='/imagine'>
             <Helmet>
                 <link rel='prefetch' href='/sounds/galaxy.mp3' as='audio' type='audio/mpeg' crossOrigin="anonymous" />
                 <link rel='prefetch' href='/sounds/sfx-twinkling-stars.mp3' as='audio' type='audio/mpeg' crossOrigin="anonymous" />
+                <link rel='prefetch' href='/sounds/star-ambience.mp3' as='audio' type='audio/mpeg' crossOrigin="anonymous" />
                 <link rel="prefetch" href="/images/moon.png" as="image" type="image/png" crossOrigin="anonymous" />
             </Helmet>
             <BlankPage onBlack={false}>

@@ -43,6 +43,8 @@ const Howyoufeel: FC<Props> = ({ changeSound, changeSecondSound, changeSFX }) =>
           <p className="text-lg">แล้วตอนนี้คุณรู้สึกยังไงกับตัวเองบ้าง? </p><br />
             <div>
             <input
+                name="howyoufeel"
+                type="text"
                 autoComplete="off"
                 ref={inputRef}
               />

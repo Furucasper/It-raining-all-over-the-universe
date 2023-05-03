@@ -49,6 +49,13 @@ code {
     background-image: url(../public/images/btn-bg.PNG);
   }
 
+  .btn-image {
+    @apply bg-transparent text-base text-black w-[17vh] h-[8vh] cursor-pointer;
+    background-image: url('../public/images/btn-bg.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
   .on-white {
     @apply bg-white text-black text-center;
   }

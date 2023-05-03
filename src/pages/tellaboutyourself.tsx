@@ -51,6 +51,7 @@ const TellAboutYourself: FC<Props> = ({ changeSound, changeSecondSound, changeSF
                             ให้เราฟังหน่อยสิ </p>
                         <div>
                             <input
+                                type="text"
                                 className="mt-3.5"
                                 autoComplete="off"
                                 ref={inputRef}

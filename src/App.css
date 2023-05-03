@@ -42,7 +42,7 @@
 }
 
 .fade-in-scene {
-    animation: fadeInAnimation ease 3s;
+    animation: fadeInAnimation ease 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
@@ -57,21 +57,28 @@
     z-index: 1;
 }
 
-.curtain-closing {
+.curtain-closing.fromstart {
+    height: 0%;
+    animation: curtainFromstart linear 22.5s 500ms;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
 
-.curtain-closing.fromstart {
-    animation: curtainFromstart linear 22.5s 500ms;
+.curtain-opening.fromend {
+    height: 50%;
+    animation: curtainFromend linear 9.5s 500ms;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    /* animation: curtainFromstart cubic-bezier(0.22, 0.61, 0.36, 1) 5s; */
 }
 
 @keyframes curtainFromstart {
     0% { height: 0; }
     100% { height: 50%;}
+}
+
+@keyframes curtainFromend {
+    0% { height: 50%; }
+    100% { height: 0;}
 }
 
 .scale-250 {
@@ -98,6 +105,22 @@
 @keyframes zoomOut150 {
     0% { transform: scale(2.5); }
     100% { transform: scale(1.5); }
+}
+
+.ani-duration-500ms {
+    animation-duration: 500ms;
+}
+
+.ani-duration-1s {
+    animation-duration: 1s;
+}
+
+.ani-duration-2s {
+    animation-duration: 2s;
+}
+
+.ani-delay-500ms {
+    animation-delay: 500ms;
 }
 
 .ani-delay-1s {
@@ -149,4 +172,10 @@
 
 .ani-delay-20s {
     animation-delay: 20s;
+}
+
+.choice-wrapper {
+    flex-wrap: wrap;
+    padding: 1rem;
+    width: 300px;
 }

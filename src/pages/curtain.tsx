@@ -6,22 +6,30 @@ interface Props {
     path: string
     delay?: number
     bgColor?: 'black' | 'white' | ''
+    isClosing?: boolean
 };
 
-const Curtain: FC<Props> = ({ children, path, bgColor = '' }) => {
+const Curtain: FC<Props> = ({ children, path, bgColor = '', isClosing = true }) => {
 
     const navigate = useNavigate()
 
     useEffect(() => {
-        setTimeout(() => {
-            navigate('/darkness')
-        }, 23500)
+        if (isClosing) {
+            setTimeout(() => {
+                navigate(path)
+            }, 23500)
+        } else {
+            setTimeout(() => {
+                navigate(path)
+            }
+        , 10000)
+        }
     }, [])
 
     return (
         <div className="flex justify-center font-season h-full">
-            <div className="bg-black w-full absolute top-0 left-0 overlay curtain-closing fromstart"></div>
-            <div className="bg-black w-full absolute bottom-0 left-0 overlay curtain-closing fromstart"></div>
+            <div className={"bg-black w-full absolute top-0 left-0 overlay" + (isClosing ? " curtain-closing fromstart" : "  curtain-opening fromend")}></div>
+            <div className={"bg-black w-full absolute bottom-0 left-0 overlay" + (isClosing ? " curtain-closing fromstart" : "  curtain-opening fromend")}></div>
             {children}
         </div>
     );

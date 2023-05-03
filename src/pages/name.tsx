@@ -64,6 +64,8 @@ const Name: FC<Props> = ({
                   ชื่อ:
                 </label>
                 <input
+                  name="yourname"
+                  type="text"
                   placeholder="กรอกชื่อของคุณ"
                   autoComplete="off"
                   value={value}
