@@ -48,6 +48,10 @@ const DefineYourself: FC<Props> = ({ children, path, localStorageKey, playBtnCli
 
     const nextPage = () => {
         console.log(selected)
+        if (selected.length === 0) {
+            alert('กรุณาเลือกอย่างน้อย 1 ข้อ')
+            return
+        }
         setFadeOut(true)
         localStorageKey && localStorage.setItem(localStorageKey, JSON.stringify(selected))
         setTimeout(() => {

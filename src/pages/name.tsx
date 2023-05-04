@@ -43,11 +43,12 @@ const Name: FC<Props> = ({
           <link rel="prefetch" href="/pages/daytime-window.gif" as="image" type="image/gif" crossOrigin="anonymous" />
           <link rel="prefetch" href="/pages/evening-window.gif" as="image" type="image/gif" crossOrigin="anonymous" />
         </Helmet>
-        <div className="w-full  text-center h-screen flex bg-contain bg-no-repeat bg-center"
+        <div className="w-full text-center h-screen flex bg-contain bg-no-repeat bg-center"
           style={{ backgroundImage: "url('/pages/1.gif')" }}
         >
-          <div className="mt-20 fade-in">
+          <div className="w-full mt-20 fade-in">
             <img className="w-[40%] m-auto" src="/images/logo.png" alt="logo" />
+            <br />
             <br />
             <p className="text-xl">
               ยินดีต้อนรับเข้าสู่จักรวาล
@@ -78,6 +79,7 @@ const Name: FC<Props> = ({
                 />
               </div>
             </div>
+            <br />
             <div className="text-xl cursor-pointer" onClick={nextPage}>
               <b>&gt; ต่อไป &lt;</b>
             </div>

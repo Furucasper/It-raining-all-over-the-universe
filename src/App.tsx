@@ -16,10 +16,13 @@ import BlankPage from './pages/blankpage';
 import Beginning from './pages/beginning';
 import Nav from './pages/nav';
 import ExploreYourself from './pages/exploreyourself';
-import GaiaLandNext from './pages/gaialandnext';
 import GraduallyDarken from './pages/graduallydarken';
 import ToTheMoon from './pages/tothemoon';
 import SixteenChoices from './pages/sixteenchoices';
+import YourPride from './pages/your-pride';
+import LostConsciousness from './pages/lostconsciousness';
+import ThinkOfOthers from './pages/thinkofothers';
+import ItsDarkAgain from './pages/itsdarkagain';
 
 function App() {
 
@@ -38,7 +41,7 @@ function App() {
       soundPlayer.current.src = src;
       src && soundPlayer.current.load();
       soundPlayer.current.volume = 0.8
-      soundPlayer.current.play();
+      src && soundPlayer.current.play();
     }
   }
   const changeSecondSound = (src: string) => {
@@ -46,7 +49,7 @@ function App() {
       secondSoundPlayer.current.src = src;
       src && secondSoundPlayer.current.load();
       secondSoundPlayer.current.volume = 1
-      secondSoundPlayer.current.play();
+      src && secondSoundPlayer.current.play();
     }
   }
   const changeSFX = (src: string) => {
@@ -54,7 +57,7 @@ function App() {
       sfxPlayer.current.src = src;
       src && sfxPlayer.current.load();
       sfxPlayer.current.volume = 0.9
-      sfxPlayer.current.play();
+      src && sfxPlayer.current.play();
     }
   }
 
@@ -134,7 +137,7 @@ function App() {
         <Route path='/click-to-continue' element={
           <Nav path='/intro'>
             <div className="bg-white">
-              <Page bg='6.jpg' onBlack={false} fadeInScene={true}></Page>
+              <Page bg='6.jpg' onBlack={false} fadeInScene></Page>
             </div>
           </Nav>
         } />
@@ -180,7 +183,7 @@ function App() {
         <Route path='/knowyourself' element={
           <Nav path='/exploreyourself'>
             <div className='bg-white'>
-              <BlankPage onBlack={false} fadeInScene={true}>
+              <BlankPage onBlack={false} fadeInScene>
                 <p className='text-lg'>คุณรู้จักตัวเองในแบบนี้นี่เอง</p>
               </BlankPage>
             </div>
@@ -194,7 +197,7 @@ function App() {
         } />
         <Route path='/awaken' element={
           <Nav path='/on-gaia' changeSecondSound={() => changeSecondSound('/sounds/star-ambience.mp3')}>
-            <BlankPage bg='plain-space.gif' fadeInScene={true}>
+            <BlankPage bg='plain-space.gif' fadeInScene>
               <div className='[&>p]:text-lg/loose'>
                 <p className='fade-in ani-delay-3s'>คุณตื่นขึ้น ณ จักรวาลแห่งหนึ่ง</p><br />
                 <p className='fade-in ani-delay-5s'>...</p><br />
@@ -224,12 +227,21 @@ function App() {
           </Nav>
         } />
         <Route path='/gaia-land-next' element={
-          <GaiaLandNext changeSecondSound={() => changeSecondSound('')} />
+          <Nav path='/your-star' delay={1500} changeSecondSound={() => changeSecondSound('')}>
+            <BlankPage bg='plain-space.gif' fadeoutOnClicked>
+              <img className='zoom-out-150 pointer-events-none' src='/images/moon.png' alt='gaia-star' />
+              <div className='[&>p]:text-lg/loose overlay fade-in'>
+                <p className='text-black'>และคุณก็รู้ว่าที่นี่ไม่ใช่ดาวของคุณ</p>
+              </div>
+            </BlankPage>
+          </Nav>
         } />
         <Route path='/your-star' element={
           <Nav path='/gradually-darken'>
-            <BlankPage bg='plain-space.gif'>
-              <p className='fade-in text-lg'>แล้วดาวของคุณอยู่ที่ไหนล่ะ? <br />เราไปตามหามันพร้อม ๆ กันเถอะ</p>
+            <BlankPage bg='plain-space.gif' key={'your-star'}>
+              <div className='fade-in'>
+                <p className='text-white text-lg'>แล้วดาวของคุณอยู่ที่ไหนล่ะ? <br />เราไปตามหามันพร้อม ๆ กันเถอะ</p>
+              </div>
             </BlankPage>
           </Nav>
         } />
@@ -237,7 +249,7 @@ function App() {
           <GraduallyDarken allPlayerFadeOut={allPlayerFadeOut} />
         } />
         <Route path='/darkness' element={
-          <Nav path='/time-space' changeSound={() => changeSound('/sounds/galaxy.mp3')} changeSecondSound={() => changeSecondSound('star-ambience.mp3')} changeSFX={() => changeSFX('/sounds/sfx-twinkling-stars.mp3')}>
+          <Nav path='/time-space' changeSound={() => changeSound('/sounds/galaxy.mp3')} changeSecondSound={() => changeSecondSound('/sounds/star-ambience.mp3')} changeSFX={() => changeSFX('/sounds/sfx-twinkling-stars.mp3')}>
             <BlankPage></BlankPage>
           </Nav>
         } />
@@ -252,7 +264,7 @@ function App() {
         <Route path='/moon' element={
           <Nav path='/is-this-your-star'>
             <BlankPage bg='plain-space.gif'>
-              <div className='[&>p]:text-xl/loose fade-in overlay top-20'>
+              <div className='[&>p]:text-xl/loose fade-in overlay top-[15%]'>
                 <p>คุณเดินทางมาถึงดวงจันทร์ดวงหนึ่ง</p>
               </div>
               <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
@@ -262,7 +274,7 @@ function App() {
         <Route path='/is-this-your-star' element={
           <Nav path='/find-the-answer'>
             <BlankPage bg='plain-space.gif'>
-              <div className='[&>p]:text-xl/loose overlay top-14'>
+              <div className='[&>p]:text-xl/loose overlay top-[12%]'>
                 <p className='fade-in'>ดาวดวงนี้จะใช่ดาวของคุณ<br />หรือเปล่านะ?</p>
               </div>
               <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
@@ -270,9 +282,9 @@ function App() {
           </Nav>
         } />
         <Route path='/find-the-answer' element={
-          <Nav path='/define-yourself'>
-            <BlankPage bg='plain-space.gif'>
-              <div className='[&>p]:text-lg/relaxed overlay top-10 ani-delay-500ms fade-in'>
+          <Nav path='/define-yourself' delay={1000}>
+            <BlankPage bg='plain-space.gif' fadeoutOnClicked>
+              <div className='[&>p]:text-lg/relaxed overlay top-[10%] ani-delay-500ms fade-in'>
                 <p className=''>มาค้นหาคำตอบ<br />
                   ด้วยการ<b>สำรวจตนเองและอธิบาย<br />
                     ความเป็นตัวตน</b>ให้ได้มากที่สุดกันเถอะ</p>
@@ -307,15 +319,180 @@ function App() {
           </SixteenChoices>
         } />
         <Route path='/you-and-others' element={
-          <Nav path='/'>
+          <Nav path='/your-pride'>
             <BlankPage bg='plain-space.gif'>
-              <div className='[&>p]:text-xl/loose overlay top-14'>
-                <p className='text-lg fade-in'>
+              <div className='[&>p]:text-lg/loose overlay top-[14%]'>
+                <p className='fade-in'>
                   แบบนี้นี่เอง สิ่งเหล่านั้นคือด้านที่ทั้งคุณและ<br />
                   คนรอบข้างเห็นตรงกันสินะ
                 </p>
               </div>
               <img className='pointer-events-none scale-90 fade-in' src='/images/moon.png' alt='moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/your-pride' element={<YourPride />} />
+        <Route path='/its-really-good' element={
+          <Nav path='/lost-consciousness'>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-xl/loose overlay top-[16%]'>
+                <p className='fade-in'>
+                  เป็นเรื่องที่ดีจริง ๆ
+                </p>
+              </div>
+              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/lost-consciousness' element={<LostConsciousness allPlayerFadeOut={allPlayerFadeOut} />} />
+        <Route path='/darkness2' element={
+          <Nav path='/raindrop' changeSecondSound={() => changeSecondSound('/sounds/raindrop.mp3')}>
+            <BlankPage></BlankPage>
+          </Nav>
+        } />
+        <Route path='/raindrop' element={
+          <Nav path='/to-the-moon-again' delay={1000} changeSound={() => changeSound('/sounds/galaxy.mp3')} changeSecondSound={() => changeSecondSound('/sounds/star-ambience.mp3')} changeSFX={() => changeSFX('/sounds/sfx-twinkling-stars.mp3')}>
+            <BlankPage bg='rain-drops-no-bg.gif' fadeoutOnClicked></BlankPage>
+          </Nav>
+        } />
+        <Route path='/to-the-moon-again' element={<ToTheMoon path='/another-moon' />} />
+        <Route path='/another-moon' element={
+          <Nav path='/or-this-star'>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-xl/loose overlay'>
+                <p className='fade-in text-black'>
+                  คุณเดินทางมาถึงดวงจันทร์<br />
+                  อีกดวงหนึ่ง
+                </p>
+              </div>
+              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/or-this-star' element={
+          <Nav path='/find-the-answer-again'>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-lg/loose overlay fade-in'>
+                <p className='text-black'>
+                  หรือว่าดาวของคุณจะเป็นดวงนี้กันนะ?
+                </p>
+              </div>
+              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/find-the-answer-again' element={
+          <Nav path='/think-of-others' delay={1000}>
+            <BlankPage bg='plain-space.gif' fadeoutOnClicked>
+              <div className='[&>p]:text-lg/relaxed overlay top-[10%]'>
+                <p className='ani-delay-500ms fade-in'>
+                  มาค้นหาคำตอบอีกครั้ง<br />
+                  ด้วยการค้นหาตัวตน<br />
+                  <b>ที่คุณไม่เคยรู้มาก่อนกันเถอะ</b>
+                </p>
+              </div>
+              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/think-of-others' element={<ThinkOfOthers />} />
+        <Route path='/not-me' element={
+          <SixteenChoices path='/maybe-maybe-not' playBtnClickSFX={playBtnClickSFX} key={4}>
+            <p className='text-lg fade-in ani-duration-500ms'>
+              มีคำไหนบ้างไหม<br />
+              ที่คุณ<b>ไม่เคยคิดว่าตนเองเป็นแบบนั้น</b>
+            </p>
+          </SixteenChoices>
+        } />
+        <Route path='/maybe-maybe-not' element={
+          <Nav path='/never-before'>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-lg/loose overlay top-[10%]'>
+                <p className='ani-delay-500ms fade-in'>
+                  คุณอาจเป็นหรือไม่เป็นแบบนั้นก็ได้<br />
+                  เราทุกคนมักมีด้านที่ตัวเองไม่เคยรู้<br />
+                  แต่คนรอบข้างมักจะรับรู้อยู่เสมอ
+                </p>
+              </div>
+              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/never-before' element={
+          <Nav path='/its-dark-again'>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-lg/loose overlay top-[10%] fade-in'>
+                <p className='ani-delay-500ms'>
+                  ทีนี้ลองคิดถึงตัวตน<br />
+                  ที่คนรอบข้างบอกอีกครั้งดูสิ<br />
+                  คุณไม่เคยเป็นแบบนั้นจริง ๆ เลยหรือเปล่า?<br />
+                </p>
+              </div>
+              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/its-dark-again' element={<ItsDarkAgain allPlayerFadeOut={allPlayerFadeOut} />} />
+        <Route path='/darkness3' element={
+          <Nav path='/raindrop2' changeSecondSound={() => changeSecondSound('/sounds/raindrop.mp3')}>
+            <BlankPage></BlankPage>
+          </Nav>
+        } />
+        <Route path='/raindrop2' element={
+          <Nav path='/to-the-moon-again-2' delay={1000} changeSound={() => changeSound('/sounds/galaxy.mp3')} changeSecondSound={() => changeSecondSound('/sounds/star-ambience.mp3')} changeSFX={() => changeSFX('/sounds/sfx-twinkling-stars.mp3')}>
+            <BlankPage bg='rain-drops-no-bg.gif' fadeoutOnClicked></BlankPage>
+          </Nav>
+        } />
+        <Route path='/to-the-moon-again-2' element={<ToTheMoon path='/wakeup-on-moon' />} />
+        <Route path='/wakeup-on-moon' element={
+          <Nav path='/halfway'>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-xl/loose overlay'>
+                <p className='fade-in text-black'>
+                  คุณตื่นขึ้นบนดวงจันทร์อีกดวงหนึ่ง
+                </p>
+              </div>
+              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/halfway' element={
+          <Nav path='/along-the-way'>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-xl/relaxed overlay top-[14%] ani-delay-500ms fade-in'>
+                <p>
+                  คุณเก่งมากเลย!<br />
+                  ตอนนี้คุณเดินทางมาเกินกว่าครึ่งแล้ว
+                </p>
+              </div>
+              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/along-the-way' element={
+          <Nav path='/never-told'>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[12%]'>
+                <p className='ani-delay-500ms fade-in'>
+                  ตลอดเส้นทางที่ผ่านมา ไม่ว่าคุณจะค้นพบ<br />
+                  ตัวตนแบบไหน มันก็เป็นเรื่องที่ดีมากเลยนะ<br />
+                  ตัวตนเหล่านั้นต้องมีค่ากับคุณมาก ๆ แน่เลย
+                </p>
+              </div>
+              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/never-told' element={
+          <Nav path='/'>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[14%] ani-delay-500ms fade-in'>
+                <p>
+                  งั้นคราวนี้เราลองมาสำรวจตัวตนที่คุณ<br/>
+                  <b>ไม่เคยบอกใคร</b>มาก่อนกันดีไหม?
+                </p>
+              </div>
+              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
             </BlankPage>
           </Nav>
         } />
