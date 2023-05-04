@@ -23,6 +23,7 @@ import YourPride from './pages/your-pride';
 import LostConsciousness from './pages/lostconsciousness';
 import ThinkOfOthers from './pages/thinkofothers';
 import ItsDarkAgain from './pages/itsdarkagain';
+import BeTheSame from './pages/bethesame';
 
 function App() {
 
@@ -294,7 +295,7 @@ function App() {
           </Nav>
         } />
         <Route path='/define-yourself' element={
-          <SixteenChoices path='/others-define-you' playBtnClickSFX={playBtnClickSFX} key={1}>
+          <SixteenChoices path='/others-define-you' localStorageKey='define-yourself' playBtnClickSFX={playBtnClickSFX} key={1}>
             <p className='text-lg fade-in ani-duration-500ms'>
               คุณ<b>นิยามตัวตนของคุณ</b>ด้วยคำไหนบ้าง<br />
               สามารถตอบมากกว่า 1 ข้อได้นะ
@@ -310,14 +311,7 @@ function App() {
             </p>
           </SixteenChoices>
         } />
-        <Route path='/be-the-same' element={
-          <SixteenChoices path='/you-and-others' playBtnClickSFX={playBtnClickSFX} key={3}>
-            <p className='text-lg fade-in ani-duration-500ms'>
-              มี<b>คำไหนเหมือนกันบ้าง</b>ไหม?<br />
-              ถ้ามี คือคำไหนบ้างเหรอ?
-            </p>
-          </SixteenChoices>
-        } />
+        <Route path='/be-the-same' element={<BeTheSame />} />
         <Route path='/you-and-others' element={
           <Nav path='/your-pride'>
             <BlankPage bg='plain-space.gif'>
@@ -352,7 +346,7 @@ function App() {
         } />
         <Route path='/raindrop' element={
           <Nav path='/to-the-moon-again' delay={1000} changeSound={() => changeSound('/sounds/galaxy.mp3')} changeSecondSound={() => changeSecondSound('/sounds/star-ambience.mp3')} changeSFX={() => changeSFX('/sounds/sfx-twinkling-stars.mp3')}>
-            <BlankPage bg='rain-drops-no-bg.gif' fadeoutOnClicked></BlankPage>
+            <BlankPage bg='raindrop-no-bg.gif' fadeoutOnClicked></BlankPage>
           </Nav>
         } />
         <Route path='/to-the-moon-again' element={<ToTheMoon path='/another-moon' />} />
@@ -397,7 +391,7 @@ function App() {
         } />
         <Route path='/think-of-others' element={<ThinkOfOthers />} />
         <Route path='/not-me' element={
-          <SixteenChoices path='/maybe-maybe-not' playBtnClickSFX={playBtnClickSFX} key={4}>
+          <SixteenChoices path='/maybe-maybe-not' choiceKey='others-define-you' playBtnClickSFX={playBtnClickSFX} key={4} skipable>
             <p className='text-lg fade-in ani-duration-500ms'>
               มีคำไหนบ้างไหม<br />
               ที่คุณ<b>ไม่เคยคิดว่าตนเองเป็นแบบนั้น</b>
@@ -440,7 +434,7 @@ function App() {
         } />
         <Route path='/raindrop2' element={
           <Nav path='/to-the-moon-again-2' delay={1000} changeSound={() => changeSound('/sounds/galaxy.mp3')} changeSecondSound={() => changeSecondSound('/sounds/star-ambience.mp3')} changeSFX={() => changeSFX('/sounds/sfx-twinkling-stars.mp3')}>
-            <BlankPage bg='rain-drops-no-bg.gif' fadeoutOnClicked></BlankPage>
+            <BlankPage bg='raindrop-no-bg.gif' fadeoutOnClicked></BlankPage>
           </Nav>
         } />
         <Route path='/to-the-moon-again-2' element={<ToTheMoon path='/wakeup-on-moon' />} />

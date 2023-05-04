@@ -7,12 +7,14 @@ interface Props {
     children: string | JSX.Element | JSX.Element[];
     path: string;
     localStorageKey?: string;
+    choiceKey?: string;
+    skipable?: boolean;  
     playBtnClickSFX: () => void;
 }
 
-const DefineYourself: FC<Props> = ({ children, path, localStorageKey, playBtnClickSFX }) => {
+const DefineYourself: FC<Props> = ({ children, path, localStorageKey, choiceKey, skipable, playBtnClickSFX }) => {
 
-    const choice = [
+    const choices: string[] = (choiceKey && localStorage.getItem(choiceKey)) ? JSON.parse(localStorage.getItem(choiceKey)!) : [
         'กล้าแสดงออก',
         'เป็นผู้ฟังที่ดี',
         'ดื้อรั้น',
@@ -48,7 +50,7 @@ const DefineYourself: FC<Props> = ({ children, path, localStorageKey, playBtnCli
 
     const nextPage = () => {
         console.log(selected)
-        if (selected.length === 0) {
+        if (!skipable && selected.length === 0) {
             alert('กรุณาเลือกอย่างน้อย 1 ข้อ')
             return
         }
@@ -65,7 +67,7 @@ const DefineYourself: FC<Props> = ({ children, path, localStorageKey, playBtnCli
 
             <div className='grid grid-cols-2 py-5 gap-x-4 fade-in ani-delay-500ms'>
                 {
-                    choice.map((item, index) => (
+                    choices.map((item, index) => (
                         <StarCheckbox id={index} key={item} handleChange={handleCheckboxChange}>{item}</StarCheckbox>
                     ))
                 }

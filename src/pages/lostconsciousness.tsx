@@ -40,7 +40,7 @@ const LostConsciousness: FC<Props> = ({ allPlayerFadeOut }) => {
         <Curtain path='/darkness2'>
             <Helmet>
                 <link rel='prefetch' href='/sounds/raindrop.mp3' as='audio' type='audio/mpeg' crossOrigin="anonymous" />
-                <link rel="prefetch" href="/pages/rain-drops-no-bg.gif" as="image" type="image/gif" crossOrigin="anonymous" />
+                <link rel="prefetch" href="/pages/raindrop-no-bg.gif" as="image" type="image/gif" crossOrigin="anonymous" />
             </Helmet>
             <BlankPage bg='plain-space.gif'>
                 {div}
