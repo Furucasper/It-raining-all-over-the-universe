@@ -49,7 +49,7 @@ const InputOnMoon: FC<Prop> = ({ children, path }) => {
                     <b>&gt; ต่อไป &lt;</b>
                 </div>
             </div>
-            <img className={'pointer-events-none' + (isNextPage ? ' zoom-out-90' : ' zoom-in-150')} src='/images/moon.png' alt='moon' />
+            <img className={'pointer-events-none' + (isNextPage ? ' zoom-out-85' : ' zoom-in-150')} src='/images/moon.png' alt='moon' />
         </BlankPage>
     )
 };

@@ -10,7 +10,7 @@ const ToTheMoon: FC<Props> = ({ path }) => {
     return (
         <Curtain path={ path || '/moon'} isClosing={false}>
             <BlankPage bg='plain-space.gif'>
-                <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon'/>
+                <img className='pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon'/>
             </BlankPage>
         </Curtain>
     )

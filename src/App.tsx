@@ -24,6 +24,11 @@ import LostConsciousness from './pages/lostconsciousness';
 import ThinkOfOthers from './pages/thinkofothers';
 import ItsDarkAgain from './pages/itsdarkagain';
 import BeTheSame from './pages/bethesame';
+import GlowingMoon from './pages/glowingmoon';
+import GlowingMoonFadeOut from './pages/glowingmoonfadeout';
+import Abstract from './pages/abstract';
+import RaindropOnHand from './pages/raindroponhand';
+import RainOnMoon from './pages/rainonmoon';
 
 function App() {
 
@@ -185,7 +190,7 @@ function App() {
           <Nav path='/exploreyourself'>
             <div className='bg-white'>
               <BlankPage onBlack={false} fadeInScene>
-                <p className='text-lg'>คุณรู้จักตัวเองในแบบนี้นี่เอง</p>
+                <p className='text-lg'>เยี่บมเลย! คุณรู้จักตัวเองในแบบนี้นี่เอง</p>
               </BlankPage>
             </div>
           </Nav>
@@ -222,13 +227,16 @@ function App() {
             <BlankPage bg='plain-space.gif'>
               <img className='zoom-in-250 pointer-events-none' src='/images/moon.png' alt='gaia-star' />
               <div className='[&>p]:text-lg/loose overlay'>
-                <p className='text-black ani-delay-2s fade-in'>พื้นดินที่แตกระแหงทำให้คุณคาดเดาได้<br />ว่าที่นี่คงไม่มีฝนตกมานานมากแล้ว </p>
+                <p className='text-black ani-delay-2s fade-in'>
+                  ด้วยลักษณะของพื้นผิวดวงดาวทำให้คุณ<br/>
+                  คาดเดาได้ว่าที่นี่คงไม่มีฝนตกมานานมากแล้ว
+                </p>
               </div>
             </BlankPage>
           </Nav>
         } />
         <Route path='/gaia-land-next' element={
-          <Nav path='/your-star' delay={1500} changeSecondSound={() => changeSecondSound('')}>
+          <Nav path='/find-your-star' delay={1500} changeSecondSound={() => changeSecondSound('')}>
             <BlankPage bg='plain-space.gif' fadeoutOnClicked>
               <img className='zoom-out-150 pointer-events-none' src='/images/moon.png' alt='gaia-star' />
               <div className='[&>p]:text-lg/loose overlay fade-in'>
@@ -237,11 +245,25 @@ function App() {
             </BlankPage>
           </Nav>
         } />
-        <Route path='/your-star' element={
-          <Nav path='/gradually-darken'>
-            <BlankPage bg='plain-space.gif' key={'your-star'}>
+        <Route path='/find-your-star' element={
+          <Nav path='/let-start'>
+            <BlankPage bg='plain-space.gif' key={'find-your-star'}>
               <div className='fade-in'>
-                <p className='text-white text-lg'>แล้วดาวของคุณอยู่ที่ไหนล่ะ? <br />เราไปตามหามันพร้อม ๆ กันเถอะ</p>
+                <p className='text-white text-lg'>
+                  เป้าหมายของคุณใน<br />
+                  จักรวาล <b>Via lactea</b> แห่งนี้คือ<br />
+                  <b>การค้นหาดวงดาว<br />
+                    ที่เป็นดาวประจำตัวของคุณ</b>
+                </p>
+              </div>
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/let-start' element={
+          <Nav path='/gradually-darken'>
+            <BlankPage bg='plain-space.gif' key={'let-start'}>
+              <div className='fade-in'>
+                <p className='text-white text-lg'>เอาล่ะ เรามาเริ่มสำรวจไปพร้อม ๆ กันเถอะ!</p>
               </div>
             </BlankPage>
           </Nav>
@@ -265,20 +287,20 @@ function App() {
         <Route path='/moon' element={
           <Nav path='/is-this-your-star'>
             <BlankPage bg='plain-space.gif'>
-              <div className='[&>p]:text-xl/loose fade-in overlay top-[15%]'>
+              <div className='[&>p]:text-xl/relaxed fade-in overlay top-[15%]'>
                 <p>คุณเดินทางมาถึงดวงจันทร์ดวงหนึ่ง</p>
               </div>
-              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+              <img className='pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon' />
             </BlankPage>
           </Nav>
         } />
         <Route path='/is-this-your-star' element={
           <Nav path='/find-the-answer'>
             <BlankPage bg='plain-space.gif'>
-              <div className='[&>p]:text-xl/loose overlay top-[12%]'>
+              <div className='[&>p]:text-xl/relaxed overlay top-[12%]'>
                 <p className='fade-in'>ดาวดวงนี้จะใช่ดาวของคุณ<br />หรือเปล่านะ?</p>
               </div>
-              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+              <img className='pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon' />
             </BlankPage>
           </Nav>
         } />
@@ -288,9 +310,9 @@ function App() {
               <div className='[&>p]:text-lg/relaxed overlay top-[10%] ani-delay-500ms fade-in'>
                 <p className=''>มาค้นหาคำตอบ<br />
                   ด้วยการ<b>สำรวจตนเองและอธิบาย<br />
-                    ความเป็นตัวตน</b>ให้ได้มากที่สุดกันเถอะ</p>
+                    ความเป็นตัวตน</b>ให้ได้มากที่สุดกันเถอะ!</p>
               </div>
-              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+              <img className='pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon' />
             </BlankPage>
           </Nav>
         } />
@@ -305,8 +327,8 @@ function App() {
         <Route path='/others-define-you' element={
           <SixteenChoices path='/be-the-same' localStorageKey='others-define-you' playBtnClickSFX={playBtnClickSFX} key={2}>
             <p className='text-lg fade-in fade-in ani-duration-500ms'>
-              แล้ว<b>คนอื่นมักนิยามตัวตนของคุณ</b>ด้วย<br />
-              คำไหนบ้าง? สามารถตอบมากกว่า 1 ข้อ<br />
+              แล้ว<b>คนอื่นมักนิยามตัวตนของคุณ</b><br />
+              ด้วยคำไหนบ้าง? สามารถตอบมากกว่า 1 ข้อ<br />
               ได้เหมือนเดิมเลย
             </p>
           </SixteenChoices>
@@ -315,22 +337,22 @@ function App() {
         <Route path='/you-and-others' element={
           <Nav path='/your-pride'>
             <BlankPage bg='plain-space.gif'>
-              <div className='[&>p]:text-lg/loose overlay top-[14%]'>
+              <div className='[&>p]:text-lg/loose overlay top-[10%]'>
                 <p className='fade-in'>
-                  แบบนี้นี่เอง สิ่งเหล่านั้นคือด้านที่ทั้งคุณและ<br />
-                  คนรอบข้างเห็นตรงกันสินะ
+                  เห็นคำพวกนั้นไหม?<br />
+                  นั่นคือ<b>ด้านที่ทั้งคุณและ<br />
+                    คนรอบข้างเห็นตรงกัน</b>นะ
                 </p>
               </div>
-              <img className='pointer-events-none scale-90 fade-in' src='/images/moon.png' alt='moon' />
+              <img className='pointer-events-none scale-[0.85] fade-in' src='/images/moon.png' alt='moon' />
             </BlankPage>
           </Nav>
         } />
         <Route path='/your-pride' element={
           <InputOnMoon path='/its-really-good'>
             <p className='text-lg'>
-              นอกจากคำเหล่านั้นแล้ว<br />
-              ยังมีคำไหนอีกบ้างที่เป็นตัวคุณ?<br />
-              แล้วภูมิใจเรื่องไหนมากที่สุดเหรอ?
+              แล้วคุณภูมิใจกับความเป็นตัวเอง<br />
+              ด้านไหนมากที่สุดบ้างเหรอ?
             </p>
           </InputOnMoon>
         } />
@@ -342,7 +364,7 @@ function App() {
                   เป็นเรื่องที่ดีจริง ๆ
                 </p>
               </div>
-              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+              <img className='pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon' />
             </BlankPage>
           </Nav>
         } />
@@ -361,13 +383,13 @@ function App() {
         <Route path='/another-moon' element={
           <Nav path='/or-this-star'>
             <BlankPage bg='plain-space.gif'>
-              <div className='[&>p]:text-xl/loose overlay'>
+              <div className='[&>p]:text-lg/relaxed overlay'>
                 <p className='fade-in text-black'>
                   คุณเดินทางมาถึงดวงจันทร์<br />
                   อีกดวงหนึ่ง
                 </p>
               </div>
-              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+              <img className='pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon' />
             </BlankPage>
           </Nav>
         } />
@@ -379,21 +401,21 @@ function App() {
                   หรือว่าดาวของคุณจะเป็นดวงนี้กันนะ?
                 </p>
               </div>
-              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+              <img className='pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon' />
             </BlankPage>
           </Nav>
         } />
         <Route path='/find-the-answer-again' element={
           <Nav path='/think-of-others' delay={1000}>
             <BlankPage bg='plain-space.gif' fadeoutOnClicked>
-              <div className='[&>p]:text-lg/relaxed overlay top-[10%]'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[12%]'>
                 <p className='ani-delay-500ms fade-in'>
                   มาค้นหาคำตอบอีกครั้ง<br />
                   ด้วยการค้นหาตัวตน<br />
-                  <b>ที่คุณไม่เคยรู้มาก่อนกันเถอะ</b>
+                  <b>ที่คุณไม่เคยรู้มาก่อนกันเถอะ!</b>
                 </p>
               </div>
-              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+              <img className='pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon' />
             </BlankPage>
           </Nav>
         } />
@@ -409,28 +431,28 @@ function App() {
         <Route path='/maybe-maybe-not' element={
           <Nav path='/never-before'>
             <BlankPage bg='plain-space.gif'>
-              <div className='[&>p]:text-lg/loose overlay top-[10%]'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[12%]'>
                 <p className='ani-delay-500ms fade-in'>
                   คุณอาจเป็นหรือไม่เป็นแบบนั้นก็ได้<br />
                   เราทุกคนมักมีด้านที่ตัวเองไม่เคยรู้<br />
                   แต่คนรอบข้างมักจะรับรู้อยู่เสมอ
                 </p>
               </div>
-              <img className='pointer-events-none scale-90 fade-in' src='/images/moon.png' alt='moon' />
+              <img className='pointer-events-none scale-[0.85] fade-in' src='/images/moon.png' alt='moon' />
             </BlankPage>
           </Nav>
         } />
         <Route path='/never-before' element={
           <Nav path='/its-dark-again'>
             <BlankPage bg='plain-space.gif'>
-              <div className='[&>p]:text-lg/loose overlay top-[10%] fade-in'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[12%] fade-in'>
                 <p className='ani-delay-500ms'>
                   ทีนี้ลองคิดถึงตัวตน<br />
                   ที่คนรอบข้างบอกอีกครั้งดูสิ<br />
                   คุณไม่เคยเป็นแบบนั้นจริง ๆ เลยหรือเปล่า?<br />
                 </p>
               </div>
-              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+              <img className='pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon' />
             </BlankPage>
           </Nav>
         } />
@@ -454,7 +476,7 @@ function App() {
                   คุณตื่นขึ้นบนดวงจันทร์อีกดวงหนึ่ง
                 </p>
               </div>
-              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+              <img className='pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon' />
             </BlankPage>
           </Nav>
         } />
@@ -467,7 +489,7 @@ function App() {
                   ตอนนี้คุณเดินทางมาเกินกว่าครึ่งแล้ว
                 </p>
               </div>
-              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+              <img className='pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon' />
             </BlankPage>
           </Nav>
         } />
@@ -481,20 +503,20 @@ function App() {
                   ตัวตนเหล่านั้นต้องมีค่ากับคุณมาก ๆ แน่เลย
                 </p>
               </div>
-              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+              <img className='pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon' />
             </BlankPage>
           </Nav>
         } />
         <Route path='/never-told' element={
           <Nav path='/never-told-story'>
             <BlankPage bg='plain-space.gif'>
-              <div className='[&>p]:text-lg/relaxed overlay top-[14%] ani-delay-500ms fade-in'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[15%] ani-delay-500ms fade-in'>
                 <p>
                   งั้นคราวนี้เราลองมาสำรวจตัวตนที่คุณ<br />
                   <b>ไม่เคยบอกใคร</b>มาก่อนกันดีไหม?
                 </p>
               </div>
-              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+              <img className='pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon' />
             </BlankPage>
           </Nav>
         } />
@@ -514,21 +536,152 @@ function App() {
                   ขอบคุณที่เล่าให้ฟังนะ
                 </p>
               </div>
-              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+              <img className='pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon' />
             </BlankPage>
           </Nav>
         } />
         <Route path='/same-side' element={
-          <Nav path='/'>
+          <Nav path='/glowing-moon' changeSecondSound={() => changeSecondSound('')} changeSFX={() => changeSFX('/sounds/shining-planet.mp3')}>
             <BlankPage bg='plain-space.gif'>
-              <div className='[&>p]:text-lg/relaxed overlay top-[10%]'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[8%]'>
                 <p className='ani-delay-500ms fade-in'>
                   เราเข้าใจว่าแต่ละคน<br />
                   ล้วนมีสิ่งที่ไม่เคยบอกใคร<br />
-                  แต่สิ่งเหล่านั้นก็เป็นตัวตน<br />อีกด้านหนึ่งของเราเหมือนกันนะ
+                  แต่สิ่งเหล่านั้นก็เป็นตัวตน<br />
+                  อีกด้านหนึ่งของเราเหมือนกันนะ
                 </p>
               </div>
-              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+              <img className='pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/glowing-moon' element={<GlowingMoon />} />
+        <Route path='/new-star' element={
+          <Nav path='/undiscovered' changeSecondSound={() => changeSecondSound('/sounds/star-ambience.mp3')} changeSFX={() => changeSFX('')}>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[14%]'>
+                <p className='ani-delay-500ms fade-in'>
+                  คุณสัมผัสได้ว่าดาวดวงนี้มีความพิเศษ<br />
+                  ที่ไม่เหมือนดาวดวงอื่น
+                </p>
+              </div>
+              <img className='pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/undiscovered' element={
+          <Nav path='/abstract'>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[14%] ani-delay-500ms fade-in'>
+                <p>
+                  คราวนี้ เราไปสำรวจ<b>สิ่งที่คนอื่นหรือแม้แต่<br />
+                  คุณเองก็ยังไม่เคยค้นพบมาก่อน</b>กันดีกว่า
+                </p>
+              </div>
+              <img className='pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/abstract' element={<Abstract />} />
+        <Route path='/reflect-something' element={
+          <Nav path='/raindrop-on-hand' changeSFX={() => changeSFX('/sounds/raindrop.mp3')}>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[14%]'>
+                <p className='ani-delay-500ms fade-in'>
+                  อย่างนี้นี่เอง... สิ่งที่คุณเห็นและตีความได้ <br />
+                  อาจจะสะท้อนตัวตนบางอย่างของคุณอยู่ก็ได้นะ
+                </p>
+              </div>
+              <img className='pointer-events-none scale-[0.85] fade-in' src='/images/moon.png' alt='moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/raindrop-on-hand' element={<RaindropOnHand />} />
+        <Route path='/rain-on-moon' element={<RainOnMoon changeSecondSound={() => changeSecondSound('/sounds/star-ambience-with-rain.mp3')}/>} />
+        <Route path='/recall' element={
+          <Nav path='/your-planet'>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[16%] ani-delay-500ms fade-in'>
+                <p>
+                  เสี้ยววินาทีที่ความสับสนเข้ามาเยือน<br />
+                  คุณก็ระลึกได้ว่า...
+                </p>
+              </div>
+              <img className='pointer-events-none scale-[0.75]' src='/pages/rain-on-moon-no-bg.gif' alt='rain-on-moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/your-planet' element={
+          <Nav path='/your-rain'>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[8%]'>
+                <p className='ani-delay-500ms fade-in'>
+                  ดาวที่มีฝนตกดวงนี้ก็คือตัวตนของคุณเอง
+                </p>
+                <p className='ani-delay-3s fade-in py-4'>
+                  ...
+                </p>
+                <p className='ani-delay-5s fade-in'>
+                  ยินดีด้วยนะ!<br />
+                  คุณค้นพบ<b>ดาวประจำตัว</b>ของคุณแล้ว
+                </p>
+              </div>
+              <img className='pointer-events-none scale-[0.75]' src='/pages/rain-on-moon-no-bg.gif' alt='rain-on-moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/your-rain' element={
+          <Nav path='/know-better'>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[12%] ani-delay-500ms fade-in'>
+                <p>
+                  ฝนแต่ละหยดก็เหมือนกับตัวตนในแต่ละด้าน<br />
+                  ยิ่งฝนตกลงมามากแค่ไหน<br />
+                  คุณก็จะได้รู้จักตนเองมากขึ้นเท่านั้น
+                </p>
+              </div>
+              <img className='pointer-events-none scale-[0.75]' src='/pages/rain-on-moon-no-bg.gif' alt='rain-on-moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/know-better' element={
+          <Nav path='/no-one-discover'>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[14%]'>
+                <p className='ani-delay-500ms fade-in'>
+                  ตอนนี้คุณได้เรียนรู้และ<br />
+                  รู้จักตนเองมากขึ้นอีกนิดหน่อยแล้ว
+                </p>
+              </div>
+              <img className='pointer-events-none scale-[0.75]' src='/pages/rain-on-moon-no-bg.gif' alt='rain-on-moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/no-one-discover' element={
+          <Nav path='/make-it-rain'>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[12%] ani-delay-500ms fade-in'>
+                <p>
+                  แม้ดูเหมือนจะเป็นไปไม่ได้<br />
+                  แต่ในจักรวาลก็ยังมีฝน เหมือนกับตัวตนของคุณ<br />
+                  ที่มีด้านอีกมากมายให้ค้นหา<br />
+                  ด้านที่แม้แต่ตัวคุณ และใครก็ไม่เคยค้นพบ
+                </p>
+              </div>
+              <img className='pointer-events-none scale-[0.75]' src='/pages/rain-on-moon-no-bg.gif' alt='rain-on-moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/make-it-rain' element={
+          <Nav path='/'>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[18%]'>
+                <p className='ani-delay-500ms fade-in'>
+                  มาร่วมส่งต่อการมีฝนตกในจักรวาลไปด้วยกัน<br />
+                  <b>#makeitrainproject</b>
+                </p>
+              </div>
+              <img className='pointer-events-none scale-[0.75]' src='/pages/rain-on-moon-no-bg.gif' alt='rain-on-moon' />
             </BlankPage>
           </Nav>
         } />

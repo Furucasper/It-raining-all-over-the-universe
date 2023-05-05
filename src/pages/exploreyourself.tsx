@@ -6,22 +6,21 @@ import { Helmet } from 'react-helmet'
 const ExploreYourself = () => {
 
     const firstDiv = (
-        <div className='[&>p]:text-lg/loose fade-out ani-delay-10s'>
-            <p className='fade-in'>งั้นเราลองมาสำรวจตัวเองเพิ่มเติม</p>
-            <p className='fade-in ani-delay-3s'>กันดีกว่า...</p>
-            <p className='fade-in ani-delay-6s'>แต่มันต้องพึ่งจินตนาการนิดหน่อยนะ</p>
+        <div className='[&>p]:text-lg/loose fade-out ani-delay-8s'>
+            <p className='fade-in'>งั้นเราลองมาสำรวจตัวเองเพิ่มเติมกันดีกว่า...</p>
+            <p className='fade-in ani-delay-4s'>แต่มันต้องพึ่งจินตนาการนิดหน่อยนะ</p>
         </div>
     )
 
     const secondDiv = (
-        <div className='[&>p]:text-lg/loose fade-out ani-delay-16s'>
-            <p className='fade-in ani-delay-12s'>เราอยากให้คุณลองจินตนาการดู</p>
+        <div className='[&>p]:text-lg/loose fade-out ani-delay-15s'>
+            <p className='fade-in ani-delay-9s'>ตอนนี้คุณกำลังถูกดึงเข้าสู่ห้วงมิติบางอย่าง...</p>
         </div>
     )
 
     const thirdDiv = (
         <div className='[&>p]:text-lg/loose'>
-            <p className='fade-in ani-delay-17s'>จินตนาการว่า...</p>
+            <p className='fade-in ani-delay-16s'>ภาพตรงหน้าของคุณค่อย ๆ มืดดับลงเรื่อย ๆ</p>
         </div>
     )
     
@@ -32,8 +31,8 @@ const ExploreYourself = () => {
             setDiv(secondDiv)
             setTimeout(() => {
                 setDiv(thirdDiv)
-            }, 6000)
-        }, 11500)
+            }, 7000)
+        }, 9000)
     }, [])
 
     return (

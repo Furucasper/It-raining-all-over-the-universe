@@ -41,11 +41,11 @@ const LostConsciousness: FC<Props> = ({ allPlayerFadeOut }) => {
             <Helmet>
                 <link rel='prefetch' href='/sounds/raindrop.mp3' as='audio' type='audio/mpeg' crossOrigin="anonymous" />
                 <link rel="prefetch" href="/pages/raindrop-no-bg.gif" as="image" type="image/gif" crossOrigin="anonymous" />
-            </Helmet>
+          </Helmet>
             <div className='blur-out ani-delay-11s'>
                 <BlankPage bg='plain-space.gif'>
                     {div}
-                    <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+                    <img className='pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon' />
                 </BlankPage>
             </div>
         </Curtain>

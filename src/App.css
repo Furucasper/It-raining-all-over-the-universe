@@ -54,7 +54,7 @@
 
 .overlay {
     position: absolute;
-    z-index: 1;
+    z-index: 10;
 }
 
 .curtain-closing, .curtain-opening {
@@ -97,8 +97,19 @@
 }
 
 @keyframes zoomIn150 {
-    0% { transform: scale(0.9); }
+    0% { transform: scale(0.85); }
     100% { transform: scale(1.5); }
+}
+
+.zoom-in-225 {
+    animation: zoomIn225 ease-in-out 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes zoomIn225 {
+    0% { transform: scale(0.85); }
+    100% { transform: scale(2.25); }
 }
 
 .zoom-in-250 {
@@ -112,15 +123,26 @@
     100% { transform: scale(2.5); }
 }
 
-.zoom-out-90 {
-    animation: zoomOut90 ease-in-out 2s;
+.zoom-out-85 {
+    animation: zoomOut85 ease-in-out 2s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
 
-@keyframes zoomOut90 {
+@keyframes zoomOut85 {
     0% { transform: scale(1.5); }
-    100% { transform: scale(0.9); }
+    100% { transform: scale(0.85); }
+}
+
+.zoom-out-63 {
+    animation: zoomOut63 ease-in-out 4s, fadeOutAnimation ease-in-out 1s 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes zoomOut63 {
+    0% { transform: scale(2.25); }
+    100% { transform: scale(0.63); }
 }
 
 .zoom-out-150 {
@@ -201,6 +223,10 @@
     animation-delay: 8s;
 }
 
+.ani-delay-9s {
+    animation-delay: 9s;
+}
+
 .ani-delay-10s {
     animation-delay: 10s;
 }
@@ -219,6 +245,10 @@
 
 .ani-delay-14s {
     animation-delay: 14s;
+}
+
+.ani-delay-15s {
+    animation-delay: 15s;
 }
 
 .ani-delay-16s {

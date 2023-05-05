@@ -1,6 +1,7 @@
 import { FC, RefObject, useEffect, useState } from 'react'
 import Curtain from './curtain'
 import BlankPage from './blankpage'
+import { Helmet } from 'react-helmet';
 
 interface Props {
     allPlayerFadeOut: (time: number, delay?: number) => void;
@@ -16,7 +17,7 @@ const GraduallyDarken: FC<Props> = ({ allPlayerFadeOut }) => {
 
     const secondDiv = (
         <div className='[&>p]:text-lg/loose fade-out ani-delay-12s'>
-            <p className='text-xl fade-in ani-delay-6s'>บรรยากาศรอบตัวของคุณ<br />ค่อย ๆ มืดลง</p>
+            <p className='text-xl fade-in ani-delay-6s'>อยู่ ๆ บรรยากาศรอบตัว<br />ของคุณก็ค่อย ๆ มืดลง</p>
         </div>
     )
 
