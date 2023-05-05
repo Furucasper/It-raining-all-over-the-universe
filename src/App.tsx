@@ -416,7 +416,7 @@ function App() {
                   แต่คนรอบข้างมักจะรับรู้อยู่เสมอ
                 </p>
               </div>
-              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+              <img className='pointer-events-none scale-90 fade-in' src='/images/moon.png' alt='moon' />
             </BlankPage>
           </Nav>
         } />

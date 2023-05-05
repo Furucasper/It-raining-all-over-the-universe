@@ -57,18 +57,22 @@
     z-index: 1;
 }
 
-.curtain-closing.fromstart {
-    height: 0%;
-    animation: curtainFromstart linear 22.5s 500ms;
+.curtain-closing, .curtain-opening {
+    animation-timing-function: linear;
+    animation-delay: 500ms;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
 
+.curtain-closing.fromstart {
+    height: 0%;
+    animation-name: curtainFromstart;
+    
+}
+
 .curtain-opening.fromend {
     height: 50%;
-    animation: curtainFromend linear 9.5s 500ms;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+    animation-name: curtainFromend;
 }
 
 @keyframes curtainFromstart {
@@ -129,6 +133,17 @@
     100% { transform: scale(1.5); }
 }
 
+.blur-out {
+    animation: blurOut ease-in-out 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes blurOut {
+    0% { filter: blur(0px); }
+    100% { filter: blur(4px); }
+}
+
 .ani-duration-500ms {
     animation-duration: 500ms;
 }
@@ -139,6 +154,14 @@
 
 .ani-duration-2s {
     animation-duration: 2s;
+}
+
+.ani-duration-15s {
+    animation-duration: 15s;
+}
+
+.ani-duration22dot5s {
+    animation-duration: 22.5s;
 }
 
 .ani-delay-500ms {
@@ -164,8 +187,13 @@
 .ani-delay-5s {
     animation-delay: 5s;
 }
+
 .ani-delay-6s {
     animation-delay: 6s;
+}
+
+.ani-delay-7s {
+    animation-delay: 7s;
 }
 
 .ani-delay-8s {
@@ -178,6 +206,14 @@
 
 .ani-delay-12s {
     animation-delay: 12s;
+}
+
+.ani-delay-11s {
+    animation-delay: 11s;
+}
+
+.ani-delay-13s {
+    animation-delay: 13s;
 }
 
 .ani-delay-14s {

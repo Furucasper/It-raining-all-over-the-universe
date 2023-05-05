@@ -7,9 +7,10 @@ interface Props {
     delay?: number
     bgColor?: 'black' | 'white' | ''
     isClosing?: boolean
+    isFast?: boolean
 };
 
-const Curtain: FC<Props> = ({ children, path, bgColor = '', isClosing = true }) => {
+const Curtain: FC<Props> = ({ children, path, bgColor = '', isClosing = true, isFast }) => {
 
     const navigate = useNavigate()
 
@@ -17,7 +18,7 @@ const Curtain: FC<Props> = ({ children, path, bgColor = '', isClosing = true }) 
         if (isClosing) {
             setTimeout(() => {
                 navigate(path)
-            }, 23500)
+            }, (isFast ? 15500 : 23500))
         } else {
             setTimeout(() => {
                 navigate(path)
@@ -28,8 +29,8 @@ const Curtain: FC<Props> = ({ children, path, bgColor = '', isClosing = true }) 
 
     return (
         <div className="flex justify-center font-season h-full">
-            <div className={"bg-black w-full absolute top-0 left-0 overlay" + (isClosing ? " curtain-closing fromstart" : "  curtain-opening fromend")}></div>
-            <div className={"bg-black w-full absolute bottom-0 left-0 overlay" + (isClosing ? " curtain-closing fromstart" : "  curtain-opening fromend")}></div>
+            <div className={"bg-black w-full absolute top-0 left-0 overlay" + (isClosing ? " curtain-closing fromstart" : "  curtain-opening fromend") + (isFast ? " ani-duration-15s" : " ani-duration22dot5s")}></div>
+            <div className={"bg-black w-full absolute bottom-0 left-0 overlay" + (isClosing ? " curtain-closing fromstart" : "  curtain-opening fromend") + (isFast ? " ani-duration-15s" : " ani-duration22dot5s")}></div>
             {children}
         </div>
     );

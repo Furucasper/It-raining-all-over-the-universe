@@ -10,7 +10,7 @@ interface Props {
 const LostConsciousness: FC<Props> = ({ allPlayerFadeOut }) => {
 
     const firstDiv = (
-        <div className='[&>p]:text-lg/loose fade-out ani-delay-8s fade-out overlay'>
+        <div className='[&>p]:text-lg/loose fade-out ani-delay-6s fade-out overlay'>
             <p className='fade-in text-black'>
                 แต่ดาวดวงนี้จะใช่ดาวของคุณ<br />
                 จริง ๆ หรือเปล่านะ?
@@ -20,7 +20,7 @@ const LostConsciousness: FC<Props> = ({ allPlayerFadeOut }) => {
 
     const secondDiv = (
         <div className='[&>p]:text-lg/loose overlay'>
-            <p className='text-xl fade-in ani-delay-10s text-black'>
+            <p className='text-xl fade-in ani-delay-7s text-black'>
                 ขณะนั้นเอง สติของคุณก็ค่อย ๆ<br />
                 หลุดลอยไปอีกครั้ง
             </p>
@@ -32,20 +32,22 @@ const LostConsciousness: FC<Props> = ({ allPlayerFadeOut }) => {
     useEffect(() => {
         setTimeout(() => {
             setDiv(secondDiv)
-        }, 9000)
-        allPlayerFadeOut(18000, 5000)
+        }, 7000)
+        allPlayerFadeOut(8000, 6000)
     }, [])
 
     return (
-        <Curtain path='/darkness2'>
+        <Curtain path='/darkness2' isFast>
             <Helmet>
                 <link rel='prefetch' href='/sounds/raindrop.mp3' as='audio' type='audio/mpeg' crossOrigin="anonymous" />
                 <link rel="prefetch" href="/pages/raindrop-no-bg.gif" as="image" type="image/gif" crossOrigin="anonymous" />
             </Helmet>
-            <BlankPage bg='plain-space.gif'>
-                {div}
-                <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
-            </BlankPage>
+            <div className='blur-out ani-delay-11s'>
+                <BlankPage bg='plain-space.gif'>
+                    {div}
+                    <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+                </BlankPage>
+            </div>
         </Curtain>
     )
 }
