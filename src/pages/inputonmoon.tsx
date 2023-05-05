@@ -2,41 +2,42 @@ import { FC, useEffect, useRef, useState } from 'react';
 import BlankPage from './blankpage';
 import { useNavigate } from 'react-router-dom';
 
-const YourPride: FC = () => {
-    
-    const inputRef = useRef<HTMLInputElement>(null);
-    const navigate = useNavigate();
-    const [isNextPage, setIsNextPage] = useState(false);
-    
+interface Prop {
+    children?: string | JSX.Element | JSX.Element[]
+    path: string
+}
+
+const InputOnMoon: FC<Prop> = ({ children, path }) => {
+
+    const inputRef = useRef<HTMLInputElement>(null)
+    const navigate = useNavigate()
+    const [isNextPage, setIsNextPage] = useState(false)
+
     const nextPage = () => {
         if (inputRef.current?.value) {
-            setIsNextPage(true);
+            setIsNextPage(true)
             setTimeout(() => {
-                navigate("/its-really-good");
-            }, 2500);
+                navigate(path)
+            }, 2500)
         } else {
-          alert("กรุณาตอบคำถาม")
-          inputRef.current?.focus()
+            alert("กรุณาตอบคำถาม")
+            inputRef.current?.focus()
         }
-      };
-    
-      useEffect(() => {
+    };
+
+    useEffect(() => {
         inputRef.current?.addEventListener("keypress", (e) => {
-          if (e.key === "Enter") {
-            e.preventDefault();
-            nextPage();
-          }
+            if (e.key === "Enter") {
+                e.preventDefault()
+                nextPage()
+            }
         });
-      }, []);
-      
+    }, []);
+
     return (
         <BlankPage bg='plain-space.gif'>
             <div className={'[&>p]:text-lg/loose text-black overlay m-auto pb-48' + (isNextPage ? ' fade-out' : ' fade-in ani-delay-2s')}>
-                <p className='text-lg'>
-                    นอกจากคำเหล่านั้นแล้ว<br />
-                    ยังมีคำไหนอีกบ้างที่เป็นตัวคุณ?<br />
-                    แล้วภูมิใจเรื่องไหนมากที่สุดเหรอ?
-                </p>
+                {children}
                 <input
                     name="howyoufeel"
                     type="text"
@@ -53,4 +54,4 @@ const YourPride: FC = () => {
     )
 };
 
-export default YourPride;
+export default InputOnMoon;

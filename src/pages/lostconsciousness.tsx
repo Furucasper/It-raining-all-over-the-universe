@@ -4,7 +4,7 @@ import BlankPage from "./blankpage";
 import { Helmet } from "react-helmet";
 
 interface Props {
-    allPlayerFadeOut: (time: number) => void;
+    allPlayerFadeOut: (time: number, delay?: number) => void;
 }
 
 const LostConsciousness: FC<Props> = ({ allPlayerFadeOut }) => {
@@ -33,7 +33,7 @@ const LostConsciousness: FC<Props> = ({ allPlayerFadeOut }) => {
         setTimeout(() => {
             setDiv(secondDiv)
         }, 9000)
-        allPlayerFadeOut(30000)
+        allPlayerFadeOut(18000, 5000)
     }, [])
 
     return (

@@ -3,7 +3,7 @@ import Curtain from './curtain'
 import BlankPage from './blankpage'
 
 interface Props {
-    allPlayerFadeOut: (time: number) => void;
+    allPlayerFadeOut: (time: number, delay?: number) => void;
   }
 
 const GraduallyDarken: FC<Props> = ({ allPlayerFadeOut }) => {
@@ -35,7 +35,7 @@ const GraduallyDarken: FC<Props> = ({ allPlayerFadeOut }) => {
                 setDiv(thirdDiv)
             }, 8000)
         }, 5000)
-        allPlayerFadeOut(30000)   
+        allPlayerFadeOut(18000, 5000)   
     }, [])
 
     return (

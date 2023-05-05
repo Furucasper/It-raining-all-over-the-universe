@@ -19,7 +19,7 @@ import ExploreYourself from './pages/exploreyourself';
 import GraduallyDarken from './pages/graduallydarken';
 import ToTheMoon from './pages/tothemoon';
 import SixteenChoices from './pages/sixteenchoices';
-import YourPride from './pages/your-pride';
+import InputOnMoon from './pages/inputonmoon';
 import LostConsciousness from './pages/lostconsciousness';
 import ThinkOfOthers from './pages/thinkofothers';
 import ItsDarkAgain from './pages/itsdarkagain';
@@ -82,7 +82,7 @@ function App() {
     }
   }
 
-  const volumeFadeOut = (player: RefObject<HTMLAudioElement>, time: number) => {
+  const volumeFadeOut = (player: RefObject<HTMLAudioElement>, time: number, delay: number = 0) => {
     if (player.current) {
       const volume = player.current.volume;
       const fadeOut = setInterval(() => {
@@ -95,21 +95,21 @@ function App() {
     }
   }
 
-  const soundPlayerFadeOut = (time: number) => {
+  const soundPlayerFadeOut = (time: number, delay?: number) => {
     volumeFadeOut(soundPlayer, time)
   }
-  const secondSoundPlayerFadeOut = (time: number) => {
+  const secondSoundPlayerFadeOut = (time: number, delay?: number) => {
     volumeFadeOut(secondSoundPlayer, time)
   }
-  const sfxPlayerFadeOut = (time: number) => {
+  const sfxPlayerFadeOut = (time: number, delay?: number) => {
     volumeFadeOut(sfxPlayer, time)
   }
 
-  const allPlayerFadeOut = (time: number) => {
-    console.log('allPlayerFadeOut', time)
-    volumeFadeOut(soundPlayer, time)
-    volumeFadeOut(secondSoundPlayer, time)
-    volumeFadeOut(sfxPlayer, time)
+  const allPlayerFadeOut = (time: number, delay?: number) => {
+    console.log('allPlayerFadeOut', time, delay)
+    volumeFadeOut(soundPlayer, time, delay)
+    volumeFadeOut(secondSoundPlayer, time, delay)
+    volumeFadeOut(sfxPlayer, time, delay)
   }
 
   useEffect(() => {
@@ -325,7 +325,15 @@ function App() {
             </BlankPage>
           </Nav>
         } />
-        <Route path='/your-pride' element={<YourPride />} />
+        <Route path='/your-pride' element={
+          <InputOnMoon path='/its-really-good'>
+            <p className='text-lg'>
+              นอกจากคำเหล่านั้นแล้ว<br />
+              ยังมีคำไหนอีกบ้างที่เป็นตัวคุณ?<br />
+              แล้วภูมิใจเรื่องไหนมากที่สุดเหรอ?
+            </p>
+          </InputOnMoon>
+        } />
         <Route path='/its-really-good' element={
           <Nav path='/lost-consciousness'>
             <BlankPage bg='plain-space.gif'>
@@ -478,12 +486,46 @@ function App() {
           </Nav>
         } />
         <Route path='/never-told' element={
-          <Nav path='/'>
+          <Nav path='/never-told-story'>
             <BlankPage bg='plain-space.gif'>
               <div className='[&>p]:text-lg/relaxed overlay top-[14%] ani-delay-500ms fade-in'>
                 <p>
-                  งั้นคราวนี้เราลองมาสำรวจตัวตนที่คุณ<br/>
+                  งั้นคราวนี้เราลองมาสำรวจตัวตนที่คุณ<br />
                   <b>ไม่เคยบอกใคร</b>มาก่อนกันดีไหม?
+                </p>
+              </div>
+              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/never-told-story' element={
+          <InputOnMoon path='/thank-you'>
+            <p className='text-lg'>
+              จะเป็นตัวตนด้านไหนหรือเรื่องอะไร<br />
+              เลยก็ได้นะ เล่ามาได้เลย
+            </p>
+          </InputOnMoon>
+        } />
+        <Route path='/thank-you' element={
+          <Nav path='/same-side'>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-xl/relaxed overlay top-[16%] ani-delay-500ms fade-in'>
+                <p>
+                  ขอบคุณที่เล่าให้ฟังนะ
+                </p>
+              </div>
+              <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/same-side' element={
+          <Nav path='/'>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[10%]'>
+                <p className='ani-delay-500ms fade-in'>
+                  เราเข้าใจว่าแต่ละคน<br />
+                  ล้วนมีสิ่งที่ไม่เคยบอกใคร<br />
+                  แต่สิ่งเหล่านั้นก็เป็นตัวตน<br />อีกด้านหนึ่งของเราเหมือนกันนะ
                 </p>
               </div>
               <img className='pointer-events-none scale-90' src='/images/moon.png' alt='moon' />

@@ -3,13 +3,13 @@ import Curtain from './curtain';
 import BlankPage from './blankpage';
 
 interface Props {
-    allPlayerFadeOut: (time: number) => void;
+    allPlayerFadeOut: (time: number, delay?: number) => void;
 }
 
 const ItsDarkAgain: FC<Props> = ({ allPlayerFadeOut }) => {
 
     useEffect(() => {
-        allPlayerFadeOut(30000)
+        allPlayerFadeOut(18000, 5000)   
     }, [])
 
     return (
