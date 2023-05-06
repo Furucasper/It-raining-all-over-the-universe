@@ -7,10 +7,8 @@ import Welcome from './pages/welcome';
 import Policy from './pages/policy';
 import Name from './pages/name';
 import Intro from './pages/intro';
-import WelcomeName from './pages/welcomename';
-import AfterWN from './pages/afterwn';
-import Howyoufeel from './pages/howyoufeel';
-import Myself from './pages/myself';
+import HowAreYou from './pages/howareyou';
+import WhatHappened from './pages/whathappened';
 import TellAboutYourself from './pages/tellaboutyourself';
 import BlankPage from './pages/blankpage';
 import Beginning from './pages/beginning';
@@ -25,7 +23,6 @@ import ThinkOfOthers from './pages/thinkofothers';
 import ItsDarkAgain from './pages/itsdarkagain';
 import BeTheSame from './pages/bethesame';
 import GlowingMoon from './pages/glowingmoon';
-import GlowingMoonFadeOut from './pages/glowingmoonfadeout';
 import Abstract from './pages/abstract';
 import RaindropOnHand from './pages/raindroponhand';
 import RainOnMoon from './pages/rainonmoon';
@@ -42,27 +39,27 @@ function App() {
     setName(event.target.value)
   }
 
-  const changeSound = (src: string) => {
+  const changeSound = (src: string, volume: number = 1) => {
     if (soundPlayer.current) {
       soundPlayer.current.src = src;
       src && soundPlayer.current.load();
-      soundPlayer.current.volume = 0.8
+      soundPlayer.current.volume = volume
       src && soundPlayer.current.play();
     }
   }
-  const changeSecondSound = (src: string) => {
+  const changeSecondSound = (src: string, volume: number = 0.8) => {
     if (secondSoundPlayer.current) {
       secondSoundPlayer.current.src = src;
       src && secondSoundPlayer.current.load();
-      secondSoundPlayer.current.volume = 1
+      secondSoundPlayer.current.volume = volume
       src && secondSoundPlayer.current.play();
     }
   }
-  const changeSFX = (src: string) => {
+  const changeSFX = (src: string, volume: number = 0.9) => {
     if (sfxPlayer.current) {
       sfxPlayer.current.src = src;
       src && sfxPlayer.current.load();
-      sfxPlayer.current.volume = 0.9
+      sfxPlayer.current.volume = volume
       src && sfxPlayer.current.play();
     }
   }
@@ -119,11 +116,12 @@ function App() {
 
   useEffect(() => {
     if (soundPlayer.current) {
-      soundPlayer.current.volume = 0.8
+      soundPlayer.current.volume = 1
     }
 
     if (secondSoundPlayer.current) {
       secondSoundPlayer.current.src = ""
+      secondSoundPlayer.current.volume = 0.8
     }
 
     if (sfxPlayer.current) {
@@ -141,7 +139,7 @@ function App() {
         <Route path='/policy' element={<Policy />} />
         <Route path='/name' element={<Name onNameChange={onNameChange} value={name} changeSFX={() => changeSFX('/sounds/sfx-story-intro.mp3')} />} />
         <Route path='/click-to-continue' element={
-          <Nav path='/intro'>
+          <Nav path='/intro' changeSound={() => changeSound('/sounds/window-long-to-light-off.mp3')} changeSecondSound={() => changeSecondSound('/sounds/wind-with-window.mp3', 1)}>
             <div className="bg-white">
               <Page bg='6.jpg' onBlack={false} fadeInScene></Page>
             </div>
@@ -150,38 +148,36 @@ function App() {
         <Route path='/intro' element={
           <Nav path='/welcomename'>
             <div className="bg-white">
-              <Intro soundPlayer={soundPlayer} secondSoundPlayer={secondSoundPlayer} />
-            </div>
-          </Nav>
-        } />
-        <Route path='/welcomename' element={<WelcomeName name={name} playBtnClickSFX={playBtnClickSFX} />} />
-        <Route path='/afterwn' element={
-          <Nav path='/howyoufeel'>
-            <AfterWN />
-          </Nav>
-        } />
-        <Route path='/howyoufeel' element={<Howyoufeel changeSecondSound={() => changeSecondSound('/sounds/evening-window.mp3')} />} />
-        <Route path='/weknow' element={
-          <Nav path='/myself' changeSecondSound={() => changeSecondSound('/sounds/night-window.mp3')}>
-            <div className="bg-white">
-              <Page bg='evening-window.gif' onBlack={false}>
-                <p className='mt-40 text-lg fade-in'>อย่างนี้นี่เอง</p>
+              <Page bg='daytime-window.gif' onBlack={false} fadeInScene fadeoutOnClicked>
+                <p className="mt-40 text-lg/loose fade-in">บ่ายแก่ ๆ ในวันหยุดวันหนึ่ง <br />
+                  คุณกำลังนั่งปลดปล่อยความคิด <br />
+                  ให้ล่องลอยไปในอากาศ</p>
               </Page>
             </div>
           </Nav>
         } />
-        <Route path='/myself' element={<Myself playBtnClickSFX={playBtnClickSFX} />} />
-        <Route path='/yesmyself' element={
-          <Nav path='/tellaboutyourself'>
-            <Page bg='night-window.gif' onBlack={false}>
-              <p className='mt-40 text-lg/loose'>นั่นสิ ใคร ๆ ก็ต้องเคยรู้สึกแบบนั้นบ้าง<br />อยู่แล้วเนอะ</p>
+        <Route path='/welcomename' element={
+          <Nav path='/how-are-you'>
+            <Page bg='daytime-window.gif' onBlack={false} key={'how-are-you'}>
+              <p className='mt-40 text-lg fade-in'>สวัสดีคุณ <b>{name}</b></p>
             </Page>
           </Nav>
         } />
-        <Route path='/nomyself' element={
+        <Route path='/how-are-you' element={<HowAreYou changeSecondSound={() => changeSecondSound('/sounds/evening-window.mp3', 0.5)} playBtnClickSFX={playBtnClickSFX} />} />
+        <Route path='/hmm' element={
+          <Nav path='/myself'>
+            <div className="bg-white">
+              <Page bg='evening-window.gif' onBlack={false}>
+                <p className='mt-40 text-lg fade-in'>หืม...</p>
+              </Page>
+            </div>
+          </Nav>
+        } />
+        <Route path='/myself' element={<WhatHappened changeSecondSound={() => changeSecondSound('/sounds/night-window.mp3')} />} />
+        <Route path='/ahh' element={
           <Nav path='/tellaboutyourself'>
             <Page bg='night-window.gif' onBlack={false}>
-              <p className='mt-40 text-lg/loose'>ดีจังเลย การได้เข้าใจตัวเองเป็นเรื่องที่ดี <br /> ที่สุดอยู่แล้วเนอะ</p>
+              <p className='mt-40 text-lg/loose'>แบบนี้นี่เอง...</p>
             </Page>
           </Nav>
         } />
@@ -190,7 +186,7 @@ function App() {
           <Nav path='/exploreyourself'>
             <div className='bg-white'>
               <BlankPage onBlack={false} fadeInScene>
-                <p className='text-lg'>เยี่บมเลย! คุณรู้จักตัวเองในแบบนี้นี่เอง</p>
+                <p className='text-lg'>เยี่ยมเลย! คุณรู้จักตัวเองในแบบนี้นี่เอง</p>
               </BlankPage>
             </div>
           </Nav>
@@ -228,7 +224,7 @@ function App() {
               <img className='zoom-in-250 pointer-events-none' src='/images/moon.png' alt='gaia-star' />
               <div className='[&>p]:text-lg/loose overlay'>
                 <p className='text-black ani-delay-2s fade-in'>
-                  ด้วยลักษณะของพื้นผิวดวงดาวทำให้คุณ<br/>
+                  ด้วยลักษณะของพื้นผิวดวงดาวทำให้คุณ<br />
                   คาดเดาได้ว่าที่นี่คงไม่มีฝนตกมานานมากแล้ว
                 </p>
               </div>
@@ -575,7 +571,7 @@ function App() {
               <div className='[&>p]:text-lg/relaxed overlay top-[14%] ani-delay-500ms fade-in'>
                 <p>
                   คราวนี้ เราไปสำรวจ<b>สิ่งที่คนอื่นหรือแม้แต่<br />
-                  คุณเองก็ยังไม่เคยค้นพบมาก่อน</b>กันดีกว่า
+                    คุณเองก็ยังไม่เคยค้นพบมาก่อน</b>กันดีกว่า
                 </p>
               </div>
               <img className='pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon' />
@@ -597,7 +593,7 @@ function App() {
           </Nav>
         } />
         <Route path='/raindrop-on-hand' element={<RaindropOnHand />} />
-        <Route path='/rain-on-moon' element={<RainOnMoon changeSecondSound={() => changeSecondSound('/sounds/star-ambience-with-rain.mp3')}/>} />
+        <Route path='/rain-on-moon' element={<RainOnMoon changeSecondSound={() => changeSecondSound('/sounds/star-ambience-with-rain.mp3')} />} />
         <Route path='/recall' element={
           <Nav path='/your-planet'>
             <BlankPage bg='plain-space.gif'>

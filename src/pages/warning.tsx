@@ -11,6 +11,7 @@ const Warning: FC<Props> = ({ soundPlayer, secondSoundPlayer }) => {
   const nextPage = () => {
     if (soundPlayer.current) {
       soundPlayer.current.src = "/sounds/intro.mp3";
+      soundPlayer.current.volume = 0.7;
       soundPlayer.current.load();
       soundPlayer.current.play();
     }

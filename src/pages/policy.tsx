@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 
 const Policy: FC = () => {
@@ -9,12 +10,15 @@ const Policy: FC = () => {
 
   return (
     <div className="bg-white">
+      <Helmet>
+        <link rel='prefetch' href='/sounds/evening-window.mp3' as='audio' type='audio/mpeg' crossOrigin="anonymous" />
+      </Helmet>
       <div className="flex justify-center font-season">
         <div
           className="w-full  text-center h-screen flex bg-contain bg-no-repeat bg-center"
           style={{ backgroundImage: "url('/pages/1.gif')" }}
         >
-          <div className="m-auto [&>p]:text-base max-w-sm fade-in">
+          <div className="[&>p]:text-lg w-full flex flex-col justify-center items-center  fade-in">
             <p className="mt-12">
               และที่สำคัญที่สุด <br />
               เว็บไซต์นี้ไม่ได้เก็บข้อมูลของคุณ <br />

@@ -2,9 +2,9 @@ import { FC, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
-  changeSound?: () => void;
-  changeSecondSound?: () => void;
-  changeSFX?: () => void;
+    changeSound?: () => void;
+    changeSecondSound?: () => void;
+    changeSFX?: () => void;
 }
 
 const TellAboutYourself: FC<Props> = ({ changeSound, changeSecondSound, changeSFX }) => {
@@ -45,10 +45,13 @@ const TellAboutYourself: FC<Props> = ({ changeSound, changeSecondSound, changeSF
                     className="w-full  text-center h-screen flex bg-cover bg-center"
                     style={{ backgroundImage: "url('/pages/night-window.gif')" }}
                 >
-                    <div className="m-auto fade-in pt-[11rem]">
-                        <p className="leading-relaxed">วันนี้เราอยากรู้จักคุณให้มากขึ้น<br />
-                            คุณคือใคร? ช่วยอธิบายตัวตนของคุณ<br />
-                            ให้เราฟังหน่อยสิ </p>
+                    <div className="m-auto fade-in pt-[15rem]">
+                        <p className="text-lg/relaxed">
+                            ก่อนที่จะไปกันต่อ <br/>
+                            เราอยากรู้จักคุณให้มากขึ้น<br/>
+                            คุณคือใคร? บอกคำที่อธิบายตัวตนของคุณ<br/>
+                            <b>ได้ชัดเจนที่สุด</b>มาสัก 1 คำหน่อยสิ
+                        </p>
                         <div>
                             <input
                                 type="text"
@@ -57,8 +60,7 @@ const TellAboutYourself: FC<Props> = ({ changeSound, changeSecondSound, changeSF
                                 ref={inputRef}
                             />
                             <br />
-                            <br />
-                            <div className="text-bold text-lg cursor-pointer" onClick={nextPage}>
+                            <div className="text-bold text-lg cursor-pointer mt-8 px-4 py-1" onClick={nextPage}>
                                 <b>&gt; ต่อไป &lt;</b>
                             </div>
                         </div>

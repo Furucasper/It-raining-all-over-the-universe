@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 
 const Welcome: FC = () => {
@@ -9,12 +10,17 @@ const Welcome: FC = () => {
 
   return (
     <div className="bg-white">
+      <Helmet>
+        <link rel='prefetch' href='/sounds/sfx-story-intro.mp3' as='audio' type='audio/mpeg' crossOrigin="anonymous" />
+        <link rel='prefetch' href='/sounds/window-long-to-light-off.mp3' as='audio' type='audio/mpeg' crossOrigin="anonymous" />
+        <link rel='prefetch' href='/sounds/wind-with-window.mp3' as='audio' type='audio/mpeg' crossOrigin="anonymous" />
+      </Helmet>
       <div className="flex justify-center fade-in-scene font-season">
         <div
           className="w-full  text-center h-screen flex bg-contain bg-no-repeat bg-center pt-1"
           style={{ backgroundImage: "url('/pages/1.gif')" }}
         >
-          <div className="m-auto [&>p]:text-base max-w-sm fade-in pb-4">
+          <div className="m-auto [&>p]:text-lg max-w-sm fade-in pb-4">
             <img className="w-1/3 m-auto" src="/images/logo.png" />
             <p className="mt-6">
               เว็บไซต์นี้เป็นส่วนหนึ่งของ<br />

@@ -40,9 +40,7 @@ const Name: FC<Props> = ({
     <div className="bg-white">
       <div className="flex justify-center font-season">
         <Helmet>
-          <link rel="prefetch" href="/pages/daytime-window.gif" as="image" type="image/gif" crossOrigin="anonymous" />
           <link rel="prefetch" href="/pages/evening-window.gif" as="image" type="image/gif" crossOrigin="anonymous" />
-          <link rel="prefetch" href="/pages/evening-window.mp4" as="video" type="video/mpeg" crossOrigin="anonymous" />
         </Helmet>
         <div className="w-full text-center h-screen flex bg-contain bg-no-repeat bg-center"
           style={{ backgroundImage: "url('/pages/1.gif')" }}

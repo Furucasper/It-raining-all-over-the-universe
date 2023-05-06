@@ -31,6 +31,9 @@ const GlowingMoon: FC = () => {
 
     return (
         <BlankPage bg='plain-space.gif'>
+            <Helmet>
+                <link rel="prefetch" href="/images/abstract.jpg" as="image" type="image/jpeg" crossOrigin="anonymous" />
+            </Helmet>
             <div className='[&>p]:text-lg/relaxed absolute z-10 top-[16%] ani-delay-500ms fade-in'>
                 <p className='fade-out ani-delay-4s'>
                     ทันใดนั้น ดวงจันทร์ก็เกิดแสงสว่างขึ้น

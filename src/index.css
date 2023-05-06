@@ -21,7 +21,6 @@ code {
 
 @font-face {
   font-family: "season";
-  /* src: url("../public/Noto_Sans_Thai/static/NotoSansThai/NotoSansThai-Regular.ttf"); */
   src: url('https://fonts.googleapis.com/css2?family=Mali&display=swap')
 }
 
@@ -41,7 +40,7 @@ code {
 
 @layer components {
   .btn-primary {
-    @apply bg-gray-200 hover:bg-zinc-200 text-lg p-3 min-w-[10rem] rounded cursor-pointer;
+    @apply bg-gray-200 hover:bg-zinc-200 text-lg p-2 min-w-[10rem] rounded-lg cursor-pointer drop-shadow-lg border-2 border-zinc-300/70;
   }
 
   .btn-primary-dark {
