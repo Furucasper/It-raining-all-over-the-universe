@@ -197,7 +197,9 @@ function App() {
         <Route path='/exploreyourself' element={<ExploreYourself />} />
         <Route path='/imagine' element={
           <Nav path='/awaken' changeSound={() => changeSound('/sounds/galaxy.mp3')} changeSFX={() => changeSFX('/sounds/sfx-twinkling-stars.mp3')}>
-            <BlankPage></BlankPage>
+            <BlankPage>
+              <img className='fade-in ani-delay-3s pointer-events-none' src='/pages/6-black.jpg' alt='click to continue' />
+            </BlankPage>
           </Nav>
         } />
         <Route path='/awaken' element={
@@ -272,7 +274,9 @@ function App() {
         } />
         <Route path='/darkness' element={
           <Nav path='/time-space' changeSound={() => changeSound('/sounds/galaxy.mp3')} changeSecondSound={() => changeSecondSound('/sounds/star-ambience.mp3')} changeSFX={() => changeSFX('/sounds/sfx-twinkling-stars.mp3')}>
-            <BlankPage></BlankPage>
+            <BlankPage>
+              <img className='fade-in ani-delay-3s pointer-events-none' src='/pages/6-black.jpg' alt='click to continue' />
+            </BlankPage>
           </Nav>
         } />
         <Route path='/time-space' element={
@@ -370,7 +374,9 @@ function App() {
         <Route path='/lost-consciousness' element={<LostConsciousness allPlayerFadeOut={allPlayerFadeOut} />} />
         <Route path='/darkness2' element={
           <Nav path='/raindrop' changeSecondSound={() => changeSecondSound('/sounds/raindrop.mp3')}>
-            <BlankPage></BlankPage>
+            <BlankPage>
+              <img className='fade-in ani-delay-3s pointer-events-none' src='/pages/6-black.jpg' alt='click to continue' />
+            </BlankPage>
           </Nav>
         } />
         <Route path='/raindrop' element={
@@ -458,7 +464,9 @@ function App() {
         <Route path='/its-dark-again' element={<ItsDarkAgain allPlayerFadeOut={allPlayerFadeOut} />} />
         <Route path='/darkness3' element={
           <Nav path='/raindrop2' changeSecondSound={() => changeSecondSound('/sounds/raindrop.mp3')}>
-            <BlankPage></BlankPage>
+            <BlankPage>
+            <img className='fade-in ani-delay-3s pointer-events-none' src='/pages/6-black.jpg' alt='click to continue' />
+            </BlankPage>
           </Nav>
         } />
         <Route path='/raindrop2' element={
@@ -687,7 +695,9 @@ function App() {
         <Route path='/out-of-the-universe' element={<OutOfTheUniverse allPlayerFadeOut={allPlayerFadeOut} />} />
         <Route path='/last-darkness' element={
           <Nav path='/thank-for-today' changeSound={() => changeSound('/sounds/window-light-off.mp3')} changeSecondSound={() => changeSecondSound('/sounds/wind-with-window.mp3', 1)}>
-            <BlankPage></BlankPage>
+            <BlankPage>
+            <img className='fade-in ani-delay-3s pointer-events-none' src='/pages/6-black.jpg' alt='click to continue' />
+            </BlankPage>
           </Nav>
         } />
         <Route path='/thank-for-today' element={
