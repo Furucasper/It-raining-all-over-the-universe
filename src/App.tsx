@@ -686,7 +686,7 @@ function App() {
         } />
         <Route path='/out-of-the-universe' element={<OutOfTheUniverse allPlayerFadeOut={allPlayerFadeOut} />} />
         <Route path='/last-darkness' element={
-          <Nav path='/back-to-the-light-again' changeSound={() => changeSound('/sounds/window-light-off.mp3')} changeSecondSound={() => changeSecondSound('/sounds/wind-with-window.mp3', 1)}>
+          <Nav path='/thank-for-today' changeSound={() => changeSound('/sounds/window-light-off.mp3')} changeSecondSound={() => changeSecondSound('/sounds/wind-with-window.mp3', 1)}>
             <BlankPage></BlankPage>
           </Nav>
         } />
