@@ -60,9 +60,9 @@ const TellAboutYourself: FC<Props> = ({ changeSound, changeSecondSound, changeSF
                                 ref={inputRef}
                             />
                             <br />
-                            <div className="text-bold text-lg cursor-pointer mt-8 px-4 py-1" onClick={nextPage}>
+                            <button type="button" className="text-bold text-lg cursor-pointer mt-8 px-4 py-1" onClick={nextPage}>
                                 <b>&gt; ต่อไป &lt;</b>
-                            </div>
+                            </button>
                         </div>
                     </div>
                 </div>

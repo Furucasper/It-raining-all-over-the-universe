@@ -79,9 +79,9 @@ const Name: FC<Props> = ({
               </div>
             </div>
             <br />
-            <div className="text-xl cursor-pointer" onClick={nextPage}>
+            <button type="button" className="text-xl cursor-pointer" onClick={nextPage}>
               <b>&gt; ต่อไป &lt;</b>
-            </div>
+            </button>
           </div>
         </div>
       </div>

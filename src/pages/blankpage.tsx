@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 interface Props {
     children?: string | JSX.Element | JSX.Element[]
@@ -7,19 +7,27 @@ interface Props {
     onBlack?: boolean;
     fadeInScene?: boolean;
     fadeout?: boolean;
+    fadeoutDelay?: number;
     fadeoutOnClicked?: boolean;
 }
 
-const BlankPage: FC<Props> = ({ children, bg, bgVideo, onBlack = true, fadeInScene, fadeout: fadeOut, fadeoutOnClicked }) => {
+const BlankPage: FC<Props> = ({ children, bg, bgVideo, onBlack = true, fadeInScene, fadeout: fadeOut, fadeoutDelay, fadeoutOnClicked }) => {
 
-    const [fadeout, setFadeout] = useState(fadeOut || false)
+    const [fadeout, setFadeout] = useState(false)
 
     const handleClick = () => {
         if (fadeoutOnClicked) {
-            console.log('fadeout')
             setFadeout(true)
         }
     }
+
+    useEffect(() => {
+        if (fadeoutDelay) {
+            setTimeout(() => {
+                setFadeout(true)
+            }, fadeoutDelay)
+        }
+    }, [])
 
     return (
         <div 
@@ -29,7 +37,7 @@ const BlankPage: FC<Props> = ({ children, bg, bgVideo, onBlack = true, fadeInSce
             {bgVideo && <video className="z-[0] object-cover absolute w-full h-full" autoPlay loop muted playsInline>
                 <source src={`/pages/${bgVideo}`} type="video/mp4" />
             </video>}
-            <div className={"flex flex-col items-center justify-center h-screen w-full font-season z-1" + (fadeout ? " fade-out" : "")} >
+            <div className={"flex flex-col items-center justify-center h-screen w-full font-season z-1" + ((fadeout || fadeOut) ? " fade-out" : "")} >
                 {children}
             </div>
         </div>

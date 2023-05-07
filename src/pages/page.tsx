@@ -20,7 +20,7 @@ const Page: FC<Props> = ({ children, bg, bgVideo, fadeInScene, onBlack = true, f
   }
 
   return (
-    <div className={"flex flex-col justify-center font-season" + (fadeInScene ? " fade-in-scene" : "")}>
+    <div className={"w-full flex flex-col justify-center font-season" + (fadeInScene ? " fade-in-scene" : "")}>
       <div
         className={"w-full h-screen flex bg-cover bg-center text-center " + (onBlack ? "bg-black text-white" : "bg-white text-black")}
         style={{ backgroundImage: `url('/pages/${bg}')` }}
@@ -29,7 +29,7 @@ const Page: FC<Props> = ({ children, bg, bgVideo, fadeInScene, onBlack = true, f
         {bgVideo && <video className="z-[0] object-cover absolute w-full h-full" autoPlay loop muted playsInline>
           <source src={`/pages/${bgVideo}`} type="video/mp4" />
         </video>}
-        <div className={"m-auto fade-in z-1" + (fadeout ? " fade-out" : "")}>
+        <div className={"w-full m-auto fade-in z-1" + (fadeout ? " fade-out" : "")}>
           {children}
         </div>
       </div>

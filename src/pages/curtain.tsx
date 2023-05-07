@@ -10,7 +10,7 @@ interface Props {
     isFast?: boolean
 };
 
-const Curtain: FC<Props> = ({ children, path, bgColor = '', isClosing = true, isFast }) => {
+const Curtain: FC<Props> = ({ children, path, delay = 0, bgColor = '', isClosing = true, isFast }) => {
 
     const navigate = useNavigate()
 
@@ -18,12 +18,12 @@ const Curtain: FC<Props> = ({ children, path, bgColor = '', isClosing = true, is
         if (isClosing) {
             setTimeout(() => {
                 navigate(path)
-            }, (isFast ? 15500 : 23500))
+            }, (isFast ? 15500 : 23500) + delay)
         } else {
             setTimeout(() => {
                 navigate(path)
             }
-        , 10000)
+        , 10000 + delay)
         }
     }, [])
 

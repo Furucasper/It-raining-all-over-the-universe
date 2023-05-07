@@ -40,9 +40,9 @@ const Abstract: FC = () => {
                 <div className='px-4'>
                     <input className='max-w-md' type='text' autoComplete="off" ref={inputRef} />
                 </div>
-                <div className="text-xl cursor-pointer mt-8" onClick={nextPage}>
+                <button type="button" className="text-xl cursor-pointer mt-8" onClick={nextPage}>
                     <b>&gt; ต่อไป &lt;</b>
-                </div>
+                </button>
             </div>
         </BlankPage>
     )

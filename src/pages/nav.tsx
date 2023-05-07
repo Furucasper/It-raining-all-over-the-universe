@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react"
+import { FC, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 interface Props {
@@ -6,18 +6,21 @@ interface Props {
     path: string,
     time?: number
     clickable?: boolean
+    delayClick?: number
     delay?: number
     changeSound?: () => void;
     changeSecondSound?: () => void;
     changeSFX?: () => void;
 };
 
-const Nav: FC<Props> = ({ children, path, time, delay, clickable = true, changeSound, changeSecondSound, changeSFX }) => {
+const Nav: FC<Props> = ({ children, path, time, delay, clickable = true, delayClick, changeSound, changeSecondSound, changeSFX }) => {
 
     const navigate = useNavigate()
 
+    const [active, setActive] = useState(true)
+
     const onClick = () => {
-        if (clickable) {
+        if (clickable && active) {
             setTimeout(() => {
                 changeSound && changeSound()
                 changeSecondSound && changeSecondSound()
@@ -32,6 +35,12 @@ const Nav: FC<Props> = ({ children, path, time, delay, clickable = true, changeS
             setTimeout(() => {
                 navigate(path)
             }, time)
+        }
+        if (delayClick) {
+            setActive(false)
+            setTimeout(() => {
+                setActive(true)
+            }, delayClick)
         }
     }, [])
 

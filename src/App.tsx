@@ -6,7 +6,6 @@ import Warning from './pages/warning';
 import Welcome from './pages/welcome';
 import Policy from './pages/policy';
 import Name from './pages/name';
-import Intro from './pages/intro';
 import HowAreYou from './pages/howareyou';
 import WhatHappened from './pages/whathappened';
 import TellAboutYourself from './pages/tellaboutyourself';
@@ -26,6 +25,11 @@ import GlowingMoon from './pages/glowingmoon';
 import Abstract from './pages/abstract';
 import RaindropOnHand from './pages/raindroponhand';
 import RainOnMoon from './pages/rainonmoon';
+import OutOfTheUniverse from './pages/outoftheuniverse';
+import Curtain from './pages/curtain';
+import HowMuchYouLearn from './pages/howmuchyoulearn';
+import NitadeShowcase from './pages/nitadeshowcase';
+import Souvenir from './pages/souvenir';
 
 function App() {
 
@@ -108,7 +112,6 @@ function App() {
   }
 
   const allPlayerFadeOut = (time: number, delay?: number) => {
-    console.log('allPlayerFadeOut', time, delay)
     volumeFadeOut(soundPlayer, time, delay)
     volumeFadeOut(secondSoundPlayer, time, delay)
     volumeFadeOut(sfxPlayer, time, delay)
@@ -139,7 +142,7 @@ function App() {
         <Route path='/policy' element={<Policy />} />
         <Route path='/name' element={<Name onNameChange={onNameChange} value={name} changeSFX={() => changeSFX('/sounds/sfx-story-intro.mp3')} />} />
         <Route path='/click-to-continue' element={
-          <Nav path='/intro' changeSound={() => changeSound('/sounds/window-long-to-light-off.mp3')} changeSecondSound={() => changeSecondSound('/sounds/wind-with-window.mp3', 1)}>
+          <Nav path='/intro' changeSound={() => changeSound('/sounds/window-light-off.mp3')} changeSecondSound={() => changeSecondSound('/sounds/wind-with-window.mp3', 1)}>
             <div className="bg-white">
               <Page bg='6.jpg' onBlack={false} fadeInScene></Page>
             </div>
@@ -313,7 +316,7 @@ function App() {
           </Nav>
         } />
         <Route path='/define-yourself' element={
-          <SixteenChoices path='/others-define-you' localStorageKey='define-yourself' playBtnClickSFX={playBtnClickSFX} key={1}>
+          <SixteenChoices path='/others-define-you' localStorageKey='define-yourself' playBtnClickSFX={playBtnClickSFX} key={'define-yourself'}>
             <p className='text-lg fade-in ani-duration-500ms'>
               คุณ<b>นิยามตัวตนของคุณ</b>ด้วยคำไหนบ้าง<br />
               สามารถตอบมากกว่า 1 ข้อได้นะ
@@ -321,7 +324,7 @@ function App() {
           </SixteenChoices>
         } />
         <Route path='/others-define-you' element={
-          <SixteenChoices path='/be-the-same' localStorageKey='others-define-you' playBtnClickSFX={playBtnClickSFX} key={2}>
+          <SixteenChoices path='/be-the-same' localStorageKey='others-define-you' playBtnClickSFX={playBtnClickSFX} key={'others-define-you'}>
             <p className='text-lg fade-in fade-in ani-duration-500ms'>
               แล้ว<b>คนอื่นมักนิยามตัวตนของคุณ</b><br />
               ด้วยคำไหนบ้าง? สามารถตอบมากกว่า 1 ข้อ<br />
@@ -417,7 +420,7 @@ function App() {
         } />
         <Route path='/think-of-others' element={<ThinkOfOthers />} />
         <Route path='/not-me' element={
-          <SixteenChoices path='/maybe-maybe-not' choiceKey='others-define-you' playBtnClickSFX={playBtnClickSFX} key={4} skipable>
+          <SixteenChoices path='/maybe-maybe-not' choiceKey='others-define-you' playBtnClickSFX={playBtnClickSFX} key={'not-me'} skipable>
             <p className='text-lg fade-in ani-duration-500ms'>
               มีคำไหนบ้างไหม<br />
               ที่คุณ<b>ไม่เคยคิดว่าตนเองเป็นแบบนั้น</b>
@@ -428,7 +431,7 @@ function App() {
           <Nav path='/never-before'>
             <BlankPage bg='plain-space.gif'>
               <div className='[&>p]:text-lg/relaxed overlay top-[12%]'>
-                <p className='ani-delay-500ms fade-in'>
+                <p className='ani-delay-1500ms fade-in'>
                   คุณอาจเป็นหรือไม่เป็นแบบนั้นก็ได้<br />
                   เราทุกคนมักมีด้านที่ตัวเองไม่เคยรู้<br />
                   แต่คนรอบข้างมักจะรับรู้อยู่เสมอ
@@ -608,7 +611,7 @@ function App() {
           </Nav>
         } />
         <Route path='/your-planet' element={
-          <Nav path='/your-rain'>
+          <Nav path='/your-rain' delayClick={5500} key={'your-rain'}>
             <BlankPage bg='plain-space.gif'>
               <div className='[&>p]:text-lg/relaxed overlay top-[8%]'>
                 <p className='ani-delay-500ms fade-in'>
@@ -669,17 +672,93 @@ function App() {
           </Nav>
         } />
         <Route path='/make-it-rain' element={
-          <Nav path='/'>
+          <Nav path='/out-of-the-universe'>
             <BlankPage bg='plain-space.gif'>
               <div className='[&>p]:text-lg/relaxed overlay top-[18%]'>
                 <p className='ani-delay-500ms fade-in'>
                   มาร่วมส่งต่อการมีฝนตกในจักรวาลไปด้วยกัน<br />
-                  <b>#makeitrainproject</b>
+                  <b>#Makeitrainproject</b>
                 </p>
               </div>
               <img className='pointer-events-none scale-[0.75]' src='/pages/rain-on-moon-no-bg.gif' alt='rain-on-moon' />
             </BlankPage>
           </Nav>
+        } />
+        <Route path='/out-of-the-universe' element={<OutOfTheUniverse allPlayerFadeOut={allPlayerFadeOut} />} />
+        <Route path='/last-darkness' element={
+          <Nav path='/back-to-the-light-again' changeSound={() => changeSound('/sounds/window-light-off.mp3')} changeSecondSound={() => changeSecondSound('/sounds/wind-with-window.mp3', 1)}>
+            <BlankPage></BlankPage>
+          </Nav>
+        } />
+        <Route path='/thank-for-today' element={
+          <Curtain path='/how-much-you-have-learn' isClosing={false} delay={3500}>
+            <div className='bg-white w-full'>
+              <div className='fade-out ani-delay-12s'>
+                <BlankPage bg='daytime-window.gif' onBlack={false}>
+                  <p className='mt-40 text-lg fade-in ani-delay-5s'>ขอบคุณที่มาร่วมเดินทางไปด้วยกันวันนี้นะ</p>
+                </BlankPage>
+              </div>
+            </div>
+          </Curtain>
+        } />
+        <Route path='/how-much-you-have-learn' element={<HowMuchYouLearn />} />
+        <Route path='/before-we-part' element={
+          <Nav path='/join-the-Nitade-Showcase' delay={1000}>
+            <BlankPage onBlack={false} fadeoutOnClicked>
+              <p className='text-lg fade-in'>
+                ก่อนจะจากกันไป<br />
+                เรามีของขวัญให้คุณด้วยนะ
+              </p>
+            </BlankPage>
+          </Nav>
+        } />
+        <Route path='/join-the-Nitade-Showcase' element={<NitadeShowcase />} />
+        <Route path='/new-moon-souvenir' element={
+          <Souvenir moon='new-moon.jpg' name='New Moon'>
+            <p className="text-lg/relaxed">
+              <b>จันทร์ดับ</b><br />
+              สัญลักษณ์แห่งการเริ่มต้น<br />
+              "ช่วงเวลาแห่งคืนเดือนมืดคือช่วงที่เหมาะสมที่สุดในการเริ่มต้นสิ่งใหม่ ๆ
+              รวมถึงการตั้งต้นเพื่อค้นหาตนเอง"
+            </p>
+          </Souvenir>
+        } />
+        <Route path='/crescent-moon-souvenir' element={
+          <Souvenir moon='crescent-moon.jpg' name='Crescent Moon'>
+            <p className="text-lg/relaxed">
+              <b>จันทร์เสี้ยว</b><br />
+              สัญลักษณ์แห่งการเตรียมความพร้อม<br />
+              "ตัวตนที่ถูกค้นพบอาจนำมาซึ่งผลลัพธ์อันคาดเดาไม่ได้"
+            </p>
+          </Souvenir>
+        } />
+        <Route path='/quarter-moon-souvenir' element={
+          <Souvenir moon='quarter-moon.jpg' name='Quarter Moon'>
+            <p className="text-lg/relaxed">
+              <b>จันทร์ครึ่งดวง</b><br />
+              สัญลักษณ์แห่งการลงมือทำ<br />
+              "ในบางครา.. เส้นทางแห่งมัชฌิมาอาจไม่ก่อให้เกิดผลดีเท่าการแสดงออกอย่างชัดเจน"
+            </p>
+          </Souvenir>
+        } />
+        <Route path='/gibbous-moon-souvenir' element={
+          <Souvenir moon='gibbous-moon.jpg' name='Gibbous Moon'>
+            <p className="text-lg/relaxed">
+              <b>จันทร์นูน</b><br />
+              สัญลักษณ์แห่งการสำรวจตนเอง<br />
+              "การเติบโต การค้นพบ และการสูญเสียบางสิ่ง"
+            </p>
+          </Souvenir>
+        } />
+        <Route path='/full-moon-souvenir' element={
+          <Souvenir moon='full-moon.jpg' name='Full Moon'>
+            <p className="text-lg/relaxed">
+              <b>จันทร์เพ็ญ</b><br />
+              สัญลักษณ์แห่งการตื่นรู้<br />
+              "แม้การตื่นรู้อาจเป็นสิ่งสูงสุด แต่ผู้คนบนโลกก็ยังมิอาจตื่นรู้ได้จน
+              ลมหายใจสุดท้าย"
+            </p>
+          </Souvenir>
         } />
         <Route path='*' element={<Beginning />} />
       </Routes>

@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useState } from 'react'
 import BlankPage from './blankpage'
 import StarCheckbox from '../StarCheckbox'
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +8,7 @@ interface Props {
     path: string;
     localStorageKey?: string;
     choiceKey?: string;
-    skipable?: boolean;  
+    skipable?: boolean;
     playBtnClickSFX: () => void;
 }
 
@@ -49,7 +49,6 @@ const DefineYourself: FC<Props> = ({ children, path, localStorageKey, choiceKey,
     }
 
     const nextPage = () => {
-        console.log(selected)
         if (!skipable && selected.length === 0) {
             alert('กรุณาเลือกอย่างน้อย 1 ข้อ')
             return
@@ -73,9 +72,9 @@ const DefineYourself: FC<Props> = ({ children, path, localStorageKey, choiceKey,
                 }
             </div>
 
-            <div className="text-bold text-lg cursor-pointer fade-in" onClick={nextPage}>
+            <button type="button" className="text-bold text-lg cursor-pointer fade-in" onClick={nextPage}>
                 <b>&gt; ต่อไป &lt;</b>
-            </div>
+            </button>
         </BlankPage>
     )
 }

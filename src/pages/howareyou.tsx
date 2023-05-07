@@ -28,10 +28,10 @@ const Howyoufeel: FC<Props> = ({ changeSound, changeSecondSound, changeSFX, play
       >
         <div className="m-auto fade-in pt-[15rem] [&>p]:text-lg/loose [&>span]:text-lg/loose">
           <p>ช่วงนี้เป็นยังไงบ้างเหรอ?</p>
-          <div className="mt-4">
-            <div className="btn-primary" onClick={nextPage}>ไม่ค่อยมีความสุข</div>
-            <div className="btn-primary mt-3" onClick={nextPage}>เฉย ๆ</div>
-            <div className="btn-primary mt-3" onClick={nextPage}>มีความสุขดี</div>
+          <div className="mt-4 flex flex-col gap-3">
+            <button type="button" className="btn-primary" onClick={nextPage}>ไม่ค่อยมีความสุข</button>
+            <button type="button" className="btn-primary" onClick={nextPage}>เฉย ๆ</button>
+            <button type="button" className="btn-primary" onClick={nextPage}>มีความสุขดี</button>
           </div>
         </div>
       </div>

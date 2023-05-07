@@ -45,9 +45,9 @@ const InputOnMoon: FC<Prop> = ({ children, path }) => {
                     className='text-center mt-5 bg-gray-300 focus:outline-4'
                     ref={inputRef}
                 />
-                <div className="text-xl cursor-pointer mt-5" onClick={nextPage}>
+                <button type="button" className="text-xl cursor-pointer mt-5" onClick={nextPage}>
                     <b>&gt; ต่อไป &lt;</b>
-                </div>
+                </button>
             </div>
             <img className={'pointer-events-none' + (isNextPage ? ' zoom-out-85' : ' zoom-in-150')} src='/images/moon.png' alt='moon' />
         </BlankPage>
