@@ -3,10 +3,10 @@ import BlankPage from "./blankpage";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
-
+    playBtnClickSFX: () => void
 }
 
-const HowMuchYouLearn: FC<Props> = () => {
+const HowMuchYouLearn: FC<Props> = ({ playBtnClickSFX }) => {
 
     const navigate = useNavigate()
     const [fadeout, setFadeout] = useState(false)
@@ -14,6 +14,7 @@ const HowMuchYouLearn: FC<Props> = () => {
     const handleOnClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         localStorage.setItem('souvenir', e.currentTarget.value)
         setFadeout(true)
+        playBtnClickSFX()
         setTimeout(() => {
             navigate('/before-we-part')
         }, 1500)

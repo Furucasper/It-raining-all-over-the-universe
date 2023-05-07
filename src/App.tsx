@@ -711,7 +711,7 @@ function App() {
             </div>
           </Curtain>
         } />
-        <Route path='/how-much-you-have-learn' element={<HowMuchYouLearn />} />
+        <Route path='/how-much-you-have-learn' element={<HowMuchYouLearn playBtnClickSFX={playBtnClickSFX} />} />
         <Route path='/before-we-part' element={
           <Nav path='/join-the-Nitade-Showcase' delay={1000}>
             <BlankPage onBlack={false} fadeoutOnClicked>
@@ -722,7 +722,7 @@ function App() {
             </BlankPage>
           </Nav>
         } />
-        <Route path='/join-the-Nitade-Showcase' element={<NitadeShowcase />} />
+        <Route path='/join-the-Nitade-Showcase' element={<NitadeShowcase changeSFX={changeSFX}/>} />
         <Route path='/new-moon-souvenir' element={
           <Souvenir moon='new-moon.jpg' name='New Moon'>
             <p className="text-lg/relaxed">

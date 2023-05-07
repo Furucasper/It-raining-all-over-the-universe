@@ -12,7 +12,7 @@ const Souvenir: FC<Props> = ({ moon, name, children }) => {
     return (
         <BlankPage bg="plain-space.gif" fadeInScene>
             <img src="/images/logo-white.png" alt="" className="w-1/3 min-w-[4rem] max-w-[6rem] rounded-lg mb-8" />
-            <div className="flex flex-col gap-4 justify-center items-center bg-white rounded-lg text-black py-8 px-4 relative fade-in ani-delay-500ms w-[18rem] max-w-[90%]">
+            <div className="flex flex-col gap-4 justify-center items-center bg-white rounded-lg text-black py-8 px-4 relative w-[18rem] max-w-[90%]">
                 <img src={`/images/${moon}`} alt="souvenir" className="w-1/3 min-w-[4rem] rounded-lg" />
                 <p className="text-xl">
                     <b>{name}</b>

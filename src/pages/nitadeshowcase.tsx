@@ -1,31 +1,38 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 
+interface Props {
+    changeSFX: (src: string, volume?: number) => void
+}
 
-const NitadeShowcase: FC = () => {
+const NitadeShowcase: FC<Props> = ({ changeSFX }) => {
 
     const navigate = useNavigate()
     const nextPage = () => {
         const souvenir = localStorage.getItem('souvenir')
         switch (souvenir) {
             case '1':
+                changeSFX('sounds/sfx-gift-1.mp3')
                 navigate('/new-moon-souvenir')
                 break;
             case '2':
+                changeSFX('sounds/sfx-gift-2.mp3')
                 navigate('/crescent-moon-souvenir')
                 break;
             case '3':
+                changeSFX('sounds/sfx-gift-3.mp3')
                 navigate('/quarter-moon-souvenir')
                 break;
             case '4':
+                changeSFX('sounds/sfx-gift-4.mp3')
                 navigate('/gibbous-moon-souvenir')
                 break;
             case '5':
+                changeSFX('sounds/sfx-gift-5.mp3')
                 navigate('/full-moon-souvenir')
                 break;
             default:
                 navigate('/new-moon-souvenir')
-                break;
         }
     }
 
