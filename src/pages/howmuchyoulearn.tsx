@@ -28,11 +28,11 @@ const HowMuchYouLearn: FC<Props> = ({ playBtnClickSFX }) => {
                     มากขึ้นแค่ไหน?
                 </p>
                 <div className='flex flex-col justify-center items-center gap-4 mt-6'>
-                    <button type="button" className='btn-primary' onClick={handleOnClick} value={'1'}>ไม่เลย</button>
-                    <button type="button" className='btn-primary' onClick={handleOnClick} value={'2'}>เล็กน้อย</button>
+                    <button type="button" className='btn-primary' onClick={handleOnClick} value={'1'}>น้อยที่สุด</button>
+                    <button type="button" className='btn-primary' onClick={handleOnClick} value={'2'}>น้อย</button>
                     <button type="button" className='btn-primary' onClick={handleOnClick} value={'3'}>ปานกลาง</button>
-                    <button type="button" className='btn-primary' onClick={handleOnClick} value={'4'}>ค่อนข้างมาก</button>
-                    <button type="button" className='btn-primary' onClick={handleOnClick} value={'5'}>มาก</button>
+                    <button type="button" className='btn-primary' onClick={handleOnClick} value={'4'}>มาก</button>
+                    <button type="button" className='btn-primary' onClick={handleOnClick} value={'5'}>มากที่สุด</button>
                 </div>
             </BlankPage>
         </div>

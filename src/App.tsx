@@ -30,10 +30,11 @@ import Curtain from './pages/curtain';
 import HowMuchYouLearn from './pages/howmuchyoulearn';
 import NitadeShowcase from './pages/nitadeshowcase';
 import Souvenir from './pages/souvenir';
+import DescribeYourself from './pages/describeyourself';
 
 function App() {
 
-  const [name, setName] = useState("")
+  const [name, setName] = useState(localStorage.getItem('name') || '')
 
   const soundPlayer = useRef<HTMLAudioElement>(null);
   const secondSoundPlayer = useRef<HTMLAudioElement>(null);
@@ -203,7 +204,7 @@ function App() {
           </Nav>
         } />
         <Route path='/awaken' element={
-          <Nav path='/on-gaia' changeSecondSound={() => changeSecondSound('/sounds/star-ambience.mp3')}>
+          <Nav path='/on-gaia' delayClick={8500} changeSecondSound={() => changeSecondSound('/sounds/star-ambience.mp3')} key={'awaken'}>
             <BlankPage bg='plain-space.gif' fadeInScene>
               <div className='[&>p]:text-lg/loose'>
                 <p className='fade-in ani-delay-3s'>คุณตื่นขึ้น ณ จักรวาลแห่งหนึ่ง</p><br />
@@ -351,6 +352,20 @@ function App() {
             </BlankPage>
           </Nav>
         } />
+        <Route path='/not-know-before' element={
+          <Nav path='/your-pride'>
+            <BlankPage bg='plain-space.gif'>
+              <div className='[&>p]:text-lg/loose overlay top-[10%]'>
+                <p className='fade-in'>
+                  นอกจากคำเหล่านั้นแล้ว<br />
+                  คุณอาจยังมีตัวตนด้านอื่น ๆ อีกมากมาย<br />
+                  ที่ทั้ง<b>ตัวคุณเองและคนอื่นอาจไม่รู้มาก่อน</b>นะ
+                </p>
+              </div>
+              <img className='pointer-events-none scale-[0.85] fade-in' src='/images/moon.png' alt='moon' />
+            </BlankPage>
+          </Nav>
+        } />
         <Route path='/your-pride' element={
           <InputOnMoon path='/its-really-good'>
             <p className='text-lg'>
@@ -465,7 +480,7 @@ function App() {
         <Route path='/darkness3' element={
           <Nav path='/raindrop2' changeSecondSound={() => changeSecondSound('/sounds/raindrop.mp3')}>
             <BlankPage>
-            <img className='fade-in ani-delay-3s pointer-events-none' src='/pages/6-black.jpg' alt='click to continue' />
+              <img className='fade-in ani-delay-3s pointer-events-none' src='/pages/6-black.jpg' alt='click to continue' />
             </BlankPage>
           </Nav>
         } />
@@ -478,7 +493,7 @@ function App() {
         <Route path='/wakeup-on-moon' element={
           <Nav path='/halfway'>
             <BlankPage bg='plain-space.gif'>
-              <div className='[&>p]:text-xl/loose overlay'>
+              <div className='[&>p]:text-lg/loose overlay'>
                 <p className='fade-in text-black'>
                   คุณตื่นขึ้นบนดวงจันทร์อีกดวงหนึ่ง
                 </p>
@@ -619,7 +634,7 @@ function App() {
           </Nav>
         } />
         <Route path='/your-planet' element={
-          <Nav path='/your-rain' delayClick={5500} key={'your-rain'}>
+          <Nav path='/your-rain' delayClick={5500} key={'your-planet'}>
             <BlankPage bg='plain-space.gif'>
               <div className='[&>p]:text-lg/relaxed overlay top-[8%]'>
                 <p className='ani-delay-500ms fade-in'>
@@ -685,7 +700,7 @@ function App() {
               <div className='[&>p]:text-lg/relaxed overlay top-[18%]'>
                 <p className='ani-delay-500ms fade-in'>
                   มาร่วมส่งต่อการมีฝนตกในจักรวาลไปด้วยกัน<br />
-                  <b>#Makeitrainproject</b>
+                  <b>#MakeItRainProject</b>
                 </p>
               </div>
               <img className='pointer-events-none scale-[0.75]' src='/pages/rain-on-moon-no-bg.gif' alt='rain-on-moon' />
@@ -696,38 +711,38 @@ function App() {
         <Route path='/last-darkness' element={
           <Nav path='/thank-for-today' changeSound={() => changeSound('/sounds/window-light-off.mp3')} changeSecondSound={() => changeSecondSound('/sounds/wind-with-window.mp3', 1)}>
             <BlankPage>
-            <img className='fade-in ani-delay-3s pointer-events-none' src='/pages/6-black.jpg' alt='click to continue' />
+              <img className='fade-in ani-delay-3s pointer-events-none' src='/pages/6-black.jpg' alt='click to continue' />
             </BlankPage>
           </Nav>
         } />
         <Route path='/thank-for-today' element={
-          <Curtain path='/how-much-you-have-learn' isClosing={false} delay={3500}>
+          <Curtain path='/describe-yourself' isClosing={false} delay={3500}>
             <div className='bg-white w-full'>
-              <div className='fade-out ani-delay-12s'>
-                <BlankPage bg='daytime-window.gif' onBlack={false}>
-                  <p className='mt-40 text-lg fade-in ani-delay-5s'>ขอบคุณที่มาร่วมเดินทางไปด้วยกันวันนี้นะ</p>
-                </BlankPage>
-              </div>
+              <BlankPage bg='daytime-window.gif' onBlack={false}>
+                <p className='mt-40 text-lg fade-in ani-delay-5s'>ขอบคุณที่มาร่วมเดินทางไปด้วยกันวันนี้นะ</p>
+              </BlankPage>
             </div>
           </Curtain>
         } />
+        <Route path='/describe-yourself' element={<DescribeYourself />} />
         <Route path='/how-much-you-have-learn' element={<HowMuchYouLearn playBtnClickSFX={playBtnClickSFX} />} />
         <Route path='/before-we-part' element={
           <Nav path='/join-the-Nitade-Showcase' delay={1000}>
             <BlankPage onBlack={false} fadeoutOnClicked>
               <p className='text-lg fade-in'>
-                ก่อนจะจากกันไป<br />
-                เรามีของขวัญให้คุณด้วยนะ
+                เราเตรียมของขวัญไว้ให้คุณด้วยนะ
               </p>
             </BlankPage>
           </Nav>
         } />
-        <Route path='/join-the-Nitade-Showcase' element={<NitadeShowcase changeSFX={changeSFX}/>} />
+        <Route path='/join-the-Nitade-Showcase' element={<NitadeShowcase changeSFX={changeSFX} />} />
         <Route path='/new-moon-souvenir' element={
           <Souvenir moon='new-moon.jpg' name='New Moon'>
             <p className="text-lg/relaxed">
               <b>จันทร์ดับ</b><br />
               สัญลักษณ์แห่งการเริ่มต้น<br />
+            </p>
+            <p>
               "ช่วงเวลาแห่งคืนเดือนมืดคือช่วงที่เหมาะสมที่สุดในการเริ่มต้นสิ่งใหม่ ๆ
               รวมถึงการตั้งต้นเพื่อค้นหาตนเอง"
             </p>
@@ -738,7 +753,9 @@ function App() {
             <p className="text-lg/relaxed">
               <b>จันทร์เสี้ยว</b><br />
               สัญลักษณ์แห่งการเตรียมความพร้อม<br />
-              "ตัวตนที่ถูกค้นพบอาจนำมาซึ่งผลลัพธ์อันคาดเดาไม่ได้"
+            </p>
+            <p>
+              "ตัวตนที่ถูกค้นพบอาจนำมาซึ่งผลลัพธ์<br/>อันคาดเดาไม่ได้"
             </p>
           </Souvenir>
         } />
@@ -747,6 +764,8 @@ function App() {
             <p className="text-lg/relaxed">
               <b>จันทร์ครึ่งดวง</b><br />
               สัญลักษณ์แห่งการลงมือทำ<br />
+            </p>
+            <p>
               "ในบางครา.. เส้นทางแห่งมัชฌิมาอาจไม่ก่อให้เกิดผลดีเท่าการแสดงออกอย่างชัดเจน"
             </p>
           </Souvenir>
@@ -756,8 +775,8 @@ function App() {
             <p className="text-lg/relaxed">
               <b>จันทร์นูน</b><br />
               สัญลักษณ์แห่งการสำรวจตนเอง<br />
-              "การเติบโต การค้นพบ และการสูญเสียบางสิ่ง"
             </p>
+            <p>"การเติบโต การค้นพบ และการสูญเสียบางสิ่ง"</p>
           </Souvenir>
         } />
         <Route path='/full-moon-souvenir' element={
@@ -765,6 +784,8 @@ function App() {
             <p className="text-lg/relaxed">
               <b>จันทร์เพ็ญ</b><br />
               สัญลักษณ์แห่งการตื่นรู้<br />
+            </p>
+            <p>
               "แม้การตื่นรู้อาจเป็นสิ่งสูงสุด แต่ผู้คนบนโลกก็ยังมิอาจตื่นรู้ได้จน
               ลมหายใจสุดท้าย"
             </p>

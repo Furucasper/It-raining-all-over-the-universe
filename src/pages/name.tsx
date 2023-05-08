@@ -20,6 +20,7 @@ const Name: FC<Props> = ({
       changeSound && changeSound()
       changeSecondSound && changeSecondSound()
       changeSFX && changeSFX()
+      localStorage.setItem("name", inputRef.current?.value);
       navigate("/click-to-continue");
     } else {
       alert("กรุณากรอกชื่อของคุณ")

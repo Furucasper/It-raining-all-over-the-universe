@@ -42,10 +42,12 @@ const NitadeShowcase: FC<Props> = ({ changeSFX }) => {
             onClick={nextPage}
         >
             <div className=" w-full flex flex-col justify-center items-center  fade-in">
-                <div className="[&>p]:text-lg">
+                <div className="[&>p]:text-lg/relaxed">
                     <p>
                         มาร่วมค้นหาตัวตน<br />
-                        ของคุณอีกครั้งกับ<br /><br />
+                        ของคุณอีกครั้งกับ<br />
+                    </p>
+                    <p className="mt-2">
                         <b>
                             "Diary of Seasons"<br />
                             ณ งาน Nitade Showcase<br />
@@ -54,7 +56,7 @@ const NitadeShowcase: FC<Props> = ({ changeSFX }) => {
                             18-20 พฤษภาคม 2566<br />
                         </b>
                     </p>
-                    <br /><br />
+                    <br />
                     <p>
                         แล้วเจอกันนะ
                     </p>

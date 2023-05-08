@@ -1,7 +1,8 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import Nav from "./nav";
 import BlankPage from "./blankpage";
 import StarCheckbox from "../StarCheckbox";
+import { useNavigate } from "react-router-dom";
 
 const BeTheSame: FC = () => {
 
@@ -9,6 +10,14 @@ const BeTheSame: FC = () => {
     const yourAnswers: string[] = localStorage.getItem('define-yourself') ? JSON.parse(localStorage.getItem('define-yourself')!) : []
 
     const sameAnswers: string[] = othersAnswers.filter(item => yourAnswers.includes(item))
+
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (sameAnswers.length === 0) {
+            navigate('/not-know-before')
+        }
+    }, [])
 
     return (
         <Nav path='/you-and-others' delay={1000}>

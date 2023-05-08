@@ -33,7 +33,7 @@ const Abstract: FC = () => {
                 <p className='py-2'>ลองสังเกตภาพนี้ดูสิ</p>
                 <img className='rounded' src='/images/abstract.jpg' alt='moon-glowing' />
                 <p className='py-6'>
-                    คุนเห็นอะไรในภาพนี้บ้างหรอ?<br />
+                    คุณเห็นอะไรในภาพนี้บ้างหรอ?<br />
                     จะเป็น<b>ความรู้สึก ประสบการณ์ การตีความ<br />
                         หรืออะไรที่คุณนึกออก</b>เลยก็ได้นะ
                 </p>
