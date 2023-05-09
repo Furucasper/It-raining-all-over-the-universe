@@ -2,6 +2,7 @@ import { FC, useState } from 'react'
 import BlankPage from './blankpage'
 import StarCheckbox from '../StarCheckbox'
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 interface Props {
     children: string | JSX.Element | JSX.Element[];
@@ -50,9 +51,10 @@ const DefineYourself: FC<Props> = ({ children, path, localStorageKey, choiceKey,
 
     const nextPage = () => {
         if (!skipable && selected.length === 0) {
-            alert('กรุณาเลือกอย่างน้อย 1 ข้อ')
+            toast.error('กรุณาเลือกอย่างน้อย 1 ข้อ')
             return
         }
+        toast.dismiss();
         setFadeOut(true)
         localStorageKey && localStorage.setItem(localStorageKey, JSON.stringify(selected))
         setTimeout(() => {

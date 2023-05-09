@@ -1,6 +1,7 @@
 import { FC, useEffect, useRef, useState } from 'react'
 import BlankPage from './blankpage'
 import { useNavigate } from 'react-router-dom'
+import toast from 'react-hot-toast'
 
 const Abstract: FC = () => {
     const inputRef = useRef<HTMLInputElement>(null)
@@ -8,12 +9,13 @@ const Abstract: FC = () => {
     const [fadeout, setFadeout] = useState(false)
     const nextPage = () => {
         if (inputRef.current?.value) {
+            toast.dismiss()
             setFadeout(true)
             setTimeout(() => {
                 navigate('/reflect-something')
             }, 1000)
         } else {
-            alert('กรุณาตอบคำถาม')
+            toast.error('กรุณาตอบคำถาม')
             inputRef.current?.focus()
         }
     }

@@ -1,5 +1,6 @@
 import { FC, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
@@ -17,15 +18,16 @@ const WhatHappened: FC<Props> = ({ changeSound, changeSecondSound, changeSFX }) 
 
   const nextPage = () => {
     if (inputRef.current?.value) {
+      toast.dismiss()
       changeSound && changeSound()
       changeSecondSound && changeSecondSound()
       changeSFX && changeSFX()
       setFadeout(true)
       setTimeout(() => {
-        navigate("/ahh");
+        navigate("/ahh")
       }, 1000)
     } else {
-      alert("กรุณาตอบคำถาม");
+      toast.error("กรุณาตอบคำถาม")
       inputRef.current?.focus()
     }
   };

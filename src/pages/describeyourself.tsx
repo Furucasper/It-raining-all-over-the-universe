@@ -1,4 +1,5 @@
 import { FC, useEffect, useRef, useState } from "react";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
@@ -15,15 +16,16 @@ const DescribeYourself: FC<Props> = ({ changeSound, changeSecondSound, changeSFX
 
     const nextPage = () => {
         if (inputRef.current?.value) {
+            toast.dismiss()
             setFadeout(true)
-            changeSound && changeSound();
-            changeSecondSound && changeSecondSound();
-            changeSFX && changeSFX();
+            changeSound && changeSound()
+            changeSecondSound && changeSecondSound()
+            changeSFX && changeSFX()
             setTimeout(() => {
-                navigate("/how-much-you-have-learn");
+                navigate("/how-much-you-have-learn")
             }, 1500)
         } else {
-            alert("กรุณาตอบคำถาม");
+            toast.error("กรุณาตอบคำถาม")
             inputRef.current?.focus()
         }
     };

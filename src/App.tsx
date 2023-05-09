@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef, RefObject } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import './App.css';
 import Page from './pages/page';
 import Warning from './pages/warning';
@@ -136,6 +137,14 @@ function App() {
 
   return (
     <div className='App'>
+      <Toaster
+        toastOptions={{
+          className: 'font-season font-bold text-lg',
+          error: {
+            icon: '✨',
+          },
+        }}
+      />
       <Routes>
         <Route path='/' element={<Beginning />} />
         <Route path='/warning' element={<Warning soundPlayer={soundPlayer} secondSoundPlayer={secondSoundPlayer} />} />

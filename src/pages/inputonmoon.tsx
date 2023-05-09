@@ -1,6 +1,7 @@
 import { FC, useEffect, useRef, useState } from 'react';
 import BlankPage from './blankpage';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 interface Prop {
     children?: string | JSX.Element | JSX.Element[]
@@ -15,12 +16,13 @@ const InputOnMoon: FC<Prop> = ({ children, path }) => {
 
     const nextPage = () => {
         if (inputRef.current?.value) {
+            toast.dismiss()
             setIsNextPage(true)
             setTimeout(() => {
                 navigate(path)
             }, 2500)
         } else {
-            alert("กรุณาตอบคำถาม")
+            toast.error("กรุณาตอบคำถาม")
             inputRef.current?.focus()
         }
     };

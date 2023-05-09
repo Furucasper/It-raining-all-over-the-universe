@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { toast } from "react-hot-toast"
 
 interface Props {
   onNameChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
@@ -20,13 +21,14 @@ const Name: FC<Props> = ({
       changeSound && changeSound()
       changeSecondSound && changeSecondSound()
       changeSFX && changeSFX()
-      localStorage.setItem("name", inputRef.current?.value);
-      navigate("/click-to-continue");
+      localStorage.setItem("name", inputRef.current?.value)
+      toast.dismiss();
+      navigate("/click-to-continue")
     } else {
-      alert("กรุณากรอกชื่อของคุณ")
+      toast.error("กรุณากรอกชื่อของคุณ")
       inputRef.current?.focus()
     }
-  };
+  }
 
   useEffect(() => {
     inputRef.current?.addEventListener("keypress", (e) => {
