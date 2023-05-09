@@ -78,18 +78,6 @@ function App() {
     }
   }
 
-  const playAllPlayer = () => {
-    if (soundPlayer.current) {
-      soundPlayer.current.play();
-    }
-    if (secondSoundPlayer.current) {
-      secondSoundPlayer.current.play();
-    }
-    if (sfxPlayer.current) {
-      sfxPlayer.current.play();
-    }
-  }
-
   const volumeFadeOut = (player: RefObject<HTMLAudioElement>, time: number, delay: number = 0) => {
     if (player.current) {
       const volume = player.current.volume;
@@ -101,16 +89,6 @@ function App() {
         }
       }, (time / (volume / 0.005)));
     }
-  }
-
-  const soundPlayerFadeOut = (time: number, delay?: number) => {
-    volumeFadeOut(soundPlayer, time)
-  }
-  const secondSoundPlayerFadeOut = (time: number, delay?: number) => {
-    volumeFadeOut(secondSoundPlayer, time)
-  }
-  const sfxPlayerFadeOut = (time: number, delay?: number) => {
-    volumeFadeOut(sfxPlayer, time)
   }
 
   const allPlayerFadeOut = (time: number, delay?: number) => {
@@ -178,7 +156,7 @@ function App() {
         } />
         <Route path='/how-are-you' element={<HowAreYou changeSecondSound={() => changeSecondSound('/sounds/evening-window.mp3', 0.5)} playBtnClickSFX={playBtnClickSFX} />} />
         <Route path='/hmm' element={
-          <Nav path='/myself'>
+          <Nav path='/what-happened'>
             <div className="bg-white">
               <Page bg='evening-window.gif' onBlack={false}>
                 <p className='mt-40 text-lg fade-in'>หืม...</p>
@@ -186,7 +164,7 @@ function App() {
             </div>
           </Nav>
         } />
-        <Route path='/myself' element={<WhatHappened changeSecondSound={() => changeSecondSound('/sounds/night-window.mp3')} />} />
+        <Route path='/what-happened' element={<WhatHappened changeSecondSound={() => changeSecondSound('/sounds/night-window.mp3')} />} />
         <Route path='/ahh' element={
           <Nav path='/tellaboutyourself'>
             <Page bg='night-window.gif' onBlack={false}>
@@ -766,7 +744,9 @@ function App() {
               สัญลักษณ์แห่งการเตรียมความพร้อม<br />
             </p>
             <p>
-              "เสี้ยวที่โผล่ออกมาเล็กน้อยของพระจันทร์ เปรียบเสมือนการเตรียมตัวเพื่อรอรับสิ่งใหม่ ๆ อยู่เสมอ หากคุณไม่ละเลยความพยายาม ในอนาคตอันไม่ช้าคุณจะได้พบกับตัวตนใหม่ ๆ
+              "เสี้ยวที่โผล่ออกมาเล็กน้อยของพระจันทร์ เปรียบเสมือนการเตรียมตัวเพื่อรอรับสิ่งใหม่ ๆ<br />อยู่เสมอ
+              หากคุณไม่ละเลยความพยายาม<br />
+              ในอนาคตอันไม่ช้าคุณจะได้พบกับตัวตนใหม่ ๆ
               อีกมากมายอย่างแน่นอน"
             </p>
           </Souvenir>
