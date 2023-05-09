@@ -16,7 +16,6 @@ const Abstract: FC = () => {
             }, 1000)
         } else {
             toast.error('กรุณาตอบคำถาม')
-            inputRef.current?.focus()
         }
     }
 

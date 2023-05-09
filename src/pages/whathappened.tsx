@@ -28,7 +28,6 @@ const WhatHappened: FC<Props> = ({ changeSound, changeSecondSound, changeSFX }) 
       }, 1000)
     } else {
       toast.error("กรุณาตอบคำถาม")
-      inputRef.current?.focus()
     }
   };
 

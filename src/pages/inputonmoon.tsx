@@ -23,7 +23,6 @@ const InputOnMoon: FC<Prop> = ({ children, path }) => {
             }, 2500)
         } else {
             toast.error("กรุณาตอบคำถาม")
-            inputRef.current?.focus()
         }
     };
 

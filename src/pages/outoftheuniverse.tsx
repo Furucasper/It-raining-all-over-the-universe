@@ -10,11 +10,11 @@ interface Props {
 const OutOfTheUniverse: FC<Props> = ({ allPlayerFadeOut }) => {
 
     useEffect(() => {
-        allPlayerFadeOut(8000, 6000)
+        allPlayerFadeOut(6000, 1000)
     }, [])
 
     return (
-        <Curtain path='/last-darkness' isFast>
+        <Curtain path='/last-darkness' duration={8}>
             <Helmet>
                 <link rel="prefetch" href="/images/new-moon.jpg" as="image" type="image/jpeg" crossOrigin="anonymous" />
                 <link rel="prefetch" href="/images/crescent-moon.jpg" as="image" type="image/jpeg" crossOrigin="anonymous" />

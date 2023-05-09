@@ -26,7 +26,7 @@ const Name: FC<Props> = ({
       navigate("/click-to-continue")
     } else {
       toast.error("กรุณากรอกชื่อของคุณ")
-      inputRef.current?.focus()
+      //inputRef.current?.focus()
     }
   }
 

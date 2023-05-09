@@ -379,7 +379,7 @@ function App() {
           <InputOnMoon path='/its-really-good'>
             <p className='text-lg'>
               แล้วคุณภูมิใจกับความเป็นตัวเอง<br />
-              ด้านไหนมากที่สุดบ้างเหรอ? <br/>
+              ด้านไหนมากที่สุดบ้างเหรอ? <br />
               ไม่จำเป็นต้องเป็นคำที่เห็นก่อนหน้านี้ก็ได้นะ
             </p>
           </InputOnMoon>
@@ -452,9 +452,10 @@ function App() {
         <Route path='/think-of-others' element={<ThinkOfOthers />} />
         <Route path='/not-me' element={
           <SixteenChoices path='/maybe-maybe-not' choiceKey='others-define-you' playBtnClickSFX={playBtnClickSFX} key={'not-me'} skipable>
-            <p className='text-lg fade-in ani-duration-500ms'>
+            <p className='text-lg/relaxed fade-in ani-duration-500ms'>
               มีคำไหนบ้างไหม<br />
-              ที่คุณ<b>ไม่เคยคิดว่าตนเองเป็นแบบนั้น</b>
+              ที่คุณ<b>ไม่เคยคิดว่าตนเองเป็นแบบนั้น</b><br />
+              ถ้าไม่มีกดข้ามได้เลยนะ
             </p>
           </SixteenChoices>
         } />
@@ -629,7 +630,7 @@ function App() {
           </Nav>
         } />
         <Route path='/raindrop-on-hand' element={<RaindropOnHand />} />
-        <Route path='/rain-on-moon' element={<RainOnMoon changeSecondSound={() => changeSecondSound('/sounds/star-ambience-with-rain.mp3')} />} />
+        <Route path='/rain-on-moon' element={<RainOnMoon changeSecondSound={() => changeSecondSound('/sounds/star-ambience-with-rain.mp3')} changeSFX={() => changeSFX('')} />} />
         <Route path='/recall' element={
           <Nav path='/your-planet'>
             <BlankPage bg='plain-space.gif'>
@@ -646,7 +647,7 @@ function App() {
         <Route path='/your-planet' element={
           <Nav path='/your-rain' delayClick={5500} key={'your-planet'}>
             <BlankPage bg='plain-space.gif'>
-              <div className='[&>p]:text-lg/relaxed overlay top-[8%]'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[9%]'>
                 <p className='ani-delay-500ms fade-in'>
                   ดาวที่มีฝนตกดวงนี้ก็คือตัวตนของคุณเอง
                 </p>
@@ -663,9 +664,9 @@ function App() {
           </Nav>
         } />
         <Route path='/your-rain' element={
-          <Nav path='/know-better'>
+          <Nav path='/beginning'>
             <BlankPage bg='plain-space.gif'>
-              <div className='[&>p]:text-lg/relaxed overlay top-[12%] ani-delay-500ms fade-in'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[14%] ani-delay-500ms fade-in'>
                 <p>
                   ฝนแต่ละหยดก็เหมือนกับตัวตนในแต่ละด้าน<br />
                   ยิ่งฝนตกลงมามากแค่ไหน<br />
@@ -676,38 +677,39 @@ function App() {
             </BlankPage>
           </Nav>
         } />
-        <Route path='/know-better' element={
-          <Nav path='/no-one-discover'>
+        <Route path='/beginning' element={
+          <Nav path='/it-exists'>
             <BlankPage bg='plain-space.gif'>
-              <div className='[&>p]:text-lg/relaxed overlay top-[14%]'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[12%]'>
                 <p className='ani-delay-500ms fade-in'>
-                  ตอนนี้คุณได้เรียนรู้และ<br />
-                  รู้จักตนเองมากขึ้นอีกนิดหน่อยแล้ว
+                  แม้ตอนนี้ฝนจะเพิ่งตกบนดาวของคุณ<br />
+                  แต่นี่คือจุดเริ่มต้นในการตามหา<br />
+                  สายฝนหยดอื่น ๆ เพื่อเติมเต็มดาวแห่งตัวตน<br />
+                  ดวงนี้ให้สมบูรณ์ที่สุดนะ
                 </p>
               </div>
               <img className='pointer-events-none scale-[0.75]' src='/pages/rain-on-moon-no-bg.gif' alt='rain-on-moon' />
             </BlankPage>
           </Nav>
         } />
-        <Route path='/no-one-discover' element={
-          <Nav path='/make-it-rain'>
+        <Route path='/it-exists' element={
+          <Nav path='/forward-to-others'>
             <BlankPage bg='plain-space.gif'>
-              <div className='[&>p]:text-lg/relaxed overlay top-[12%] ani-delay-500ms fade-in'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[14%] ani-delay-500ms fade-in'>
                 <p>
-                  แม้ดูเหมือนจะเป็นไปไม่ได้<br />
-                  แต่ในจักรวาลก็ยังมีฝน เหมือนกับตัวตนของคุณ<br />
-                  ที่มีด้านอีกมากมายให้ค้นหา<br />
-                  ด้านที่แม้แต่ตัวคุณ และใครก็ไม่เคยค้นพบ
+                  "ตัวตนของเราก็เหมือนกับการตามหา<br />
+                  ฝนในจักรวาล แม้จะดูเป็นไปไม่ได้<br />
+                  <b>แต่ก็มีอยู่จริง</b>"
                 </p>
               </div>
               <img className='pointer-events-none scale-[0.75]' src='/pages/rain-on-moon-no-bg.gif' alt='rain-on-moon' />
             </BlankPage>
           </Nav>
         } />
-        <Route path='/make-it-rain' element={
+        <Route path='/forward-to-others' element={
           <Nav path='/out-of-the-universe'>
             <BlankPage bg='plain-space.gif'>
-              <div className='[&>p]:text-lg/relaxed overlay top-[18%]'>
+              <div className='[&>p]:text-lg/relaxed overlay top-[16%]'>
                 <p className='ani-delay-500ms fade-in'>
                   มาร่วมส่งต่อการมีฝนตกในจักรวาลไปด้วยกัน<br />
                   <b>#MakeItRainProject</b>
@@ -753,8 +755,7 @@ function App() {
               สัญลักษณ์แห่งการเริ่มต้น<br />
             </p>
             <p>
-              "ช่วงเวลาแห่งคืนเดือนมืดคือช่วงที่เหมาะสมที่สุดในการเริ่มต้นสิ่งใหม่ ๆ
-              รวมถึงการตั้งต้นเพื่อค้นหาตนเอง"
+              "โดยธรรมชาติ จันทร์ดับจะย้ำเตือนให้เราริเริ่มสิ่งใหม่ ๆ อยู่เสมอ เวลานี้จึงเป็นเวลาดีที่คุณจะได้เริ่มต้นเผชิญหน้ากับตัวตนใหม่ ๆ ของตัวเองอีกครั้ง"
             </p>
           </Souvenir>
         } />
@@ -765,7 +766,8 @@ function App() {
               สัญลักษณ์แห่งการเตรียมความพร้อม<br />
             </p>
             <p>
-              "ตัวตนที่ถูกค้นพบอาจนำมาซึ่งผลลัพธ์<br/>อันคาดเดาไม่ได้"
+              "เสี้ยวที่โผล่ออกมาเล็กน้อยของพระจันทร์ เปรียบเสมือนการเตรียมตัวเพื่อรอรับสิ่งใหม่ ๆ อยู่เสมอ หากคุณไม่ละเลยความพยายาม ในอนาคตอันไม่ช้าคุณจะได้พบกับตัวตนใหม่ ๆ
+              อีกมากมายอย่างแน่นอน"
             </p>
           </Souvenir>
         } />
@@ -776,7 +778,9 @@ function App() {
               สัญลักษณ์แห่งการลงมือทำ<br />
             </p>
             <p>
-              "ในบางครา.. เส้นทางแห่งมัชฌิมาอาจไม่ก่อให้เกิดผลดีเท่าการแสดงออกอย่างชัดเจน"
+              "พระจันทร์ครึ่งดวงเปรียบได้กับ<br />
+              เส้นทางกลับบ้านที่เหลืออยู่เพียงครึ่ง<br />
+              คุณเรียนรู้ชีวิตมาได้ในระดับหนึ่งแล้ว แต่ถนนแห่งตัวตนสายนี้ยังคงทอดยาวต่อไปให้คุณได้ค้นพบสิ่งใหม่ ๆ อยู่เสมอ"
             </p>
           </Souvenir>
         } />
@@ -786,7 +790,11 @@ function App() {
               <b>จันทร์นูน</b><br />
               สัญลักษณ์แห่งการสำรวจตนเอง<br />
             </p>
-            <p>"การเติบโต การค้นพบ และการสูญเสียบางสิ่ง"</p>
+            <p>
+              "จันทร์นูนเปรียบเสมือนกับการใช้ชีวิต<br />
+              และได้รู้จักตัวเองมาเกือบจะถึงปลายทาง<br />
+              แต่ตัวตนที่ผ่านมาอาจสร้างความสับสนให้ตัวคุณได้ จันทร์นูนจึงคอยย้ำเตือนคุณให้ระลึกและสำรวจตนเองอยู่เสมอ"
+            </p>
           </Souvenir>
         } />
         <Route path='/full-moon-souvenir' element={
@@ -796,8 +804,9 @@ function App() {
               สัญลักษณ์แห่งการตื่นรู้<br />
             </p>
             <p>
-              "แม้การตื่นรู้อาจเป็นสิ่งสูงสุด แต่ผู้คนบนโลกก็ยังมิอาจตื่นรู้ได้จน
-              ลมหายใจสุดท้าย"
+              "แม้จันทร์เต็มดวงจะดูสมบูรณ์แบบ<br />
+              แต่จันทร์เต็มดวงก็ยังวนกลับไปเป็นจันทร์เดือนดับได้ ไม่ต่างอะไรไปจากตัวตนของเรา เราอาจเข้าใจว่าเรารู้จักตัวเองในด้านหนึ่ง ๆ ดีแล้ว แต่แท้จริงอาจมีด้านอื่น ๆ อีกมากมาย<br />
+              ที่รอการค้นพบอยู่"
             </p>
           </Souvenir>
         } />

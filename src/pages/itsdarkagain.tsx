@@ -10,19 +10,19 @@ interface Props {
 const ItsDarkAgain: FC<Props> = ({ allPlayerFadeOut }) => {
 
     useEffect(() => {
-        allPlayerFadeOut(8000, 6000)
+        allPlayerFadeOut(6000, 1000)
     }, [])
 
     return (
-        <Curtain path='/darkness3' isFast>
+        <Curtain path='/darkness3' duration={8}>
             <Helmet>
                 <link rel='prefetch' href='/sounds/shining-planet.mp3' as='audio' type='audio/mpeg' crossOrigin="anonymous" />
                 <link rel="prefetch" href="/pages/glowing-moon.mp4" as="video" type="video/mpeg" crossOrigin="anonymous" />
                 <link rel="prefetch" href="/pages/glowing-moon-fadeout.mp4" as="video" type="video/mpeg" crossOrigin="anonymous" />
             </Helmet>
             <BlankPage bg='plain-space.gif'>
-                <div className='[&>p]:text-lg/relaxed fade-out ani-delay-16s overlay'>
-                    <p className='fade-in ani-delay-6s text-black'>
+                <div className='[&>p]:text-lg/relaxed overlay'>
+                    <p className='fade-in ani-delay-3s text-black'>
                         อีกครั้งหนึ่งที่ภาพตรงหน้า <br />
                         ของคุณเริ่มมืดดับลง
                     </p>

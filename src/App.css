@@ -183,8 +183,40 @@
     animation-duration: 15s;
 }
 
-.ani-duration22dot5s {
-    animation-duration: 22.5s;
+.ani-duration-8s {
+    animation-duration: 8s;
+}
+
+.ani-duration-10s {
+    animation-duration: 10s;
+}
+
+.ani-duration-12s {
+    animation-duration: 12s;
+}
+
+.ani-duration-14s {
+    animation-duration: 14s;
+}
+
+.ani-duration-15s {
+    animation-duration: 15s;
+}
+
+.ani-duration-16s {
+    animation-duration: 16s;
+}
+
+.ani-duration-18s {
+    animation-duration: 18s;
+}
+
+.ani-duration-20s {
+    animation-duration: 20s;
+}
+
+.ani-duration-22s {
+    animation-duration: 22s;
 }
 
 .ani-delay-500ms {

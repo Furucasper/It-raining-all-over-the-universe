@@ -5,12 +5,11 @@ interface Props {
     children: string | JSX.Element | JSX.Element[]
     path: string
     delay?: number
-    bgColor?: 'black' | 'white' | ''
     isClosing?: boolean
-    isFast?: boolean
+    duration?: 8 | 10 | 12 | 14 | 15 | 16 | 18 | 20 | 22
 };
 
-const Curtain: FC<Props> = ({ children, path, delay = 0, bgColor = '', isClosing = true, isFast }) => {
+const Curtain: FC<Props> = ({ children, path, delay = 0, isClosing = true, duration = 22 }) => {
 
     const navigate = useNavigate()
 
@@ -18,7 +17,7 @@ const Curtain: FC<Props> = ({ children, path, delay = 0, bgColor = '', isClosing
         if (isClosing) {
             setTimeout(() => {
                 navigate(path)
-            }, (isFast ? 15500 : 23500) + delay)
+            }, ((duration * 1000) + 1000) + delay)
         } else {
             setTimeout(() => {
                 navigate(path)
@@ -29,8 +28,8 @@ const Curtain: FC<Props> = ({ children, path, delay = 0, bgColor = '', isClosing
 
     return (
         <div className="flex justify-center font-season h-full">
-            <div className={"bg-black w-full absolute top-0 left-0 overlay" + (isClosing ? " curtain-closing fromstart" : "  curtain-opening fromend") + (isFast ? " ani-duration-15s" : " ani-duration22dot5s")}></div>
-            <div className={"bg-black w-full absolute bottom-0 left-0 overlay" + (isClosing ? " curtain-closing fromstart" : "  curtain-opening fromend") + (isFast ? " ani-duration-15s" : " ani-duration22dot5s")}></div>
+            <div className={"bg-black w-full absolute top-0 left-0 overlay" + (isClosing ? " curtain-closing fromstart" : "  curtain-opening fromend") + ` ani-duration-${duration}s`}></div>
+            <div className={"bg-black w-full absolute bottom-0 left-0 overlay" + (isClosing ? " curtain-closing fromstart" : "  curtain-opening fromend") + ` ani-duration-${duration}s`}></div>
             {children}
         </div>
     );

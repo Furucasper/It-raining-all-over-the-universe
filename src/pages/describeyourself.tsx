@@ -26,7 +26,6 @@ const DescribeYourself: FC<Props> = ({ changeSound, changeSecondSound, changeSFX
             }, 1500)
         } else {
             toast.error("กรุณาตอบคำถาม")
-            inputRef.current?.focus()
         }
     };
 
