@@ -54,7 +54,7 @@ const WhatHappened: FC<Props> = ({ changeSound, changeSecondSound, changeSFX }) 
                 ref={inputRef}
               />
               <br />
-              <button type="button" className="text-bold text-lg cursor-pointer mt-4 px-4 py-1" onClick={nextPage}>
+              <button type="button" className="text-bold bg-white/90 drop-shadow rounded cursor-pointer mt-6 px-4 py-1" onClick={nextPage}>
                 <b>&gt; ต่อไป &lt;</b>
               </button>
             </div>

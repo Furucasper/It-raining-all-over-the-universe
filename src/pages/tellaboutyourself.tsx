@@ -46,12 +46,12 @@ const TellAboutYourself: FC<Props> = ({ changeSound, changeSecondSound, changeSF
                     className="w-full  text-center h-screen flex bg-cover bg-center"
                     style={{ backgroundImage: "url('/pages/night-window.gif')" }}
                 >
-                    <div className="m-auto fade-in pt-[15rem]">
+                    <div className="m-auto fade-in pt-[14rem]">
                         <p className="text-lg/relaxed">
                             ก่อนที่จะไปกันต่อ <br/>
                             เราอยากรู้จักคุณให้มากขึ้น<br/>
-                            คุณคือใคร? บอกคำที่อธิบายตัวตนของคุณ<br/>
-                            <b>ได้ชัดเจนที่สุด</b>มาสัก 1 คำหน่อยสิ
+                            คุณคือใคร? บอก<b>คำที่อธิบายตัวตน</b>ของคุณ<br/>
+                            ได้ชัดเจนที่สุดมาสัก 1 คำหน่อยสิ
                         </p>
                         <div>
                             <input
@@ -61,7 +61,7 @@ const TellAboutYourself: FC<Props> = ({ changeSound, changeSecondSound, changeSF
                                 ref={inputRef}
                             />
                             <br />
-                            <button type="button" className="text-bold text-lg cursor-pointer mt-8 px-4 py-1" onClick={nextPage}>
+                            <button type="button" className="text-bold text-lg bg-white/90 drop-shadow rounded cursor-pointer mt-6 px-4 py-1" onClick={nextPage}>
                                 <b>&gt; ต่อไป &lt;</b>
                             </button>
                         </div>
