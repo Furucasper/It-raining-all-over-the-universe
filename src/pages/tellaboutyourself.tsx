@@ -61,7 +61,7 @@ const TellAboutYourself: FC<Props> = ({ changeSound, changeSecondSound, changeSF
                                 ref={inputRef}
                             />
                             <br />
-                            <button type="button" className="text-bold text-lg bg-white/90 drop-shadow rounded cursor-pointer mt-6 px-4 py-1" onClick={nextPage}>
+                            <button type="button" className="text-bold text-xl bg-white/90 drop-shadow rounded cursor-pointer mt-6 px-4 py-1" onClick={nextPage}>
                                 <b>&gt; ต่อไป &lt;</b>
                             </button>
                         </div>
