@@ -10,20 +10,20 @@ interface Props {
 const GraduallyDarken: FC<Props> = ({ allPlayerFadeOut }) => {
 
     const firstDiv = (
-        <div className='fade-out ani-delay-4s fade-out ani-delay-4s'>
+        <div className='fade-out ani-delay-3s'>
             <p className='text-xl fade-in'>.....</p>
         </div>
     )
 
     const secondDiv = (
-        <div className='[&>p]:text-lg/loose fade-out ani-delay-12s'>
-            <p className='text-xl fade-in ani-delay-6s'>อยู่ ๆ บรรยากาศรอบตัว<br />ของคุณก็ค่อย ๆ มืดลง</p>
+        <div className='[&>p]:text-lg/loose fade-out ani-delay-9s'>
+            <p className='text-xl fade-in ani-delay-4s'>อยู่ ๆ บรรยากาศรอบตัว<br />ของคุณก็ค่อย ๆ มืดลง</p>
         </div>
     )
 
     const thirdDiv = (
         <div className='[&>p]:text-lg/loose'>
-            <p className='text-xl fade-in ani-delay-14s'>ค่อย ๆ มืดลง</p>
+            <p className='text-xl fade-in ani-delay-10s'>ค่อย ๆ มืดลง</p>
         </div>
     )
 
@@ -34,13 +34,13 @@ const GraduallyDarken: FC<Props> = ({ allPlayerFadeOut }) => {
             setDiv(secondDiv)
             setTimeout(() => {
                 setDiv(thirdDiv)
-            }, 8000)
-        }, 5000)
+            }, 6000)
+        }, 4000)
         allPlayerFadeOut(18000, 5000)   
     }, [])
 
     return (
-        <Curtain path='/darkness'>
+        <Curtain path='/darkness' duration={14}>
             <BlankPage bg='plain-space.gif'>
                 {div}
             </BlankPage>
