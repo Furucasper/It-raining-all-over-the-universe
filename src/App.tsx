@@ -193,7 +193,7 @@ function App() {
           </Nav>
         } />
         <Route path='/awaken' element={
-          <Nav path='/on-gaia' delayClick={8500} changeSecondSound={() => changeSecondSound('/sounds/star-ambience.mp3')} key={'awaken'}>
+          <Nav path='/on-gaia' delayClick={10000} changeSecondSound={() => changeSecondSound('/sounds/star-ambience.mp3')} key={'awaken'}>
             <BlankPage bg='plain-space.gif' fadeInScene>
               <div className='[&>p]:text-lg/loose'>
                 <p className='fade-in ani-delay-3s'>คุณตื่นขึ้น ณ จักรวาลแห่งหนึ่ง</p><br />
@@ -320,7 +320,7 @@ function App() {
         <Route path='/others-define-you' element={
           <SixteenChoices path='/be-the-same' localStorageKey='others-define-you' playBtnClickSFX={playBtnClickSFX} key={'others-define-you'}>
             <p className='text-lg fade-in fade-in ani-duration-500ms'>
-              แล้ว<b>คนอื่นมักนิยามตัวตนของคุณ</b><br />
+              แล้ว<b><u>คนอื่น</u>มักนิยามตัวตนของคุณ</b><br />
               ด้วยคำไหนบ้าง? สามารถตอบมากกว่า 1 ข้อ<br />
               ได้เหมือนเดิมเลย
             </p>
@@ -328,7 +328,7 @@ function App() {
         } />
         <Route path='/be-the-same' element={<BeTheSame />} />
         <Route path='/you-and-others' element={
-          <Nav path='/your-pride'>
+          <Nav path='/other-words'>
             <BlankPage bg='plain-space.gif'>
               <div className='[&>p]:text-lg/loose overlay top-[10%]'>
                 <p className='fade-in'>
@@ -342,7 +342,7 @@ function App() {
           </Nav>
         } />
         <Route path='/not-know-before' element={
-          <Nav path='/your-pride'>
+          <Nav path='/other-words'>
             <BlankPage bg='plain-space.gif'>
               <div className='[&>p]:text-lg/loose overlay top-[10%]'>
                 <p className='fade-in'>
@@ -355,12 +355,10 @@ function App() {
             </BlankPage>
           </Nav>
         } />
-        <Route path='/your-pride' element={
+        <Route path='/other-words' element={
           <InputOnMoon path='/its-really-good'>
             <p className='text-lg'>
-              แล้วคุณภูมิใจกับความเป็นตัวเอง<br />
-              ด้านไหนมากที่สุดบ้างเหรอ? <br />
-              ไม่จำเป็นต้องเป็นคำที่เห็นก่อนหน้านี้ก็ได้นะ
+              นอกจากคำเหล่านั้นแล้ว ยังมีคำไหนอีกบ้าง<br/>ที่แสดงเป็นตัวตนของคุณ?
             </p>
           </InputOnMoon>
         } />
@@ -435,7 +433,7 @@ function App() {
             <p className='text-lg/relaxed fade-in ani-duration-500ms'>
               มีคำไหนบ้างไหม<br />
               ที่คุณ<b>ไม่เคยคิดว่าตนเองเป็นแบบนั้น</b><br />
-              ถ้าไม่มีกดข้ามได้เลยนะ
+              (ถ้าไม่มีกดข้ามได้นะ)
             </p>
           </SixteenChoices>
         } />
@@ -625,7 +623,7 @@ function App() {
           </Nav>
         } />
         <Route path='/your-planet' element={
-          <Nav path='/your-rain' delayClick={5500} key={'your-planet'}>
+          <Nav path='/your-rain' delayClick={6000} key={'your-planet'}>
             <BlankPage bg='plain-space.gif'>
               <div className='[&>p]:text-lg/relaxed overlay top-[9%]'>
                 <p className='ani-delay-500ms fade-in'>

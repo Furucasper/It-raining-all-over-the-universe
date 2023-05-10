@@ -74,7 +74,7 @@ const DefineYourself: FC<Props> = ({ children, path, localStorageKey, choiceKey,
                 }
             </div>
 
-            <button type="button" className="text-bold text-lg cursor-pointer fade-in" onClick={nextPage}>
+            <button type="button" className="text-bold cursor-pointer fade-in" onClick={nextPage}>
                 <b>&gt; ต่อไป &lt;</b>
             </button>
         </BlankPage>
