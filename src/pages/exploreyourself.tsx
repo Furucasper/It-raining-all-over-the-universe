@@ -13,14 +13,14 @@ const ExploreYourself = () => {
     )
 
     const secondDiv = (
-        <div className='[&>p]:text-lg/loose fade-out ani-delay-13s'>
+        <div className='[&>p]:text-lg/loose fade-out ani-delay-11s'>
             <p className='fade-in ani-delay-8s'>ตอนนี้คุณกำลังถูกดึงเข้าสู่ห้วงมิติบางอย่าง...</p>
         </div>
     )
 
     const thirdDiv = (
         <div className='[&>p]:text-lg/loose'>
-            <p className='fade-in ani-delay-14s'>ภาพตรงหน้าของคุณค่อย ๆ มืดดับลงเรื่อย ๆ</p>
+            <p className='fade-in ani-delay-12s'>ภาพตรงหน้าของคุณค่อย ๆ มืดดับลงเรื่อย ๆ</p>
         </div>
     )
     
@@ -31,12 +31,12 @@ const ExploreYourself = () => {
             setDiv(secondDiv)
             setTimeout(() => {
                 setDiv(thirdDiv)
-            }, 6000)
+            }, 4000)
         }, 8000)
     }, [])
 
     return (
-        <Curtain path='/imagine' duration={18}>
+        <Curtain path='/imagine' duration={16}>
             <Helmet>
                 <link rel='prefetch' href='/sounds/galaxy.mp3' as='audio' type='audio/mpeg' crossOrigin="anonymous" />
                 <link rel='prefetch' href='/sounds/sfx-twinkling-stars.mp3' as='audio' type='audio/mpeg' crossOrigin="anonymous" />
