@@ -8,7 +8,7 @@ interface Props {
 
 const ToTheMoon: FC<Props> = ({ path }) => {
     return (
-        <Curtain path={ path || '/moon'} isClosing={false}>
+        <Curtain path={ path || '/moon'} isClosing={false} duration={5}>
             <BlankPage bg='plain-space.gif'>
                 <img className='pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon'/>
             </BlankPage>

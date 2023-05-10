@@ -73,7 +73,6 @@
 .curtain-opening.fromend {
     height: 50%;
     animation-name: curtainFromend;
-    animation-duration: 9.5s !important;
 }
 
 @keyframes curtainFromstart {
@@ -181,6 +180,14 @@
 
 .ani-duration-15s {
     animation-duration: 15s;
+}
+
+.ani-duration-5s {
+    animation-duration: 5s;
+}
+
+.ani-duration-6s {
+    animation-duration: 6s;
 }
 
 .ani-duration-8s {

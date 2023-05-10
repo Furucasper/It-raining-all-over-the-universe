@@ -6,7 +6,7 @@ interface Props {
     path: string
     delay?: number
     isClosing?: boolean
-    duration?: 8 | 10 | 12 | 14 | 15 | 16 | 18 | 20 | 22
+    duration?: 5 | 6 | 8 | 10 | 12 | 14 | 15 | 16 | 18 | 20 | 22
 };
 
 const Curtain: FC<Props> = ({ children, path, delay = 0, isClosing = true, duration = 22 }) => {
@@ -14,16 +14,9 @@ const Curtain: FC<Props> = ({ children, path, delay = 0, isClosing = true, durat
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (isClosing) {
-            setTimeout(() => {
-                navigate(path)
-            }, ((duration * 1000) + 1000) + delay)
-        } else {
-            setTimeout(() => {
-                navigate(path)
-            }
-        , 10000 + delay)
-        }
+        setTimeout(() => {
+            navigate(path)
+        }, ((duration * 1000) + 1000) + delay)
     }, [])
 
     return (

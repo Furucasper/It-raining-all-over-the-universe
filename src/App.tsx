@@ -272,7 +272,7 @@ function App() {
         <Route path='/time-space' element={
           <Nav path='/to-the-moon'>
             <BlankPage>
-              <p className='fade-in text-xl'>ในช่องว่างของกาลเวลา</p>
+              <p className='fade-in text-lg'>ในช่องว่างของกาลเวลา</p>
             </BlankPage>
           </Nav>
         } />
@@ -706,10 +706,10 @@ function App() {
           </Nav>
         } />
         <Route path='/thank-for-today' element={
-          <Curtain path='/describe-yourself' isClosing={false} delay={3500}>
+          <Curtain path='/describe-yourself' isClosing={false} delay={3000} duration={8}>
             <div className='bg-white w-full'>
               <BlankPage bg='daytime-window.gif' onBlack={false}>
-                <p className='mt-40 text-lg fade-in ani-delay-5s'>ขอบคุณที่มาร่วมเดินทางไปด้วยกันวันนี้นะ</p>
+                <p className='mt-40 text-lg fade-in ani-delay-4s'>ขอบคุณที่มาร่วมเดินทางไปด้วยกันวันนี้นะ</p>
               </BlankPage>
             </div>
           </Curtain>
