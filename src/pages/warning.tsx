@@ -43,11 +43,19 @@ const Warning: FC<Props> = ({ soundPlayer, secondSoundPlayer }) => {
               เมื่อคุณรู้สึกพร้อม
             </p>
             <br />
-            <Link to='/cookie-policy'>Cookie Policy</Link>
             <br />
+            <div>
+              <p className="text-base">
+                เว็บไซต์นี้มีการใช้คุกกี้เพื่อวิเคราะห์<br />
+                การเข้าใช้งานของผู้เล่น โดยมีจุดประสงค์<br />
+                เพื่อนำไปสรุปผลหลังสิ้นเสร็จโครงการ<br />
+                เพียงเท่านั้น คุณสามารถศึกษาการใช้คุกกี้<br />
+                ของเราได้ <Link to='/cookie-policy' className="underline">นโยบายคุกกี้ (Cookie Policy)</Link>
+              </p>
+            </div>
             <br />
             <button type="button" className="text-xl cursor-pointer" onClick={nextPage}>
-              <b>&gt; ต่อไป &lt;</b>
+              <b>&gt; ตกลง &lt;</b>
             </button>
           </div>
         </div>
