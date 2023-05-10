@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=K2D&family=Mali:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;600;700&display=swap');
 
 body {
   margin: 0;
@@ -42,8 +42,7 @@ code {
   }
 
   input {
-    @apply appearance-none border rounded-md w-full text-black bg-gray-200 focus:outline-zinc-300 text-lg/tight py-2 px-3 max-w-[90%];
-    font-family: 'K2D', 'Mali', sans-serif;
+    @apply appearance-none border rounded-md w-full text-black bg-gray-200 focus:outline-zinc-300 text-lg/loose py-1 px-3 max-w-[90%];
   }
 
   button {
