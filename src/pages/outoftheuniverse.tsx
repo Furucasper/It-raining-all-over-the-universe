@@ -16,6 +16,7 @@ const OutOfTheUniverse: FC<Props> = ({ allPlayerFadeOut }) => {
     return (
         <Curtain path='/last-darkness' duration={8}>
             <Helmet>
+                <link rel="prefetch" href="/images/logo-white.png" as="image" type="image/png" crossOrigin="anonymous" />
                 <link rel="prefetch" href="/images/new-moon.jpg" as="image" type="image/jpeg" crossOrigin="anonymous" />
                 <link rel="prefetch" href="/images/crescent-moon.jpg" as="image" type="image/jpeg" crossOrigin="anonymous" />
                 <link rel="prefetch" href="/images/quarter-moon.jpg" as="image" type="image/jpeg" crossOrigin="anonymous" />
@@ -25,6 +26,7 @@ const OutOfTheUniverse: FC<Props> = ({ allPlayerFadeOut }) => {
                 <link rel='prefetch' href='/sounds/sfx-gift-2.mp3' as='audio' type='audio/mpeg' crossOrigin="anonymous" />
                 <link rel='prefetch' href='/sounds/sfx-gift-3.mp3' as='audio' type='audio/mpeg' crossOrigin="anonymous" />
                 <link rel='prefetch' href='/sounds/sfx-gift-4.mp3' as='audio' type='audio/mpeg' crossOrigin="anonymous" />
+                <link rel='prefetch' href='/sounds/sfx-gift-5.mp3' as='audio' type='audio/mpeg' crossOrigin="anonymous" />
             </Helmet>
             <div>
                 <BlankPage bg='plain-space.gif'>

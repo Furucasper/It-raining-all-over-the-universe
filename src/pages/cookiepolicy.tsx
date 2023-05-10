@@ -5,10 +5,10 @@ const CookiePolicy: FC = () => {
     const navigate = useNavigate()
     return (
         <div className='bg-white p-6 font-season h-full w-full overflow-y-auto'>
-            <div className='overlay bg-white p-1 pl-0 rounded-md'>
-            <button className='drop-shadow text-lg font-bold bg-zinc-200 hover:bg-zinc-300 rounded-md px-2 py-1 cursor-pointer m-x-auto' onClick={() => navigate(-1)}>&lt;- ย้อนกลับ</button>
+            <div className='overlay top-3 left-4 bg-white p-1 pl-0 rounded-md'>
+                <button className='drop-shadow text-lg font-bold bg-zinc-200 hover:bg-zinc-300 rounded-md px-2 py-1 cursor-pointer m-x-auto' onClick={() => navigate(-1)}>&lt;- ย้อนกลับ</button>
             </div>
-            <header className='text-center mt-4'>
+            <header className='text-center pt-4'>
                 <img src="/images/logo.png" alt="logo" className='w-32 mx-auto mb-2' />
                 <h1>Cookie Policy</h1>
                 <h2 className='mt-2'>นโยบายเกี่ยวกับการใช้งาน Cookie ของเว็บไซต์ MakeItRainProject</h2>
