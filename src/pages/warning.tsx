@@ -50,7 +50,7 @@ const Warning: FC<Props> = ({ soundPlayer, secondSoundPlayer }) => {
                 การเข้าใช้งานของผู้เล่น โดยมีจุดประสงค์<br />
                 เพื่อนำไปสรุปผลหลังสิ้นเสร็จโครงการ<br />
                 เพียงเท่านั้น คุณสามารถศึกษาการใช้คุกกี้<br />
-                ของเราได้ <Link to='/cookie-policy' className="underline">นโยบายคุกกี้ (Cookie Policy)</Link>
+                ของเราได้ใน<Link to='/cookie-policy' className="underline">นโยบายคุกกี้ (Cookie Policy)</Link>
               </p>
             </div>
             <br />
