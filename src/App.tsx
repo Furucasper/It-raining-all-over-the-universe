@@ -358,7 +358,7 @@ function App() {
         <Route path='/other-words' element={
           <InputOnMoon path='/its-really-good'>
             <p className='text-lg'>
-              นอกจากคำเหล่านั้นแล้ว ยังมีคำไหนอีกบ้าง<br/>ที่แสดงเป็นตัวตนของคุณ?
+              นอกจากคำเหล่านั้นแล้ว ยังมีคำไหนอีกบ้าง<br/>ที่แสดงความเป็นตัวตนของคุณ?
             </p>
           </InputOnMoon>
         } />

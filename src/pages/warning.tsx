@@ -48,7 +48,7 @@ const Warning: FC<Props> = ({ soundPlayer, secondSoundPlayer }) => {
               <p className="text-base">
                 เว็บไซต์นี้มีการใช้คุกกี้เพื่อวิเคราะห์<br />
                 การเข้าใช้งานของผู้เล่น โดยมีจุดประสงค์<br />
-                เพื่อนำไปสรุปผลหลังสิ้นเสร็จโครงการ<br />
+                เพื่อนำไปสรุปผลหลังเสร็จสิ้นโครงการ<br />
                 เพียงเท่านั้น คุณสามารถศึกษาการใช้คุกกี้<br />
                 ของเราได้ใน<Link to='/cookie-policy' className="underline">นโยบายคุกกี้ (Cookie Policy)</Link>
               </p>
