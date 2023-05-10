@@ -1,5 +1,5 @@
 import React, { FC, RefObject } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface Props {
   soundPlayer: RefObject<HTMLAudioElement>;
@@ -43,6 +43,7 @@ const Warning: FC<Props> = ({ soundPlayer, secondSoundPlayer }) => {
               เมื่อคุณรู้สึกพร้อม
             </p>
             <br />
+            <Link to='/cookie-policy'>Cookie Policy</Link>
             <br />
             <br />
             <button type="button" className="text-xl cursor-pointer" onClick={nextPage}>

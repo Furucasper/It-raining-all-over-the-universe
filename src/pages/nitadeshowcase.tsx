@@ -31,8 +31,6 @@ const NitadeShowcase: FC<Props> = ({ changeSFX }) => {
                 changeSFX('sounds/sfx-gift-5.mp3')
                 navigate('/full-moon-souvenir')
                 break;
-            default:
-                navigate('/new-moon-souvenir')
         }
     }
 

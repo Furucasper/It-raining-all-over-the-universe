@@ -48,7 +48,7 @@ const Name: FC<Props> = ({
         <div className="w-full text-center h-screen flex bg-contain bg-no-repeat bg-center"
           style={{ backgroundImage: "url('/pages/1.gif')" }}
         >
-          <div className="w-full mt-20 fade-in">
+          <div className="m-auto pb-20 fade-in">
             <img className="w-[40%] m-auto" src="/images/logo.png" alt="logo" />
             <br />
             <br />
@@ -60,15 +60,16 @@ const Name: FC<Props> = ({
             <br />
             <br />
             <div className="mb-12 flex justify-center">
-              <div className="w-1/2">
+              <div className="w-1/2 text-left px-4">
                 <label
-                  className="block text-gray-700 text-left text-lg mb-0.5"
+                  className="text-gray-700 text-left text-lg"
                 >
                   ชื่อ:
                 </label>
                 <input
                   name="yourname"
                   type="text"
+                  className="max-w-full mt-1"
                   placeholder="กรอกชื่อของคุณ"
                   autoComplete="off"
                   value={value}
@@ -81,7 +82,6 @@ const Name: FC<Props> = ({
                 />
               </div>
             </div>
-            <br />
             <button type="button" className="text-xl cursor-pointer" onClick={nextPage}>
               <b>&gt; ต่อไป &lt;</b>
             </button>

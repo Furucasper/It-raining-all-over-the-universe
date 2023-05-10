@@ -32,6 +32,7 @@ import HowMuchYouLearn from './pages/howmuchyoulearn';
 import NitadeShowcase from './pages/nitadeshowcase';
 import Souvenir from './pages/souvenir';
 import DescribeYourself from './pages/describeyourself';
+import CookiePolicy from './pages/cookiepolicy';
 
 function App() {
 
@@ -128,6 +129,7 @@ function App() {
         <Route path='/warning' element={<Warning soundPlayer={soundPlayer} secondSoundPlayer={secondSoundPlayer} />} />
         <Route path='/welcome' element={<Welcome />} />
         <Route path='/policy' element={<Policy />} />
+        <Route path='/cookie-policy' element={<CookiePolicy />} />
         <Route path='/name' element={<Name onNameChange={onNameChange} value={name} changeSFX={() => changeSFX('/sounds/sfx-story-intro.mp3')} />} />
         <Route path='/click-to-continue' element={
           <Nav path='/intro' changeSound={() => changeSound('/sounds/window-light-off.mp3')} changeSecondSound={() => changeSecondSound('/sounds/wind-with-window.mp3', 1)}>
@@ -212,19 +214,19 @@ function App() {
           </Nav>
         } />
         <Route path='/gaia-land' element={
-          <Nav path='/gaia-land-next'>
+          <Nav path='/not-your-star'>
             <BlankPage bg='plain-space.gif'>
               <img className='zoom-in-250 pointer-events-none' src='/images/moon.png' alt='gaia-star' />
               <div className='[&>p]:text-lg/loose overlay'>
                 <p className='text-black ani-delay-2s fade-in'>
-                  ด้วยลักษณะของพื้นผิวดวงดาวทำให้คุณ<br />
+                  ด้วยลักษณะของพื้นผิวของดวงดาวทำให้คุณ<br />
                   คาดเดาได้ว่าที่นี่คงไม่มีฝนตกมานานมากแล้ว
                 </p>
               </div>
             </BlankPage>
           </Nav>
         } />
-        <Route path='/gaia-land-next' element={
+        <Route path='/not-your-star' element={
           <Nav path='/find-your-star' delay={1500} changeSecondSound={() => changeSecondSound('')}>
             <BlankPage bg='plain-space.gif' fadeoutOnClicked>
               <img className='zoom-out-150 pointer-events-none' src='/images/moon.png' alt='gaia-star' />
@@ -299,7 +301,7 @@ function App() {
           <Nav path='/define-yourself' delay={1000}>
             <BlankPage bg='plain-space.gif' fadeoutOnClicked>
               <div className='[&>p]:text-lg/relaxed overlay top-[10%] ani-delay-500ms fade-in'>
-                <p className=''>มาค้นหาคำตอบ<br />
+                <p>มาค้นหาคำตอบ<br />
                   ด้วยการ<b>สำรวจตนเองและอธิบาย<br />
                     ความเป็นตัวตน</b>ให้ได้มากที่สุดกันเถอะ!</p>
               </div>
@@ -310,7 +312,7 @@ function App() {
         <Route path='/define-yourself' element={
           <SixteenChoices path='/others-define-you' localStorageKey='define-yourself' playBtnClickSFX={playBtnClickSFX} key={'define-yourself'}>
             <p className='text-lg fade-in ani-duration-500ms'>
-              คุณ<b>นิยามตัวตนของคุณ</b>ด้วยคำไหนบ้าง<br />
+              คุณ<b><u>นิยามตัวตนของคุณ</u></b>ด้วยคำไหนบ้าง<br />
               สามารถตอบมากกว่า 1 ข้อได้นะ
             </p>
           </SixteenChoices>
@@ -646,9 +648,9 @@ function App() {
             <BlankPage bg='plain-space.gif'>
               <div className='[&>p]:text-lg/relaxed overlay top-[14%] ani-delay-500ms fade-in'>
                 <p>
-                  ฝนแต่ละหยดก็เหมือนกับตัวตนในแต่ละด้าน<br />
-                  ยิ่งฝนตกลงมามากแค่ไหน<br />
-                  คุณก็จะได้รู้จักตนเองมากขึ้นเท่านั้น
+                  ฝนแต่ละหยดก็เหมือนกับตัวตนในแต่ละด้านของคุณ<br />
+                  ยิ่งฝนตกลงมามากเท่าไหร่<br />
+                  คุณก็จะยิ่งได้รู้จักตนเองมากขึ้นเท่านั้น
                 </p>
               </div>
               <img className='pointer-events-none scale-[0.75]' src='/pages/rain-on-moon-no-bg.gif' alt='rain-on-moon' />
@@ -660,7 +662,7 @@ function App() {
             <BlankPage bg='plain-space.gif'>
               <div className='[&>p]:text-lg/relaxed overlay top-[12%]'>
                 <p className='ani-delay-500ms fade-in'>
-                  แม้ตอนนี้ฝนจะเพิ่งตกบนดาวของคุณ<br />
+                  แม้ตอนนี้ฝนจะเพิ่งเริ่มตกบนดาวของคุณ<br />
                   แต่นี่คือจุดเริ่มต้นในการตามหา<br />
                   สายฝนหยดอื่น ๆ เพื่อเติมเต็มดาวแห่งตัวตน<br />
                   ดวงนี้ให้สมบูรณ์ที่สุดนะ
@@ -800,4 +802,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

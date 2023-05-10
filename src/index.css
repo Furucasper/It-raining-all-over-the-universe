@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Mali&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=K2D&family=Mali:wght@400;600;700&display=swap');
 
 body {
   margin: 0;
@@ -21,16 +21,29 @@ code {
 
 @font-face {
   font-family: "season";
-  src: url('https://fonts.googleapis.com/css2?family=Mali&display=swap')
+  src: 'Mali';
 }
 
 @layer base {
-  p {
+  h1, h3 {
+    @apply font-bold;
+  }
+  
+  h1 {
+    @apply text-[1.25rem];
+  }
+
+  h3 {
+    @apply mt-6 mb-2;
+  }
+
+  p, th, td {
     @apply text-base;
   }
 
   input {
     @apply appearance-none border rounded-md w-full text-black bg-gray-200 focus:outline-zinc-300 text-lg/tight py-2 px-3 max-w-[90%];
+    font-family: 'K2D', 'Mali', sans-serif;
   }
 
   button {
