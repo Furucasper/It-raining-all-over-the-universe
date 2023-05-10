@@ -729,7 +729,7 @@ function App() {
         } />
         <Route path='/join-the-Nitade-Showcase' element={<NitadeShowcase changeSFX={changeSFX} />} />
         <Route path='/new-moon-souvenir' element={
-          <Souvenir moon='new-moon.jpg' name='New Moon'>
+          <Souvenir moon='new-moon.jpg' name='New Moon' localstorageKey='1'>
             <p className="text-lg/relaxed">
               <b>จันทร์ดับ</b><br />
               สัญลักษณ์แห่งการเริ่มต้น<br />
@@ -740,7 +740,7 @@ function App() {
           </Souvenir>
         } />
         <Route path='/crescent-moon-souvenir' element={
-          <Souvenir moon='crescent-moon.jpg' name='Crescent Moon'>
+          <Souvenir moon='crescent-moon.jpg' name='Crescent Moon' localstorageKey='2'>
             <p className="text-lg/relaxed">
               <b>จันทร์เสี้ยว</b><br />
               สัญลักษณ์แห่งการเตรียมความพร้อม<br />
@@ -754,7 +754,7 @@ function App() {
           </Souvenir>
         } />
         <Route path='/quarter-moon-souvenir' element={
-          <Souvenir moon='quarter-moon.jpg' name='Quarter Moon'>
+          <Souvenir moon='quarter-moon.jpg' name='Quarter Moon' localstorageKey='3'>
             <p className="text-lg/relaxed">
               <b>จันทร์ครึ่งดวง</b><br />
               สัญลักษณ์แห่งการลงมือทำ<br />
@@ -767,7 +767,7 @@ function App() {
           </Souvenir>
         } />
         <Route path='/gibbous-moon-souvenir' element={
-          <Souvenir moon='gibbous-moon.jpg' name='Gibbous Moon'>
+          <Souvenir moon='gibbous-moon.jpg' name='Gibbous Moon' localstorageKey='4'>
             <p className="text-lg/relaxed">
               <b>จันทร์นูน</b><br />
               สัญลักษณ์แห่งการสำรวจตนเอง<br />
@@ -780,7 +780,7 @@ function App() {
           </Souvenir>
         } />
         <Route path='/full-moon-souvenir' element={
-          <Souvenir moon='full-moon.jpg' name='Full Moon'>
+          <Souvenir moon='full-moon.jpg' name='Full Moon' localstorageKey='5'>
             <p className="text-lg/relaxed">
               <b>จันทร์เพ็ญ</b><br />
               สัญลักษณ์แห่งการตื่นรู้<br />

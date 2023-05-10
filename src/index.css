@@ -54,6 +54,10 @@ code {
   }
 }
 
+.btn-dropshadow:hover {
+  filter: drop-shadow(2px 3px 0px rgba(0, 0, 0, 0.85));
+}
+
 @layer components {
   .btn-primary {
     @apply bg-gray-200 hover:bg-zinc-200 text-lg py-2 px-1 min-w-[10rem] rounded-lg cursor-pointer border-2 border-zinc-300/70 hover:border-zinc-400/70 transition-all;
