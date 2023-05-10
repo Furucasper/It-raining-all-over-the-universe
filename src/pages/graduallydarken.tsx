@@ -36,7 +36,7 @@ const GraduallyDarken: FC<Props> = ({ allPlayerFadeOut }) => {
                 setDiv(thirdDiv)
             }, 6000)
         }, 4000)
-        allPlayerFadeOut(18000, 5000)   
+        allPlayerFadeOut(10000, 3000)   
     }, [])
 
     return (
