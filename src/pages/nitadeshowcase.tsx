@@ -49,7 +49,7 @@ const NitadeShowcase: FC<Props> = ({ changeSFX }) => {
                             "Diary of Seasons"<br />
                             ณ งาน Nitade Showcase<br />
                             คณะนิเทศศาสตร์<br />
-                            จุฬาลงกรณ์หาวิทยาลัย<br />
+                            จุฬาลงกรณ์มหาวิทยาลัย<br />
                             18-20 พฤษภาคม 2566<br />
                         </b>
                     </p>
