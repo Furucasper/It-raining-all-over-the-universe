@@ -233,6 +233,14 @@
     animation-delay: 1500ms;
 }
 
+.ani-delay-2500ms {
+    animation-delay: 2500ms;
+}
+
+.ani-delay-3500ms {
+    animation-delay: 3500ms;
+}
+
 .ani-delay-1s {
     animation-delay: 1s;
 }
