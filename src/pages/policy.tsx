@@ -9,7 +9,7 @@ const Policy: FC = () => {
   };
 
   return (
-    <div className="bg-white w-full text-center h-screen flex bg-contain bg-no-repeat bg-center font-season"
+    <div className="bg-white w-full text-center h-screen flex bg-cover bg-no-repeat bg-center font-season"
       style={{ backgroundImage: "url('/pages/1.gif')" }}
     >
       <Helmet>
