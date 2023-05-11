@@ -60,7 +60,7 @@ const NitadeShowcase: FC<Props> = ({ changeSFX }) => {
                 </div>
                 <div className="mt-8">
                     {
-                        (souvenir && souvenir in ['1', '2', '3', '4', '5']) ? (
+                        (souvenir && ['1', '2', '3', '4', '5'].includes(souvenir)) ? (
                             <button className="bg-white hover:bg-zinc-50 border-[1.5px] border-black/60 btn-dropshadow transition-all rounded-lg px-3 py-2 font-season text-base flex items-center gap-2"
                                 onClick={nextPage}
                             >
