@@ -6,20 +6,13 @@ import { Helmet } from 'react-helmet';
 const GlowingMoon: FC = () => {
 
     const navigate = useNavigate()
-    const [src, setSrc] = useState<string>('/pages/glowing-moon.gif')
     const [show, setShow] = useState<boolean>(false)
 
     useEffect(() => {
         setTimeout(() => {
             setShow(true)
             setTimeout(() => {
-                setSrc('/pages/glowing-moon-fadeout.gif')
-                setTimeout(() => {
-                    setShow(false)
-                    setTimeout(() => {
-                        navigate('/new-star')
-                    }, 3000)
-                }, 3000)
+                navigate('/glowing-moon-fadeout')
             }, 5000)
         }, 2500)
     }, [])
@@ -46,15 +39,9 @@ const GlowingMoon: FC = () => {
                     ....
                 </p>
             </div>
-            <div className='[&>p]:text-lg/relaxed absolute z-20 top-[16%] ani-delay-9s fade-in'>
-                <p className='fade-out ani-delay-13s'>
-                    คุณเริ่มเห็นดาวดวงใหม่ปรากฎขึ้น
-                </p>
-            </div>
             <img className='pointer-events-none scale-[0.85] z-1 absolute fade-in ani-delay-13s' src='/images/moon.png' alt='moon' />
-            <>{show && <img className='overlay fade-in' src={src} alt='moon-glowing' />}</>
+            <>{show && <img className='overlay fade-in' src='/pages/glowing-moon.gif' alt='moon-glowing' />}</>
             <img className='ani-delay-4s fade-out overlay pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon' />
-            <img className='ani-delay-9s fade-in overlay pointer-events-none scale-[0.85]' src='/images/moon.png' alt='moon' />
         </BlankPage>
     )
 }

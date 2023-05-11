@@ -33,6 +33,7 @@ import NitadeShowcase from './pages/nitadeshowcase';
 import Souvenir from './pages/souvenir';
 import DescribeYourself from './pages/describeyourself';
 import CookiePolicy from './pages/cookiepolicy';
+import GlowingMoonFadeOut from './pages/glowingmoon-fadeout';
 
 function App() {
 
@@ -567,6 +568,7 @@ function App() {
           </Nav>
         } />
         <Route path='/glowing-moon' element={<GlowingMoon />} />
+        <Route path='/glowing-moon-fadeout' element={<GlowingMoonFadeOut />} />
         <Route path='/new-star' element={
           <Nav path='/undiscovered' changeSecondSound={() => changeSecondSound('/sounds/star-ambience.mp3')} changeSFX={() => changeSFX('')}>
             <BlankPage bg='plain-space.gif'>
