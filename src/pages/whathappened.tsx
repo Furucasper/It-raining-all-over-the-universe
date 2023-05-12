@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -29,8 +29,16 @@ const WhatHappened: FC<Props> = ({ changeSound, changeSecondSound, changeSFX }) 
     } else {
       toast.error("กรุณาตอบคำถาม")
     }
-  };
+  }
 
+  useEffect(() => {
+    inputRef.current?.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        nextPage();
+      }
+    })
+  }, [])
 
   return (
     <div className="bg-white">
@@ -62,7 +70,7 @@ const WhatHappened: FC<Props> = ({ changeSound, changeSecondSound, changeSFX }) 
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default WhatHappened;
