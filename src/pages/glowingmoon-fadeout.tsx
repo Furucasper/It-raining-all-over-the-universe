@@ -6,7 +6,6 @@ const GlowingMoonFadeOut: FC = () => {
     
     const navigate = useNavigate()
     setTimeout(() => {
-        // navigate('')
         navigate('/new-star')
     }, 8000)
 
