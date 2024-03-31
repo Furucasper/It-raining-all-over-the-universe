@@ -17,8 +17,8 @@ const ItsDarkAgain: FC<Props> = ({ allPlayerFadeOut }) => {
         <Curtain path='/darkness3' duration={8}>
             <Helmet>
                 <link rel='prefetch' href='/sounds/shining-planet.mp3' as='audio' type='audio/mpeg' crossOrigin="anonymous" />
-                <link rel="prefetch" href="/pages/glowing-moon.gif" as="image" type="image/gif" crossOrigin="anonymous" />
-                <link rel="prefetch" href="/pages/glowing-moon-fadeout.gif" as="image" type="image/gif" crossOrigin="anonymous" />
+                <link rel="prefetch" href="/pages/glowing-moon.mp4" as="video" type="video/mpeg" crossOrigin="anonymous" />
+                <link rel="prefetch" href="/pages/glowing-moon-fadeout.mp4" as="video" type="video/mpeg" crossOrigin="anonymous" />
             </Helmet>
             <BlankPage bg='plain-space.gif'>
                 <div className='[&>p]:text-lg/relaxed overlay'>
